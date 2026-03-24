@@ -1,5 +1,4 @@
 /* css styles */
-
 /* ============================================================
    GLOBAL RESET & LAYOUT
    ============================================================ */
@@ -161,7 +160,6 @@ a:hover {
   background-repeat: no-repeat;
   color: #ffffff;
   padding: 5rem 0;
-  /* Break out of the #quarto-content max-width container */
   width: 100vw;
   position: relative;
   left: 50%;
@@ -171,15 +169,18 @@ a:hover {
   box-sizing: border-box;
 }
 
-/* Inner wrapper: left-aligned, same left margin as the rest of the page */
+/* Text: left-aligned, tracks the same left edge as the rest of the page */
 .hero-section .content-block {
   max-width: 700px;
-  margin: 0 auto 0 calc((100vw - 1200px) / 2);
+  margin: 0 auto 0 max(2.5rem, calc((100vw - 1200px) / 2));
   padding: 0 2.5rem;
 }
 
-.hero-section .content-block {
-  max-width: 700px;
+@media (max-width: 1200px) {
+  .hero-section .content-block {
+    margin: 0 auto 0 0;
+    padding: 0 2.5rem;
+  }
 }
 
 .hero-label {

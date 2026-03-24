@@ -44,7 +44,7 @@ listing:
   <div class="content-block">
     <div class="hero-label">Economics · Policy · Data</div>
     <h1 class="hero-title">Farhan Aditya<br>Ramadhan</h1>
-    <p class="hero-sub">Applied econometrician and policy analyst working at the intersection of historical economics, public finance, and development policy in Indonesia.</p>
+    <p class="hero-sub">Economics graduate from Universitas Indonesia with an interest in macroeconomics, historical economics, applied econometrics, and impact evaluation. I work mainly in Stata, R, and Python, with experience in household, macro, and historical data analysis. My core methods include instrumental variables, panel data, time-series analysis, and impact evaluation.  policy in Indonesia.</p>
     <div class="hero-tags">
       <span class="tag">Historical Economics</span>
       <span class="tag">Macroeconomics</span>
