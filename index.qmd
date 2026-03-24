@@ -1,0 +1,65 @@
+---
+title: "Farhan (Adin) Aditya R."
+subtitle: "Economics · Policy · Data"
+page-layout: full
+toc: false
+listing:
+- id: research
+  contents: webpages/projects/research/
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  max-items: 3
+  image-height: 150px
+  fields: [image, title, subtitle, date, categories]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+- id: analysis
+  contents: webpages/projects/analysis/
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  max-items: 3
+  image-height: 150px
+  fields: [image, title, subtitle, date, categories]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+- id: blog
+  contents: webpages/projects/blog/
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  max-items: 3
+  image-height: 150px
+  fields: [image, title, subtitle, date, categories]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+---
+
+## Research
+
+:::{#research}
+:::
+
+[More →](webpages/projects/research.qmd)
+
+---
+
+## Analysis
+
+:::{#analysis}
+:::
+
+[More →](webpages/projects/analysis.qmd)
+
+---
+
+## Blog
+
+:::{#blog}
+:::
+
+[More →](webpages/projects/blog.qmd)

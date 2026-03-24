@@ -1,0 +1,18 @@
+---
+title: "Analysis"
+subtitle: "Applied econometrics and policy analysis"
+page-layout: full
+toc: false
+listing: 
+  contents: analysis/
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, title, subtitle, description, date, categories]
+  grid-columns: 3
+  max-items: 6
+  image-height: 200px
+---
+

@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  favicon: images/randomfavicon.jpeg
+  title: "Farhan (Adin) Aditya R."
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: "Overview"
+      - about.qmd
+      - sidebar:projects
+    right:
+      - href: index.qmd
+        text: " "
+        icon: house-door-fill
+      - href: "https://www.linkedin.com/in/adinramaadin/"
+        text: " "
+        icon: linkedin
+      - href: "https://github.com/adinramaadin"
+        text: " "
+        icon: github
+
+  sidebar:
+    - id: projects
+      title: "Projects"
+      style: "docked"
+      background: light
+      collapse-level: 1
+      contents:
+        - webpages/projects/research.qmd
+        - webpages/projects/analysis.qmd
+        - webpages/projects/blog.qmd
+        
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+

@@ -1,0 +1,9 @@
+---
+title: "analysis 1"
+subtitle: "Short-run vs long-run dynamics"
+date: 2026-03-24
+categories: [Trade, Econometrics]
+image: /images/analysis/test1.jpg
+description: "Estimating export elasticity using ARDL."
+---
+

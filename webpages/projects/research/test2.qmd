@@ -1,0 +1,9 @@
+---
+title: "research 1"
+subtitle: "test lagi"
+date: 2026-03-24
+categories: [fiscal, Econometrics]
+image: /images/analysis/test1.jpg
+description: "test123"
+---
+
