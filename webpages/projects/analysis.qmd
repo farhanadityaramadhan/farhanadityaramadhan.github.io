@@ -4,7 +4,7 @@ subtitle: "Applied econometrics and policy analysis"
 page-layout: full
 toc: false
 listing: 
-  contents: analysis/
+  contents: "analysis/*.qmd"
   sort: "date desc"
   type: grid
   categories: true

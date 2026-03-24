@@ -1,37 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Farhan (Adin) Aditya R.",
-    "section": "",
-    "text": "test lagi\n\n\n\nfiscal\n\nEconometrics\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\nMore →"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "webpages/projects/analysis.html",
-    "href": "webpages/projects/analysis.html",
-    "title": "Analysis",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nanalysis 1\n\n\nShort-run vs long-run dynamics\n\n\n\nTrade\n\nEconometrics\n\n\n\nEstimating export elasticity using ARDL.\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Analysis"
-    ]
-  },
-  {
     "objectID": "webpages/projects/research.html",
     "href": "webpages/projects/research.html",
     "title": "Research",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nresearch 1\n\n\ntest lagi\n\n\n\nfiscal\n\nEconometrics\n\n\n\ntest123\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Research"
-    ]
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nresearch 1\n\n\ntest lagi\n\n\n\nfiscal\n\nEconometrics\n\n\n\ntest123\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "webpages/projects/blog.html",
@@ -40,15 +13,32 @@
     "section": "",
     "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nblog 1\n\n\nShort-run vs long-run dynamics\n\n\n\ntest\n\n\n\nEstimating export elasticity using ARDL.\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
+      "Overview",
+      "Webpages",
+      "Projects",
       "Blog"
     ]
+  },
+  {
+    "objectID": "webpages/projects/analysis.html",
+    "href": "webpages/projects/analysis.html",
+    "title": "Analysis",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nanalysis 1\n\n\nShort-run vs long-run dynamics\n\n\n\nTrade\n\nEconometrics\n\n\n\nEstimating export elasticity using ARDL.\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Farhan (Adin) Aditya R.",
+    "section": "",
+    "text": "Economics · Policy · Data\n    \n    Applied econometrician and policy analyst working at the intersection of historical economics, public finance, and development policy in Indonesia.\n    \n      Historical Economics\n      Macroeconomics\n      Political Economy\n      Development Economics\n      Public Finance\n      Applied Econometrics\n    \n    \n      About Me\n      View Analysis →"
   },
   {
     "objectID": "index.html#research",
     "href": "index.html#research",
     "title": "Farhan (Adin) Aditya R.",
-    "section": "",
-    "text": "test lagi\n\n\n\nfiscal\n\nEconometrics\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\nMore →"
+    "section": "Research",
+    "text": "Research\n\n\n\n\n\n\n\n\n\n\nresearch 1\n\n\ntest lagi\n\n\n\nfiscal\n\nEconometrics\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\nMore →"
   },
   {
     "objectID": "index.html#analysis",
@@ -63,5 +53,12 @@
     "title": "Farhan (Adin) Aditya R.",
     "section": "Blog",
     "text": "Blog\n\n\n\n\n\n\n\n\n\n\nblog 1\n\n\nShort-run vs long-run dynamics\n\n\n\ntest\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\nMore →"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]

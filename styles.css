@@ -1,1 +1,481 @@
 /* css styles */
+
+/* ============================================================
+   GLOBAL RESET & LAYOUT
+   ============================================================ */
+
+/* Kill Quarto's default column grid and let us control everything */
+.page-columns {
+  display: block !important;
+}
+
+/* The main content area — WB uses ~1200px max, centered, with side padding */
+#quarto-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  box-sizing: border-box;
+}
+
+/* Remove Quarto's default top padding under the navbar */
+#quarto-content > * {
+  margin-top: 0;
+}
+
+/* On mobile, tighten the side padding */
+@media (max-width: 768px) {
+  #quarto-content {
+    padding: 0 1.25rem;
+  }
+}
+
+
+/* ============================================================
+   TYPOGRAPHY — WB uses a clean serif/sans pairing
+   World Bank uses Georgia-like serif for headings, clean sans for body
+   We'll use Georgia + system sans as close proxies
+   ============================================================ */
+
+body {
+  font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #2d2d2d;
+  background-color: #ffffff;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  color: #1a1a1a;
+  line-height: 1.25;
+  margin-top: 0;
+}
+
+h1 { font-size: 2.25rem; margin-bottom: 1rem; }
+h2 { font-size: 1.6rem;  margin-bottom: 0.75rem; }
+h3 { font-size: 1.2rem;  margin-bottom: 0.5rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #0071bc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #004f84;
+}
+
+
+/* ============================================================
+   NAVBAR — WB navy blue top bar
+   ============================================================ */
+
+.navbar {
+  background-color: #003366 !important;  /* WB deep navy */
+  border-bottom: 3px solid #0071bc;
+  padding: 0.5rem 2rem;
+}
+
+.navbar-brand,
+.navbar .nav-link {
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+.navbar-brand {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.navbar .nav-link:hover {
+  color: #a8d0f0 !important;
+  text-decoration: none;
+}
+
+/* Search box in navbar */
+.navbar .form-control {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 0.85rem;
+  border-radius: 3px;
+}
+.navbar .form-control::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Dropdown menu */
+.navbar .dropdown-menu {
+  border-radius: 0;
+  border: none;
+  border-top: 3px solid #0071bc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+}
+.navbar .dropdown-item:hover {
+  background-color: #f0f6fb;
+  color: #003366;
+}
+
+/* Icon links in navbar (GitHub, LinkedIn, home) */
+.navbar .bi {
+  font-size: 1rem;
+}
+
+
+/* ============================================================
+   PAGE TITLE — suppress the default Quarto title block
+   or style it to look like WB's section header
+   ============================================================ */
+
+.quarto-title-block {
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.quarto-title-block .title {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  color: #003366;
+}
+
+
+/* ============================================================
+   HERO SECTION — for the index page
+   WB uses a large, full-width navy banner with white text
+   ============================================================ */
+
+.hero-section {
+  background-image: linear-gradient(rgba(0, 20, 50, 0.62), rgba(0, 20, 50, 0.62)),
+                    url("images/alexander-nrjwolf-Oyaq-scnJkg-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  padding: 5rem 0;
+  /* Break out of the #quarto-content max-width container */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 3rem;
+  box-sizing: border-box;
+}
+
+/* Inner wrapper: left-aligned, same left margin as the rest of the page */
+.hero-section .content-block {
+  max-width: 700px;
+  margin: 0 auto 0 calc((100vw - 1200px) / 2);
+  padding: 0 2.5rem;
+}
+
+.hero-section .content-block {
+  max-width: 700px;
+}
+
+.hero-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a8d0f0;
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-family: Georgia, serif;
+  font-size: 2.75rem;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: #cce0f5;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.tag {
+  font-size: 0.78rem;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #ffffff;
+  padding: 0.3rem 0.75rem;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: #0071bc;
+  color: #ffffff !important;
+  padding: 0.65rem 1.5rem;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none !important;
+  transition: background-color 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background-color: #005a96;
+  text-decoration: none !important;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 0.65rem 1.5rem;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-decoration: none !important;
+  transition: border-color 0.2s, background-color 0.2s;
+  display: inline-block;
+}
+.btn-secondary:hover {
+  border-color: #ffffff;
+  background-color: rgba(255,255,255,0.08);
+  text-decoration: none !important;
+}
+
+
+/* ============================================================
+   SECTION HEADINGS — WB uses a left blue border accent
+   for section titles on the research page
+   ============================================================ */
+
+h2 {
+  border-left: 4px solid #0071bc;
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+  color: #003366;
+}
+
+/* Horizontal rules between sections */
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 3rem 0;
+}
+
+
+/* ============================================================
+   LISTING CARDS — Research / Analysis / Blog grids
+   Override Quarto's default card style to match WB
+   ============================================================ */
+
+/* The listing grid container — use Quarto's default spacing */
+
+/* Individual cards */
+.quarto-listing .card {
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+  background: #ffffff;
+}
+
+.quarto-listing .card:hover {
+  box-shadow: 0 4px 16px rgba(0,51,102,0.12);
+  transform: translateY(-2px);
+}
+
+/* Card image */
+.quarto-listing .card img,
+.quarto-listing .listing-image {
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Card body */
+.quarto-listing .card-body {
+  padding: 1rem 1.1rem 1.25rem;
+}
+
+/* Card title */
+.quarto-listing .card-title,
+.quarto-listing .listing-title {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #003366;
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+
+.quarto-listing .card-title a,
+.quarto-listing .listing-title a {
+  color: #003366 !important;
+}
+.quarto-listing .card-title a:hover,
+.quarto-listing .listing-title a:hover {
+  color: #0071bc !important;
+  text-decoration: none;
+}
+
+/* Card subtitle */
+.quarto-listing .card-subtitle,
+.quarto-listing .listing-subtitle {
+  font-size: 0.85rem;
+  color: #555555;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Date / metadata */
+.quarto-listing .listing-date,
+.quarto-listing .card .metadata {
+  font-size: 0.78rem;
+  color: #888888;
+  margin-bottom: 0;
+}
+
+/* Categories / tags on cards */
+.quarto-listing .listing-categories .listing-category {
+  font-size: 0.72rem;
+  background: #e8f1f9;
+  color: #0071bc;
+  border: 1px solid #b8d4eb;
+  border-radius: 2px;
+  padding: 0.15rem 0.5rem;
+  display: inline-block;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+
+/* ============================================================
+   "MORE →" LINKS
+   ============================================================ */
+
+/* The "More →" links after each listing section */
+p > a[href*="research"],
+p > a[href*="analysis"],
+p > a[href*="blog"] {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0071bc;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+p > a:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.nav-footer {
+  background-color: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.82rem;
+  color: #666666;
+  padding: 1.5rem 2rem;
+}
+
+.nav-footer a {
+  color: #0071bc;
+}
+
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+
+.quarto-about-jolla .about-image,
+.quarto-about-solana .about-image {
+  border-radius: 2px;
+  border: 2px solid #e0e0e0;
+}
+
+.quarto-about-jolla .about-links a,
+.quarto-about-solana .about-links a {
+  color: #0071bc;
+  border: 1px solid #0071bc;
+  border-radius: 2px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.quarto-about-jolla .about-links a:hover,
+.quarto-about-solana .about-links a:hover {
+  background: #0071bc;
+  color: #fff;
+}
+
+
+/* ============================================================
+   TABLE OF CONTENTS (sidebar on inner pages)
+   ============================================================ */
+
+#TOC {
+  font-size: 0.85rem;
+  border-left: 2px solid #e0e0e0;
+  padding-left: 1rem;
+}
+
+#TOC a {
+  color: #555;
+}
+#TOC a:hover,
+#TOC a.active {
+  color: #0071bc;
+}
+
+#TOC .active > a {
+  font-weight: 600;
+  color: #003366;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .hero-section .content-block {
+    padding: 0 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+}

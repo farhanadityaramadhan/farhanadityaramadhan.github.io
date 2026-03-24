@@ -12,7 +12,12 @@ website:
       - href: index.qmd
         text: "Overview"
       - about.qmd
-      - sidebar:projects
+      - text: "Projects"
+        menu:
+          - webpages/projects/research.qmd
+          - webpages/projects/analysis.qmd
+          - webpages/projects/blog.qmd
+      # - sidebar:resources
     right:
       - href: index.qmd
         text: " "
@@ -23,18 +28,15 @@ website:
       - href: "https://github.com/farhanadityaramadhan"
         text: " "
         icon: github
-
-  sidebar:
-    - id: projects
-      title: "Projects"
-      style: "docked"
-      background: light
-      collapse-level: 1
-      contents:
-        - webpages/projects/research.qmd
-        - webpages/projects/analysis.qmd
-        - webpages/projects/blog.qmd
-        
+  # sidebar: 
+  #   - id: resources
+  #     title: "Resources"
+  #     style: "docked"
+  #     background: light
+  #     collapse-level: 1
+  #     contents: 
+  #       -
+  #       -
 format:
   html:
     theme:

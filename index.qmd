@@ -39,6 +39,28 @@ listing:
   filter-ui: false
 ---
 
+```{=html}
+<section class="hero-section">
+  <div class="content-block">
+    <div class="hero-label">Economics · Policy · Data</div>
+    <h1 class="hero-title">Farhan Aditya<br>Ramadhan</h1>
+    <p class="hero-sub">Applied econometrician and policy analyst working at the intersection of historical economics, public finance, and development policy in Indonesia.</p>
+    <div class="hero-tags">
+      <span class="tag">Historical Economics</span>
+      <span class="tag">Macroeconomics</span>
+      <span class="tag">Political Economy</span>
+      <span class="tag">Development Economics</span>
+      <span class="tag">Public Finance</span>
+      <span class="tag">Applied Econometrics</span>
+    </div>
+    <div class="hero-cta">
+      <a href="about.qmd" class="btn-primary">About Me</a>
+      <a href="webpages/projects/analysis.qmd" class="btn-secondary">View Analysis →</a>
+    </div>
+  </div>
+</section>
+```
+
 ## Research
 
 :::{#research}
