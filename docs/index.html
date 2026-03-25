@@ -336,6 +336,12 @@ window.Quarto = {
 </div>
 <section id="analysis" class="level2">
 <h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<div class="listing-arrow-row">
+  <button class="listing-arrow" onclick="scrollListing('analysis', -1)">←</button>
+  <button class="listing-arrow" onclick="scrollListing('analysis', 1)">→</button>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-analysis">
 <div id="listing-analysis" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="VHJhZGUlMkNFY29ub21ldHJpY3M=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774364519911" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
@@ -369,11 +375,19 @@ Mar 24, 2026
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-<p><a href="./webpages/projects/analysis.html">More →</a></p>
+  </div>
+</div>
+<p><a href="./webpages/projects/analysis.html" class="listing-more">More →</a></p>
 <hr>
 </section>
 <section id="research" class="level2">
 <h2 class="anchored" data-anchor-id="research">Research</h2>
+<div class="listing-arrow-row">
+  <button class="listing-arrow" onclick="scrollListing('research', -1)">←</button>
+  <button class="listing-arrow" onclick="scrollListing('research', 1)">→</button>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-research">
 <div id="listing-research" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="VHJhZGUlMkNFY29ub21ldHJpY3MlMkNUaW1lLVNlcmllcw==" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774396817664" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="869">
@@ -409,11 +423,19 @@ Mar 24, 2026
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-<p><a href="./webpages/projects/research.html">More →</a></p>
+  </div>
+</div>
+<p><a href="./webpages/projects/research.html" class="listing-more">More →</a></p>
 <hr>
 </section>
 <section id="blog" class="level2">
 <h2 class="anchored" data-anchor-id="blog">Blog</h2>
+<div class="listing-arrow-row">
+  <button class="listing-arrow" onclick="scrollListing('blog', -1)">←</button>
+  <button class="listing-arrow" onclick="scrollListing('blog', 1)">→</button>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-blog">
 <div id="listing-blog" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="dGVzdA==" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774369078925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
@@ -445,7 +467,24 @@ Mar 24, 2026
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-<p><a href="./webpages/projects/blog.html">More →</a></p>
+  </div>
+</div>
+<p><a href="./webpages/projects/blog.html" class="listing-more">More →</a></p>
+<script>
+var positions = { analysis: 0, research: 0, blog: 0 };
+
+function scrollListing(id, dir) {
+  var wrapper = document.getElementById('wrapper-' + id);
+  var grid = wrapper.querySelector('.quarto-listing-grid');
+  if (!grid) return;
+  var cardWidth = 340 + 24;
+  var cards = grid.querySelectorAll('.card').length;
+  var visible = Math.floor(wrapper.offsetWidth / cardWidth);
+  var max = Math.max(0, cards - visible);
+  positions[id] = Math.min(max, Math.max(0, positions[id] + dir));
+  grid.style.transform = 'translateX(-' + (positions[id] * cardWidth) + 'px)';
+}
+</script>
 
 
 

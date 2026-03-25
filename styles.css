@@ -371,7 +371,7 @@ body.page-index #title-block-header {
 body.page-index h2 {
   border-left: 4px solid #0071bc;
   padding-left: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   color: #003366;
 }
 
@@ -987,4 +987,76 @@ body.page-article #title-block-header {
   .tools-strip-inner {
     padding: 0 1.25rem;
   }
+}
+
+
+/* ── Listing carousel (index only) ── */
+
+.listing-section {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.listing-scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Make the quarto grid scrollable on index */
+body.page-index .quarto-listing-grid {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 1.5rem;
+  transition: transform 0.4s ease;
+  width: max-content;
+}
+
+body.page-index .quarto-listing-grid .card {
+  width: 340px;
+  flex-shrink: 0;
+}
+
+/* Arrow row sits above the cards, right-aligned */
+.listing-arrow-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: -2.5rem;
+}
+
+.listing-arrow {
+  background: #fff;
+  color: #003366;
+  border: 1px solid #b8d4eb;
+  border-radius: 3px;
+  width: 32px;
+  height: 32px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.listing-arrow:hover {
+  background: #003366;
+  color: #fff;
+  border-color: #003366;
+}
+
+/* More → link tighter on index */
+body.page-index .listing-more {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0071bc;
+  text-decoration: none;
+}
+
+body.page-index .listing-more:hover {
+  text-decoration: underline;
 }

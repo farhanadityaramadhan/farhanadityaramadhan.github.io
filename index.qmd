@@ -11,7 +11,7 @@ listing:
   sort: "date desc"
   type: grid
   grid-columns: 3
-  max-items: 3
+  max-items: 6
   image-height: 150px
   fields: [image, title, subtitle, date, categories]
   categories: false
@@ -22,7 +22,7 @@ listing:
   sort: "date desc"
   type: grid
   grid-columns: 3
-  max-items: 3
+  max-items: 6
   image-height: 150px
   fields: [image, title, subtitle, date, categories]
   categories: false
@@ -33,7 +33,7 @@ listing:
   sort: "date desc"
   type: grid
   grid-columns: 3
-  max-items: 3
+  max-items: 6
   image-height: 150px
   fields: [image, title, subtitle, date, categories]
   categories: false
@@ -104,25 +104,85 @@ listing:
 
 ## Analysis
 
+```{=html}
+<div class="listing-arrow-row">
+  <button class="listing-arrow" onclick="scrollListing('analysis', -1)">&#8592;</button>
+  <button class="listing-arrow" onclick="scrollListing('analysis', 1)">&#8594;</button>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-analysis">
+```
+
 :::{#analysis}
 :::
 
-[More →](webpages/projects/analysis.qmd)
+```{=html}
+  </div>
+</div>
+```
+
+<a href="webpages/projects/analysis.qmd" class="listing-more">More →</a>
 
 ---
 
 ## Research
 
+```{=html}
+<div class="listing-arrow-row">
+  <button class="listing-arrow" onclick="scrollListing('research', -1)">&#8592;</button>
+  <button class="listing-arrow" onclick="scrollListing('research', 1)">&#8594;</button>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-research">
+```
+
 :::{#research}
 :::
 
-[More →](webpages/projects/research.qmd)
+```{=html}
+  </div>
+</div>
+```
+
+<a href="webpages/projects/research.qmd" class="listing-more">More →</a>
 
 ---
 
 ## Blog
 
+```{=html}
+<div class="listing-arrow-row">
+  <button class="listing-arrow" onclick="scrollListing('blog', -1)">&#8592;</button>
+  <button class="listing-arrow" onclick="scrollListing('blog', 1)">&#8594;</button>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-blog">
+```
+
 :::{#blog}
 :::
 
-[More →](webpages/projects/blog.qmd)
+```{=html}
+  </div>
+</div>
+```
+
+<a href="webpages/projects/blog.qmd" class="listing-more">More →</a>
+
+```{=html}
+<script>
+var positions = { analysis: 0, research: 0, blog: 0 };
+
+function scrollListing(id, dir) {
+  var wrapper = document.getElementById('wrapper-' + id);
+  var grid = wrapper.querySelector('.quarto-listing-grid');
+  if (!grid) return;
+  var cardWidth = 340 + 24;
+  var cards = grid.querySelectorAll('.card').length;
+  var visible = Math.floor(wrapper.offsetWidth / cardWidth);
+  var max = Math.max(0, cards - visible);
+  positions[id] = Math.min(max, Math.max(0, positions[id] + dir));
+  grid.style.transform = 'translateX(-' + (positions[id] * cardWidth) + 'px)';
+}
+</script>
+```
