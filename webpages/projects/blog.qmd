@@ -12,7 +12,6 @@ listing:
   filter-ui: true
   fields: [image, title, subtitle, description, date, categories]
   grid-columns: 3
-  max-items: 6
+  page-size: 9
   image-height: 200px
 ---
-

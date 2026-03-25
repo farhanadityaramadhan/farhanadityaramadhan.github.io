@@ -72,18 +72,34 @@ listing:
     <p class="hero-sub">Economics graduate from Universitas Indonesia working in macroeconomics, historical economics, and applied econometrics. I use Stata, R, and Python across household, macro, and historical data, with methods ranging from instrumental variables and panel data to impact evaluation.</p>
     <div class="hero-tags">
       <span class="tag">Historical Economics</span>
+      <span class="tag">Applied Econometrics</span>
       <span class="tag">Macroeconomics</span>
       <span class="tag">Political Economy</span>
       <span class="tag">Development Economics</span>
       <span class="tag">Public Finance</span>
-      <span class="tag">Applied Econometrics</span>
     </div>
     <div class="hero-cta">
       <a href="about.qmd" class="btn-primary">About Me</a>
-      <a href="webpages/projects/analysis.qmd" class="btn-secondary">View Analysis →</a>
+      <a href="files/CV/Farhan-Aditya-Ramadhan_CV.pdf" class="btn-secondary" target="_blank">View CV →</a>
     </div>
   </div>
 </section>
+```
+
+```{=html}
+<div class="tools-strip">
+  <div class="tools-strip-inner">
+    <div class="tools-strip-items">
+      <span class="tools-strip-item">Stata</span>
+      <span class="tools-strip-item">R</span>
+      <span class="tools-strip-item">Python</span>
+      <span class="tools-strip-item">EViews</span>
+      <span class="tools-strip-item">LaTeX</span>
+      <span class="tools-strip-item">SQL</span>
+      <span class="tools-strip-item">Quarto</span>
+    </div>
+  </div>
+</div>
 ```
 
 ## Analysis

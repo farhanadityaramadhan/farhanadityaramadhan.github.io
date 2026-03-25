@@ -11,13 +11,7 @@
     "href": "webpages/projects/blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nblog 1\n\n\nShort-run vs long-run dynamics\n\n\n\ntest\n\n\n\nEstimating export elasticity using ARDL.\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Overview",
-      "Webpages",
-      "Projects",
-      "Blog"
-    ]
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nblog 1\n\n\nShort-run vs long-run dynamics\n\n\n\ntest\n\n\n\nEstimating export elasticity using ARDL.\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "webpages/projects/analysis.html",
@@ -27,11 +21,11 @@
     "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nanalysis 1\n\n\nShort-run vs long-run dynamics\n\n\n\nTrade\n\nEconometrics\n\n\n\nEstimating export elasticity using ARDL.\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "index.html#analysis",
+    "href": "index.html#analysis",
     "title": "Farhan (Adin) Aditya R.",
-    "section": "",
-    "text": "Overview"
+    "section": "Analysis",
+    "text": "Analysis\n\n\n\n\n\n\n\n\n\n\nanalysis 1\n\n\nShort-run vs long-run dynamics\n\n\n\nTrade\n\nEconometrics\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\nMore →"
   },
   {
     "objectID": "index.html#research",
@@ -39,13 +33,6 @@
     "title": "Farhan (Adin) Aditya R.",
     "section": "Research",
     "text": "Research\n\n\n\n\n\n\n\n\n\n\nThis is a Mock-Up Article\n\n\nShort-run vs long-run dynamics using ARDL bounds testing\n\n\n\nTrade\n\nEconometrics\n\nTime-Series\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\nMore →"
-  },
-  {
-    "objectID": "index.html#analysis",
-    "href": "index.html#analysis",
-    "title": "Farhan (Adin) Aditya R.",
-    "section": "Analysis",
-    "text": "Analysis\n\n\n\n\n\n\n\n\n\n\nanalysis 1\n\n\nShort-run vs long-run dynamics\n\n\n\nTrade\n\nEconometrics\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\nMore →"
   },
   {
     "objectID": "index.html#blog",
@@ -123,12 +110,5 @@
     "title": "This is a Mock-Up Article",
     "section": "References",
     "text": "References\nBahmani-Oskooee, M., & Kovyryalova, M. (2008). Impact of exchange rate uncertainty on trade flows. The World Economy, 31(8), 1097–1128.\nEnders, W., & Jones, P. (2016). Grain prices, oil prices, and multiple smooth breaks in a VAR. Studies in Nonlinear Dynamics & Econometrics, 20(4), 399–419.\nPesaran, M. H., Shin, Y., & Smith, R. J. (2001). Bounds testing approaches to the analysis of level relationships. Journal of Applied Econometrics, 16(3), 289–326."
-  },
-  {
-    "objectID": "webpages/projects/research/test2.html#background-1",
-    "href": "webpages/projects/research/test2.html#background-1",
-    "title": "This is a Mock-Up Article",
-    "section": "Background",
-    "text": "Background\nUnderstanding how exports respond to exchange rate movements is central to evaluating expenditure-switching policies and the effectiveness of currency depreciation as a trade tool. For Indonesia, a commodity-dependent open economy, this question carries particular weight: the rupiah has experienced several sharp depreciations since the 1997 Asian financial crisis, yet the export response has been uneven across sectors and time.\nThis analysis estimates Indonesia’s aggregate export elasticity using an Autoregressive Distributed Lag (ARDL) bounds testing framework, augmented with Fourier terms to capture smooth structural breaks without imposing a known break date. The approach follows Enders and Jones (2016) and is estimated over quarterly data from 1990Q1 to 2023Q4."
   }
 ]

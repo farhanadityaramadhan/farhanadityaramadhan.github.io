@@ -1,5 +1,4 @@
 /* css styles */
-/* css styles */
 
 /* ============================================================
    GLOBAL — applies to ALL pages
@@ -424,9 +423,9 @@ body.page-index p > a[href*="blog"] {
 
 .search-bar-input {
   width: 100%;
-  max-width: 700px;
-  padding: 0.5rem 1rem;
-  font-size: 0.88rem;
+  max-width: 960px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.92rem;
   font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
   color: #444;
   background: #ffffff;
@@ -457,7 +456,7 @@ body.page-index p > a[href*="blog"] {
   left: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   box-sizing: border-box;
 }
 
@@ -581,5 +580,411 @@ body.page-index p > a[href*="blog"] {
   }
   body.page-index h2 {
     font-size: 1.35rem;
+  }
+}
+
+
+/* ============================================================
+   ARTICLE PAGES — scoped to body.page-article
+   ============================================================ */
+
+/* Hide the default title block — article manages its own header via body content */
+body.page-article .quarto-title-block,
+body.page-article #title-block-header {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+
+/* ── Article banner ── */
+
+.article-banner {
+  width: 100%;
+  height: 340px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 2.5rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.article-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,20,50,0.3) 0%, rgba(0,20,50,0.75) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem 2rem;
+}
+
+.article-banner-text {
+  max-width: 700px;
+}
+
+.article-banner-categories {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.article-banner-cat {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+
+.article-banner h1 {
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.article-banner-sub {
+  color: #cce0f5;
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.article-banner-meta {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   ABOUT PAGE — scoped to body.page-about
+   ============================================================ */
+
+/* ── Header banner ── */
+
+.about-header {
+  background-color: #003366;
+  color: #ffffff;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 3rem;
+  box-sizing: border-box;
+  padding: 4rem 0;
+}
+
+.about-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.about-header-main {
+  flex: 1;
+}
+
+.about-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a8d0f0;
+  margin-bottom: 0.75rem;
+}
+
+.about-name {
+  font-family: Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.about-bio {
+  font-size: 1rem;
+  color: #cce0f5;
+  line-height: 1.7;
+  max-width: 620px;
+  margin-bottom: 1.25rem;
+}
+
+.about-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+}
+
+.about-link {
+  color: #a8d0f0;
+  text-decoration: none;
+}
+.about-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.about-link-sep {
+  color: rgba(255,255,255,0.3);
+}
+
+/* Stats block */
+.about-header-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  padding-top: 0.5rem;
+}
+
+.about-stat {
+  text-align: right;
+}
+
+.about-stat-number {
+  font-family: Georgia, serif;
+  font-size: 2.25rem;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-size: 0.78rem;
+  color: #a8d0f0;
+  margin-top: 0.2rem;
+}
+
+/* ── Body ── */
+
+.about-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.about-section {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.about-section:last-child {
+  border-bottom: none;
+}
+
+.about-section-title {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #003366;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-left: 3px solid #0071bc;
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Research interests pills */
+.about-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.about-interest {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.85rem;
+  background: #e8f1f9;
+  border: 1px solid #b8d4eb;
+  border-radius: 20px;
+  color: #0071bc;
+}
+
+/* Entry blocks (experience, education, projects) */
+.about-entry {
+  margin-bottom: 2rem;
+}
+
+.about-entry:last-child {
+  margin-bottom: 0;
+}
+
+.about-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.about-entry-title {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #1a1a1a;
+}
+
+.about-entry-org {
+  font-size: 0.88rem;
+  color: #0071bc;
+  margin-top: 0.15rem;
+}
+
+.about-entry-date {
+  font-size: 0.8rem;
+  color: #888;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
+.about-entry-body {
+  font-size: 0.92rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+.about-entry-body ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.about-entry-body li {
+  margin-bottom: 0.4rem;
+}
+
+.about-entry-body p {
+  margin-bottom: 0.5rem;
+}
+
+/* Skills grid */
+.about-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem 2rem;
+}
+
+.about-skill-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin-bottom: 0.3rem;
+}
+
+.about-skill-items {
+  font-size: 0.92rem;
+  color: #2d2d2d;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-header-inner {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1.25rem;
+  }
+
+  .about-header-meta {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .about-stat {
+    text-align: left;
+  }
+
+  .about-body {
+    padding: 0 1.25rem;
+  }
+
+  .about-skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-entry-header {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+
+
+/* ── Tools strip (index only) ── */
+
+.tools-strip {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 0;
+  margin-bottom: 3rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+  background: #fafafa;
+}
+
+.tools-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tools-strip-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.tools-strip-divider {
+  width: 1px;
+  height: 1rem;
+  background: #ddd;
+  flex-shrink: 0;
+}
+
+.tools-strip-items {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tools-strip-item {
+  font-size: 0.85rem;
+  color: #444;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  background: #fff;
+  font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .tools-strip-inner {
+    padding: 0 1.25rem;
   }
 }
