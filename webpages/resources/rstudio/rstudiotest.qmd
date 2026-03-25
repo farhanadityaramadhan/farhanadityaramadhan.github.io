@@ -1,0 +1,9 @@
+---
+title: "R for Data Science"
+description: "Hadley Wickham's intro to tidyverse."
+image: /images/analysis/test1.jpg
+date: 2026-01-01
+categories: [Book, Free]
+---
+
+[Access here →](https://r4ds.had.co.nz/)

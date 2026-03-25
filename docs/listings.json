@@ -32,5 +32,11 @@
       "/webpages/projects/research/test2.html",
       "/webpages/projects/blog/blog 1.html"
     ]
+  },
+  {
+    "listing": "/webpages/resources/rstudio.html",
+    "items": [
+      "/webpages/resources/rstudio/rstudiotest.html"
+    ]
   }
 ]

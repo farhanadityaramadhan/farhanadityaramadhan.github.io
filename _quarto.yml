@@ -26,6 +26,13 @@ website:
           - webpages/projects/analysis.qmd
           - webpages/projects/research.qmd
           - webpages/projects/blog.qmd
+      - text: "Resources"
+        menu: 
+          - webpages/resources/rstudio.qmd
+          - webpages/resources/stata.qmd          
+          - webpages/resources/macro.qmd
+          - webpages/resources/econometrics.qmd
+          - webpages/resources/causalinference.qmd
       # - sidebar:resources
     right:
       - href: index.qmd

@@ -1,0 +1,15 @@
+---
+title: "R & RStudio"
+subtitle: "Books, tutorials, and notes for learning R and RStudio"
+page-layout: full
+toc: false
+listing:
+  contents: "rstudio/*.qmd"
+  type: default
+  image-align: left
+  image-height: 150px
+  fields: [image, title, description, categories]
+  sort-ui: false
+  filter-ui: true
+  sort: "date desc"
+---
