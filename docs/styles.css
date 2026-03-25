@@ -1,38 +1,8 @@
 /* css styles */
-/* ============================================================
-   GLOBAL RESET & LAYOUT
-   ============================================================ */
-
-/* Kill Quarto's default column grid and let us control everything */
-.page-columns {
-  display: block !important;
-}
-
-/* The main content area — WB uses ~1200px max, centered, with side padding */
-#quarto-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  box-sizing: border-box;
-}
-
-/* Remove Quarto's default top padding under the navbar */
-#quarto-content > * {
-  margin-top: 0;
-}
-
-/* On mobile, tighten the side padding */
-@media (max-width: 768px) {
-  #quarto-content {
-    padding: 0 1.25rem;
-  }
-}
-
+/* css styles */
 
 /* ============================================================
-   TYPOGRAPHY — WB uses a clean serif/sans pairing
-   World Bank uses Georgia-like serif for headings, clean sans for body
-   We'll use Georgia + system sans as close proxies
+   GLOBAL — applies to ALL pages
    ============================================================ */
 
 body {
@@ -71,12 +41,10 @@ a:hover {
 }
 
 
-/* ============================================================
-   NAVBAR — WB navy blue top bar
-   ============================================================ */
+/* ── Navbar ── */
 
 .navbar {
-  background-color: #003366 !important;  /* WB deep navy */
+  background-color: #003366 !important;
   border-bottom: 3px solid #0071bc;
   padding: 0.5rem 2rem;
 }
@@ -99,7 +67,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* Search box in navbar */
 .navbar .form-control {
   background: rgba(255,255,255,0.15);
   border: 1px solid rgba(255,255,255,0.3);
@@ -111,7 +78,6 @@ a:hover {
   color: rgba(255,255,255,0.6);
 }
 
-/* Dropdown menu */
 .navbar .dropdown-menu {
   border-radius: 0;
   border: none;
@@ -124,34 +90,359 @@ a:hover {
   color: #003366;
 }
 
-/* Icon links in navbar (GitHub, LinkedIn, home) */
 .navbar .bi {
   font-size: 1rem;
 }
 
 
-/* ============================================================
-   PAGE TITLE — suppress the default Quarto title block
-   or style it to look like WB's section header
-   ============================================================ */
+/* ── Footer ── */
 
-.quarto-title-block {
-  border-bottom: 2px solid #e5e5e5;
-  padding-bottom: 1.5rem;
-  margin-bottom: 2rem;
+.nav-footer {
+  background-color: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.82rem;
+  color: #666666;
+  padding: 1.5rem 2rem;
 }
 
-.quarto-title-block .title {
-  font-family: Georgia, serif;
-  font-size: 2rem;
+.nav-footer a {
+  color: #0071bc;
+}
+
+
+/* ── TOC ── */
+
+#TOC {
+  font-size: 0.85rem;
+  border-left: 2px solid #e0e0e0;
+  padding-left: 1rem;
+}
+
+#TOC a { color: #555; }
+#TOC a:hover,
+#TOC a.active { color: #0071bc; }
+#TOC .active > a {
+  font-weight: 600;
   color: #003366;
 }
 
 
+/* ── About page ── */
+
+.quarto-about-jolla .about-image,
+.quarto-about-solana .about-image {
+  border-radius: 2px;
+  border: 2px solid #e0e0e0;
+}
+
+.quarto-about-jolla .about-links a,
+.quarto-about-solana .about-links a {
+  color: #0071bc;
+  border: 1px solid #0071bc;
+  border-radius: 2px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.quarto-about-jolla .about-links a:hover,
+.quarto-about-solana .about-links a:hover {
+  background: #0071bc;
+  color: #fff;
+}
+
+
+/* ── Listing cards (all pages) ── */
+
+.quarto-listing .card {
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+  background: #ffffff;
+}
+
+.quarto-listing .card:hover {
+  box-shadow: 0 4px 16px rgba(0,51,102,0.12);
+  transform: translateY(-2px);
+}
+
+.quarto-listing .card img,
+.quarto-listing .listing-image {
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.quarto-listing .card-body {
+  padding: 1rem 1.1rem 1.25rem;
+}
+
+.quarto-listing .card-title,
+.quarto-listing .listing-title {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #003366;
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+
+.quarto-listing .card-title a,
+.quarto-listing .listing-title a { color: #003366 !important; }
+.quarto-listing .card-title a:hover,
+.quarto-listing .listing-title a:hover {
+  color: #0071bc !important;
+  text-decoration: none;
+}
+
+.quarto-listing .card-subtitle,
+.quarto-listing .listing-subtitle {
+  font-size: 0.85rem;
+  color: #555555;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.quarto-listing .listing-date,
+.quarto-listing .card .metadata {
+  font-size: 0.78rem;
+  color: #888888;
+  margin-bottom: 0;
+}
+
+.quarto-listing .listing-categories .listing-category {
+  font-size: 0.72rem;
+  background: #e8f1f9;
+  color: #0071bc;
+  border: 1px solid #b8d4eb;
+  border-radius: 2px;
+  padding: 0.15rem 0.5rem;
+  display: inline-block;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+
 /* ============================================================
-   HERO SECTION — for the index page
-   WB uses a large, full-width navy banner with white text
+   PROJECT LISTING PAGES — categories as pills, toolbar
    ============================================================ */
+
+#quarto-content .row {
+  display: block !important;
+}
+
+.quarto-listing-category {
+  width: 100% !important;
+  max-width: 100% !important;
+  position: static !important;
+  float: none !important;
+  padding: 0 !important;
+  margin-bottom: 1rem !important;
+  border: none !important;
+  background: none !important;
+}
+
+.quarto-listing-category-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.quarto-listing-category .category {
+  display: inline-block;
+  font-size: 0.78rem;
+  padding: 0.25rem 0.75rem;
+  margin: 0.2rem 0.2rem 0.2rem 0;
+  border: 1px solid #b8d4eb;
+  border-radius: 20px;
+  background: #e8f1f9;
+  color: #0071bc;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+
+.quarto-listing-category .category:hover,
+.quarto-listing-category .category.active {
+  background: #0071bc;
+  color: #fff;
+  border-color: #0071bc;
+  text-decoration: none;
+}
+
+.quarto-listing-filter,
+.listing-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.quarto-listing-sort select,
+.listing-actions-group select {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
+}
+
+.quarto-listing-sort select:hover,
+.listing-actions-group select:hover {
+  border-color: #0071bc;
+}
+
+.quarto-listing-filter input,
+#quarto-listing-filter {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  background: #fff;
+  color: #333;
+  width: 220px;
+  font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
+}
+
+.quarto-listing-filter input:focus,
+#quarto-listing-filter:focus {
+  border-color: #0071bc;
+  outline: none;
+}
+
+.quarto-listing-cols-3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media (max-width: 900px) {
+  .quarto-listing-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .quarto-listing-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .quarto-listing-filter input,
+  #quarto-listing-filter {
+    width: 100%;
+  }
+}
+
+
+/* ============================================================
+   INDEX PAGE ONLY — scoped to body.page-index
+   ============================================================ */
+
+body.page-index .page-columns {
+  display: block !important;
+}
+
+body.page-index #quarto-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  box-sizing: border-box;
+}
+
+body.page-index #quarto-content,
+body.page-index #quarto-content > *,
+body.page-index main.content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.page-index .quarto-title-block,
+body.page-index #title-block-header {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+body.page-index h2 {
+  border-left: 4px solid #0071bc;
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+  color: #003366;
+}
+
+body.page-index hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 1rem 0;
+}
+
+body.page-index p > a[href*="research"],
+body.page-index p > a[href*="analysis"],
+body.page-index p > a[href*="blog"] {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0071bc;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+
+/* ── Search bar ── */
+
+.search-bar-section {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.85rem 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+}
+
+.search-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.search-icon {
+  color: #888888;
+  flex-shrink: 0;
+}
+
+.search-bar-input {
+  width: 100%;
+  max-width: 700px;
+  padding: 0.5rem 1rem;
+  font-size: 0.88rem;
+  font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
+  color: #444;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-bar-input:hover {
+  border-color: #0071bc;
+}
+
+
+/* ── Hero section ── */
 
 .hero-section {
   background-image: linear-gradient(rgba(0, 20, 50, 0.62), rgba(0, 20, 50, 0.62)),
@@ -170,7 +461,6 @@ a:hover {
   box-sizing: border-box;
 }
 
-/* Text: left-aligned, tracks the same left edge as the rest of the page */
 .hero-section .content-block {
   max-width: 700px;
   margin: 0 auto 0 max(2.5rem, calc((100vw - 1200px) / 2));
@@ -268,216 +558,28 @@ a:hover {
 }
 
 
-/* ============================================================
-   SECTION HEADINGS — WB uses a left blue border accent
-   for section titles on the research page
-   ============================================================ */
-
-h2 {
-  border-left: 4px solid #0071bc;
-  padding-left: 0.75rem;
-  margin-bottom: 1.5rem;
-  color: #003366;
-}
-
-/* Horizontal rules between sections */
-hr {
-  border: none;
-  border-top: 1px solid #e0e0e0;
-  margin: 3rem 0;
-}
-
-
-/* ============================================================
-   LISTING CARDS — Research / Analysis / Blog grids
-   Override Quarto's default card style to match WB
-   ============================================================ */
-
-/* The listing grid container — use Quarto's default spacing */
-
-/* Individual cards */
-.quarto-listing .card {
-  border: 1px solid #e0e0e0;
-  border-radius: 2px;
-  overflow: hidden;
-  transition: box-shadow 0.2s, transform 0.2s;
-  background: #ffffff;
-}
-
-.quarto-listing .card:hover {
-  box-shadow: 0 4px 16px rgba(0,51,102,0.12);
-  transform: translateY(-2px);
-}
-
-/* Card image */
-.quarto-listing .card img,
-.quarto-listing .listing-image {
-  width: 100%;
-  object-fit: cover;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-/* Card body */
-.quarto-listing .card-body {
-  padding: 1rem 1.1rem 1.25rem;
-}
-
-/* Card title */
-.quarto-listing .card-title,
-.quarto-listing .listing-title {
-  font-family: Georgia, serif;
-  font-size: 1rem;
-  font-weight: normal;
-  color: #003366;
-  line-height: 1.35;
-  margin-bottom: 0.4rem;
-}
-
-.quarto-listing .card-title a,
-.quarto-listing .listing-title a {
-  color: #003366 !important;
-}
-.quarto-listing .card-title a:hover,
-.quarto-listing .listing-title a:hover {
-  color: #0071bc !important;
-  text-decoration: none;
-}
-
-/* Card subtitle */
-.quarto-listing .card-subtitle,
-.quarto-listing .listing-subtitle {
-  font-size: 0.85rem;
-  color: #555555;
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-}
-
-/* Date / metadata */
-.quarto-listing .listing-date,
-.quarto-listing .card .metadata {
-  font-size: 0.78rem;
-  color: #888888;
-  margin-bottom: 0;
-}
-
-/* Categories / tags on cards */
-.quarto-listing .listing-categories .listing-category {
-  font-size: 0.72rem;
-  background: #e8f1f9;
-  color: #0071bc;
-  border: 1px solid #b8d4eb;
-  border-radius: 2px;
-  padding: 0.15rem 0.5rem;
-  display: inline-block;
-  margin-right: 0.3rem;
-  margin-bottom: 0.3rem;
-}
-
-
-/* ============================================================
-   "MORE →" LINKS
-   ============================================================ */
-
-/* The "More →" links after each listing section */
-p > a[href*="research"],
-p > a[href*="analysis"],
-p > a[href*="blog"] {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #0071bc;
-  letter-spacing: 0.01em;
-  text-decoration: none;
-}
-p > a:hover {
-  text-decoration: underline;
-}
-
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-
-.nav-footer {
-  background-color: #f5f5f5;
-  border-top: 1px solid #e0e0e0;
-  font-size: 0.82rem;
-  color: #666666;
-  padding: 1.5rem 2rem;
-}
-
-.nav-footer a {
-  color: #0071bc;
-}
-
-
-/* ============================================================
-   ABOUT PAGE
-   ============================================================ */
-
-.quarto-about-jolla .about-image,
-.quarto-about-solana .about-image {
-  border-radius: 2px;
-  border: 2px solid #e0e0e0;
-}
-
-.quarto-about-jolla .about-links a,
-.quarto-about-solana .about-links a {
-  color: #0071bc;
-  border: 1px solid #0071bc;
-  border-radius: 2px;
-  padding: 0.4rem 1rem;
-  font-size: 0.85rem;
-  text-decoration: none;
-}
-.quarto-about-jolla .about-links a:hover,
-.quarto-about-solana .about-links a:hover {
-  background: #0071bc;
-  color: #fff;
-}
-
-
-/* ============================================================
-   TABLE OF CONTENTS (sidebar on inner pages)
-   ============================================================ */
-
-#TOC {
-  font-size: 0.85rem;
-  border-left: 2px solid #e0e0e0;
-  padding-left: 1rem;
-}
-
-#TOC a {
-  color: #555;
-}
-#TOC a:hover,
-#TOC a.active {
-  color: #0071bc;
-}
-
-#TOC .active > a {
-  font-weight: 600;
-  color: #003366;
-}
-
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/* ── Responsive ── */
 
 @media (max-width: 768px) {
+  body.page-index #quarto-content {
+    padding: 0 1.25rem;
+  }
+  .search-bar-inner {
+    padding: 0 1.25rem;
+  }
+  .search-bar-input {
+    max-width: 100%;
+  }
   .hero-section {
     padding: 3rem 0;
   }
-
   .hero-section .content-block {
     padding: 0 1.25rem;
   }
-
   .hero-title {
     font-size: 2rem;
   }
-
-  h2 {
+  body.page-index h2 {
     font-size: 1.35rem;
   }
 }

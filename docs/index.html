@@ -190,7 +190,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed page-index quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -223,12 +223,12 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="./webpages/projects/research.html">
- <span class="dropdown-text">Research</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./webpages/projects/analysis.html">
  <span class="dropdown-text">Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./webpages/projects/research.html">
+ <span class="dropdown-text">Research</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./webpages/projects/blog.html">
@@ -288,11 +288,25 @@ window.Quarto = {
 </header>
 
 
+<div class="search-bar-section">
+  <div class="search-bar-inner">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewbox="0 0 16 16" class="search-icon">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"></path>
+    </svg>
+    <input type="text" class="search-bar-input" placeholder="Search projects, analysis, blog posts..." onclick="
+        var btn = document.querySelector('.aa-DetachedSearchButton, #quarto-search button, [data-bs-toggle=search]');
+        if (btn) { btn.click(); } else {
+          var e = new KeyboardEvent('keydown', {key: 'k', ctrlKey: true, bubbles: true});
+          document.dispatchEvent(e);
+        }
+      " readonly="">
+  </div>
+</div>
 <section class="hero-section">
   <div class="content-block">
     <div class="hero-label">Economics · Policy · Data</div>
     <h1 class="hero-title">Farhan Aditya<br>Ramadhan</h1>
-    <p class="hero-sub">Economics graduate from Universitas Indonesia with an interest in macroeconomics, historical economics, applied econometrics, and impact evaluation. I work mainly in Stata, R, and Python, with experience in household, macro, and historical data analysis. My core methods include instrumental variables, panel data, time-series analysis, and impact evaluation.  policy in Indonesia.</p>
+    <p class="hero-sub">Economics graduate from Universitas Indonesia working in macroeconomics, historical economics, and applied econometrics. I use Stata, R, and Python across household, macro, and historical data, with methods ranging from instrumental variables and panel data to impact evaluation.</p>
     <div class="hero-tags">
       <span class="tag">Historical Economics</span>
       <span class="tag">Macroeconomics</span>
@@ -306,44 +320,6 @@ window.Quarto = {
       <a href="./webpages/projects/analysis.html" class="btn-secondary">View Analysis →</a>
     </div>
   </div>
-</section>
-<section id="research" class="level2">
-<h2 class="anchored" data-anchor-id="research">Research</h2>
-<div id="listing-research" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="ZmlzY2FsJTJDRWNvbm9tZXRyaWNz" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774365914363" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<a href="./webpages/projects/research/test2.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/analysis/test1.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-research 1
-</h5>
-<div class="card-subtitle listing-subtitle">
-test lagi
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmlzY2Fs'); return false;">fiscal</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RWNvbm9tZXRyaWNz'); return false;">Econometrics</div>
-
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Mar 24, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-<p><a href="./webpages/projects/research.html">More →</a></p>
-<hr>
 </section>
 <section id="analysis" class="level2">
 <h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
@@ -381,6 +357,46 @@ Mar 24, 2026
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
 <p><a href="./webpages/projects/analysis.html">More →</a></p>
+<hr>
+</section>
+<section id="research" class="level2">
+<h2 class="anchored" data-anchor-id="research">Research</h2>
+<div id="listing-research" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="VHJhZGUlMkNFY29ub21ldHJpY3MlMkNUaW1lLVNlcmllcw==" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774396817664" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="869">
+<a href="./webpages/projects/research/test2.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/analysis/test1.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+This is a Mock-Up Article
+</h5>
+<div class="card-subtitle listing-subtitle">
+Short-run vs long-run dynamics using ARDL bounds testing
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('VHJhZGU='); return false;">Trade</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RWNvbm9tZXRyaWNz'); return false;">Econometrics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGltZS1TZXJpZXM='); return false;">Time-Series</div>
+
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 24, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<p><a href="./webpages/projects/research.html">More →</a></p>
 <hr>
 </section>
 <section id="blog" class="level2">
@@ -824,6 +840,32 @@ Mar 24, 2026
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Farhan Aditya Ramadhan · Economics · Policy · Data</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/adinramaadin/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/farhanadityaramadhan">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

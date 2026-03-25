@@ -5,6 +5,14 @@ project:
 website:
   favicon: images/randomfavicon.jpeg
   title: "Farhan (Adin) Aditya R."
+  page-footer:
+    left: "© 2026 Farhan Aditya Ramadhan · Economics · Policy · Data"
+    center: "Built with [Quarto](https://quarto.org)"
+    right: 
+      - icon: linkedin
+        href: "https://www.linkedin.com/in/adinramaadin/"
+      - icon: github
+        href: "https://github.com/farhanadityaramadhan"
   navbar:
     background: primary
     search: true
@@ -14,8 +22,8 @@ website:
       - about.qmd
       - text: "Projects"
         menu:
-          - webpages/projects/research.qmd
           - webpages/projects/analysis.qmd
+          - webpages/projects/research.qmd
           - webpages/projects/blog.qmd
       # - sidebar:resources
     right:
@@ -37,6 +45,8 @@ website:
   #     contents: 
   #       -
   #       -
+
+    
 format:
   html:
     theme:
