@@ -7,7 +7,6 @@ website:
   title: "Farhan (Adin) Aditya R."
   page-footer:
     left: "© 2026 Farhan Aditya Ramadhan · Economics · Policy · Data"
-    center: "Built with [Quarto](https://quarto.org)"
     right: 
       - icon: linkedin
         href: "https://www.linkedin.com/in/adinramaadin/"
