@@ -1084,16 +1084,3 @@ body.page-index .listing-more {
   border-color: #003366;
 }
 
-/* More → link tighter on index */
-body.page-index .listing-more {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #0071bc;
-  text-decoration: none;
-}
-
-body.page-index .listing-more:hover {
-  text-decoration: underline;
-}
