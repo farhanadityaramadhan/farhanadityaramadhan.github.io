@@ -685,6 +685,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('resize', function() {
   positions = { analysis: 0, research: 0, blog: 0 };
+  ['analysis','research','blog'].forEach(function(id) {
+    var wrapper = document.getElementById('wrapper-' + id);
+    if (wrapper) {
+      wrapper.style.width = '';
+      wrapper.style.maxWidth = '';
+    }
+  });
   ['analysis','research','blog'].forEach(forceCarousel);
 });
 </script>
