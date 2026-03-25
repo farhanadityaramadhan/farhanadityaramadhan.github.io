@@ -354,7 +354,19 @@ body.page-index #quarto-content {
 
 body.page-index #quarto-content,
 body.page-index #quarto-content > *,
-body.page-index main.content {
+body.page-index main.content,
+body.page-index #quarto-document-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Tighten gap between tools strip and first section */
+body.page-index .tools-strip + * h2,
+body.page-index h2:first-of-type {
+  margin-top: 0 !important;
+}
+
+body.page-index #quarto-document-content > *:first-child {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
@@ -931,7 +943,7 @@ body.page-article #title-block-header {
 .tools-strip {
   border-bottom: 1px solid #e0e0e0;
   padding: 1rem 0;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   width: 100vw;
   position: relative;
   left: 50%;
@@ -1016,14 +1028,39 @@ body.page-index .quarto-listing-grid .card {
   flex-shrink: 0;
 }
 
-/* Arrow row sits above the cards, right-aligned */
+/* Arrow row — inline with section title */
+.listing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid #0071bc;
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 0.75rem;
+  padding-bottom: 0.6rem;
+  gap: 1rem;
+}
+
+.listing-header h2 {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #003366;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
 .listing-arrow-row {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  margin-top: -2.5rem;
+}
+
+/* More → tighter on index */
+body.page-index .listing-more {
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: 0;
 }
 
 .listing-arrow {

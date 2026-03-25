@@ -102,12 +102,13 @@ listing:
 </div>
 ```
 
-## Analysis
-
 ```{=html}
-<div class="listing-arrow-row">
-  <button class="listing-arrow" onclick="scrollListing('analysis', -1)">&#8592;</button>
-  <button class="listing-arrow" onclick="scrollListing('analysis', 1)">&#8594;</button>
+<div class="listing-header">
+  <h2>Analysis</h2>
+  <div class="listing-arrow-row">
+    <button class="listing-arrow" onclick="scrollListing('analysis', -1)">&#8592;</button>
+    <button class="listing-arrow" onclick="scrollListing('analysis', 1)">&#8594;</button>
+  </div>
 </div>
 <div class="listing-section">
   <div class="listing-scroll-wrapper" id="wrapper-analysis">
@@ -125,12 +126,13 @@ listing:
 
 ---
 
-## Research
-
 ```{=html}
-<div class="listing-arrow-row">
-  <button class="listing-arrow" onclick="scrollListing('research', -1)">&#8592;</button>
-  <button class="listing-arrow" onclick="scrollListing('research', 1)">&#8594;</button>
+<div class="listing-header">
+  <h2>Research</h2>
+  <div class="listing-arrow-row">
+    <button class="listing-arrow" onclick="scrollListing('research', -1)">&#8592;</button>
+    <button class="listing-arrow" onclick="scrollListing('research', 1)">&#8594;</button>
+  </div>
 </div>
 <div class="listing-section">
   <div class="listing-scroll-wrapper" id="wrapper-research">
@@ -148,12 +150,13 @@ listing:
 
 ---
 
-## Blog
-
 ```{=html}
-<div class="listing-arrow-row">
-  <button class="listing-arrow" onclick="scrollListing('blog', -1)">&#8592;</button>
-  <button class="listing-arrow" onclick="scrollListing('blog', 1)">&#8594;</button>
+<div class="listing-header">
+  <h2>Blog</h2>
+  <div class="listing-arrow-row">
+    <button class="listing-arrow" onclick="scrollListing('blog', -1)">&#8592;</button>
+    <button class="listing-arrow" onclick="scrollListing('blog', 1)">&#8594;</button>
+  </div>
 </div>
 <div class="listing-section">
   <div class="listing-scroll-wrapper" id="wrapper-blog">
