@@ -80,16 +80,126 @@ a:hover { text-decoration: underline; color: #004f84; }
    FOOTER
    ============================================================ */
 
+/* ============================================================
+   QUARTO FOOTER — rich styled
+   ============================================================ */
+
 .nav-footer {
-  background-color: #f5f7f9;
-  border-top: 1px solid #e0e0e0;
-  font-size: 0.82rem;
-  color: #666666;
-  padding: 1.5rem 2rem;
+  background-color: #003366 !important;
+  border-top: 3px solid #0071bc !important;
+  padding: 2rem 2.5rem 2rem !important;  /* ← make top and bottom equal */
+  align-items: start !important;
+  display: flex !important;
+  gap: 2.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.nav-footer a { color: #0071bc; }
+.nav-footer-left  { flex: 1.6; text-align: left !important; padding-top: 1rem; }
+.nav-footer-center { flex: 1; text-align: left !important; padding-top: 1rem; }
+.nav-footer-right  { flex: 1; text-align: left !important; padding-top: 1rem; }
 
+/* Col 1 - Bio */
+.qf-name {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.qf-sub {
+  font-size: 0.72rem;
+  color: #a8d0f0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.qf-text {
+  font-size: 0.8rem;
+  color: #cce0f5;
+  line-height: 1.65;
+  max-width: 280px;
+  margin-bottom: 0;
+}
+
+/* Col 2 - Links */
+.qf-links-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a8d0f0;
+  margin-bottom: 0.75rem;
+}
+
+.qf-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.qf-links li { margin-bottom: 0.4rem; }
+
+.qf-links a {
+  font-size: 0.83rem;
+  color: #cce0f5 !important;
+  text-decoration: none;
+}
+
+.qf-links a:hover { color: #ffffff !important; }
+
+/* Col 3 - Contact */
+.qf-contact {
+  font-size: 0.8rem;
+  color: #cce0f5;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qf-contact i { color: #a8d0f0; font-size: 0.85rem; }
+
+.qf-socials {
+  display: flex;
+  flex-direction: row;  /* ← add this */
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  margin-bottom: 0rem;
+}
+
+.qf-social-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.07);
+  color: #a8d0f0 !important;
+  display: inline-flex;  /* ← change from flex to inline-flex */
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.qf-social-btn:hover {
+  background: #0071bc;
+  border-color: #0071bc;
+  color: #ffffff !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-footer {
+    flex-direction: column !important;
+    gap: 1.75rem;
+    padding: 1.5rem 1.25rem 0 !important;
+  }
+
+  .qf-text { max-width: 100%; }
+}
 
 /* ============================================================
    TOC
@@ -176,7 +286,6 @@ a:hover { text-decoration: underline; color: #004f84; }
    PROJECT LISTING PAGES (analysis.qmd, research.qmd, blog.qmd)
    ============================================================ */
 
-#quarto-content .row { display: block !important; }
 
 .quarto-listing-category {
   width: 100% !important;
@@ -527,19 +636,32 @@ body.page-index hr {
 /* ── Listing carousel ── */
 
 .listing-section { position: relative; margin-bottom: 0.5rem; }
-.listing-scroll-wrapper { overflow: hidden; width: 100%; }
 
-body.page-index .quarto-listing-grid {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap: 1.5rem;
-  transition: transform 0.4s ease;
-  width: max-content;
+body.page-index .listing-scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
 }
 
-body.page-index .quarto-listing-grid .card {
-  width: 340px;
-  flex-shrink: 0;
+body.page-index .listing-scroll-wrapper .quarto-listing-grid,
+body.page-index .listing-scroll-wrapper [class*="quarto-listing-grid"] {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
+  gap: 1.5rem !important;
+  transition: transform 0.4s ease;
+  width: max-content !important;
+  grid-template-columns: none !important;
+  grid-template-rows: none !important;
+}
+
+body.page-index .listing-scroll-wrapper .card {
+  width: 340px !important;
+  min-width: 340px !important;
+  max-width: 340px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  height: 380px !important;
+  overflow: hidden !important;
 }
 
 .listing-header {
@@ -684,6 +806,12 @@ body.page-index .listing-more:hover { text-decoration: underline; }
   font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
 }
 
+/* remove white gap between resources section and footer */
+body.page-index #quarto-document-content,
+body.page-index main.content {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
 
 /* ============================================================
    ARTICLE PAGES — scoped to body.page-article
@@ -692,10 +820,6 @@ body.page-index .listing-more:hover { text-decoration: underline; }
 body.page-article .quarto-title-block,
 body.page-article #title-block-header {
   display: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
 }
 
 .article-banner {

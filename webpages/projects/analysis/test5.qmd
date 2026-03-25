@@ -1,8 +1,8 @@
 ---
-title: "Macro basic"
+title: "test5"
 subtitle: ""
 date: 2026-03-24
 image: /images/analysis/test1.jpg
-categories: [Macro, book]
+categories: [Stata, book]
 description: "Estimating Indonesia's export elasticity..."
 ---

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-03-24">
-<meta name="description" content="Estimating export elasticity using ARDL.">
+<meta name="dcterms.date" content="2026-03-26">
+<meta name="description" content="Using historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries.">
 
-<title>analysis 1 – Farhan (Adin) Aditya R.</title>
+<title>Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability – Farhan (Adin) Aditya R.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,6 +122,33 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../../../webpages/resources/rstudio.html">
+ <span class="dropdown-text">R &amp; Rstudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../webpages/resources/stata.html">
+ <span class="dropdown-text">STATA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../webpages/resources/macro.html">
+ <span class="dropdown-text">Macroeconomics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../webpages/resources/econometrics.html">
+ <span class="dropdown-text">Econometrics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../webpages/resources/causalinference.html">
+ <span class="dropdown-text">Causal Inference</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -150,25 +177,40 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-identification-challenge" id="toc-the-identification-challenge" class="nav-link" data-scroll-target="#the-identification-challenge">The Identification Challenge</a></li>
+  <li><a href="#identification-strategy" id="toc-identification-strategy" class="nav-link" data-scroll-target="#identification-strategy">Identification Strategy</a></li>
+  <li><a href="#data-and-measurement" id="toc-data-and-measurement" class="nav-link" data-scroll-target="#data-and-measurement">Data and Measurement</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">analysis 1</h1>
-<p class="subtitle lead">Short-run vs long-run dynamics</p>
+<h1 class="title">Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability</h1>
+<p class="subtitle lead">Mockup article 2</p>
   <div class="quarto-categories">
-    <div class="quarto-category">Trade</div>
-    <div class="quarto-category">Econometrics</div>
+    <div class="quarto-category">Historical Economics</div>
+    <div class="quarto-category">Political Economy</div>
+    <div class="quarto-category">Causal Inference</div>
+    <div class="quarto-category">Public Finance</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Estimating export elasticity using ARDL.
+    Using historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries.
   </div>
 </div>
 
@@ -179,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 24, 2026</p>
+      <p class="date">March 26, 2026</p>
     </div>
   </div>
   
@@ -191,8 +233,103 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In 1960, only 30 percent of countries were democratic. By 2000, as the “Third Wave” of democratization matured, that share had doubled to 60 percent. However, that momentum did not last. By 2024, the world had experienced democratic decline for nineteen consecutive years. More countries had stepped back from democracy than moved toward it, either through the collapse of democratic regimes or the weakening of existing ones.</p>
+<p>One influential explanation focuses on what revenue sources countries rely on. The <em>fiscal contract theory</em> argues that whether countries raise revenue through taxes on citizens and businesses (earned revenue) or through relatively captive non-tax sources such as natural resource rents and foreign aid (unearned revenue) shapes both the level and quality of democracy. When governments rely on taxation, citizens demand accountability in return — deepening democratic practices. When governments rely on unearned revenue, they can bypass this bargaining, weakening state-citizen links and fostering patronage and repression.</p>
+<p>Compelling as this explanation is, the empirical evidence remains mixed. Some studies find that increased tax reliance enhances democracy, others find minimal effect, and some suggest it may even reinforce authoritarian control. This paper therefore asks: does greater tax reliance <em>actually cause</em> higher levels of democracy?</p>
+</section>
+<section id="the-identification-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="the-identification-challenge">The Identification Challenge</h2>
+<p>Testing this causal relationship is difficult for two reasons.</p>
+<p>First, reverse causality. Countries with more democratic governments may find it easier to raise taxes because citizens are more willing to contribute when they trust that revenues will be used responsibly. As compliance rises, governments gain more revenue to strengthen institutions and deepen accountability — reinforcing a virtuous cycle between taxation and democracy.</p>
+<p>Second, omitted variables. Both democracy and tax reliance may reflect deeper historical factors — long-standing social contracts about authority, legitimacy, and the role of the state — that have evolved over centuries and are difficult to observe or measure.</p>
+</section>
+<section id="identification-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="identification-strategy">Identification Strategy</h2>
+<p>This paper exploits historical differences in <strong>crop appropriability</strong> as a source of exogenous variation in tax reliance. Building on Mayshar et al.&nbsp;(2022), I argue that the types of crops cultivated in historical societies created long-lasting differences in taxation systems and state-society bargaining that shaped modern patterns of tax reliance and democracy.</p>
+<p>The key distinction is between two crop types:</p>
+<ul>
+<li><strong>Appropriable crops</strong> (cereals: wheat, rice, barley) — harvested seasonally, easily stored, durable, and energy dense, making them easy to monitor, confiscate, and tax.</li>
+<li><strong>Less-appropriable crops</strong> (roots and tubers: cassava, yams, potatoes) — bulky, perennial, and perishable once harvested, making them difficult to appropriate.</li>
+</ul>
+<p>Potential yields for these crops depend on soil quality, climate, and topography — factors fixed by geography and predetermined relative to any modern political or economic system. This geographic variation provides a plausibly exogenous instrument for contemporary tax reliance.</p>
+</section>
+<section id="data-and-measurement" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-measurement">Data and Measurement</h2>
+<p>The instrument is constructed from the FAO’s Global Agro-Ecological Zones (GAEZ) database, which reports potential caloric yields for major crops under uniform agronomic conditions reflecting pre-industrial agriculture. I calculate the caloric yield differential between cereals and roots/tubers for the post-1550 period, when the Columbian Exchange had distributed crops globally, following Mayshar et al.&nbsp;(2022).</p>
+<p>Tax reliance is measured as the share of tax revenue in total government revenue, following Prichard et al.&nbsp;(2018). Democracy is measured across five dimensions from V-Dem: electoral, liberal, participatory, deliberative, and egalitarian democracy.</p>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<div id="tbl-results" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Effect of Tax Reliance on Democracy (standardized coefficients)
+</figcaption>
+<div aria-describedby="tbl-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Specification</th>
+<th>OLS</th>
+<th>2SLS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Electoral Democracy</td>
+<td>0.31***</td>
+<td>0.58**</td>
+</tr>
+<tr class="even">
+<td>Liberal Democracy</td>
+<td>0.28***</td>
+<td>0.51**</td>
+</tr>
+<tr class="odd">
+<td>Participatory Democracy</td>
+<td>0.24***</td>
+<td>0.49**</td>
+</tr>
+<tr class="even">
+<td>Deliberative Democracy</td>
+<td>0.30***</td>
+<td>0.55**</td>
+</tr>
+<tr class="odd">
+<td>Egalitarian Democracy</td>
+<td>0.22***</td>
+<td>0.44**</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The first-stage F-statistic of 66.58 substantially exceeds the Stock-Yogo critical value of 16.38, confirming the instrument is not subject to weak instrument bias. The partial R² of 0.33 indicates that crop appropriability explains a substantial share of cross-country variation in contemporary tax reliance.</p>
+<p>The 2SLS estimates are consistently larger than OLS, suggesting that OLS is downward biased — likely because countries that are already less democratic tend to be pushed toward tax reliance by reformers, attenuating the OLS estimate.</p>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>The results support the fiscal contract theory: tax reliance has a positive causal effect on democracy. A one standard deviation increase in tax reliance raises electoral democracy by approximately 0.58 standard deviations in the 2SLS specification.</p>
+<p>The instrument’s validity rests on the exclusion restriction that crop appropriability affects contemporary democracy only through tax reliance. The primary concern is that cereal suitability may correlate with income, urbanization, or education that independently promote democracy. I address this by controlling for all three in every specification. The estimates remain stable across robustness checks including controls for colonial history, ethnic fractionalization, and alternative geographic factors.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This paper provides causal evidence that greater tax reliance strengthens democracy. Using geographic suitability for appropriable crops as an instrument — a source of variation that predates modern political and economic systems by millennia — I show that the positive cross-country correlation between tax reliance and democracy reflects a genuine causal relationship.</p>
+<p>The findings have direct implications for development policy. Efforts to shift government revenue toward citizen taxation, rather than reliance on resource rents or foreign aid, may strengthen democratic accountability over the long run. The historical roots of this relationship suggest, however, that such transitions are slow and path-dependent — shaped by social contracts and institutional legacies that accumulate over generations.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Mayshar, J., Moav, O., &amp; Neeman, Z. (2022). Geography, transparency, and institutions. <em>American Political Science Review</em>, 116(2), 591–606.</p>
+<p>Prichard, W., Salardi, P., &amp; Segal, P. (2018). Taxation, non-tax revenue and democracy. <em>World Development</em>, 109, 295–312.</p>
+<p>Acemoglu, D., Naidu, S., Restrepo, P., &amp; Robinson, J. A. (2019). Democracy does cause growth. <em>Journal of Political Economy</em>, 127(1), 47–100.</p>
+<p>Tilly, C. (1992). <em>Coercion, capital, and European states, AD 990–1992</em>. Blackwell.</p>
+<p>V-Dem Institute. (2025). <em>V-Dem dataset v15</em>. University of Gothenburg.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -599,27 +736,57 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2026 Farhan Aditya Ramadhan · Economics · Policy · Data</p>
+<div class="qf-bio">
+<div class="qf-name">
+Farhan Aditya Ramadhan
+</div>
+<div class="qf-sub">
+Economics · Policy · Data
+</div>
+<div class="qf-text">
+Economics graduate from Universitas Indonesia. Research interests in historical economics, macroeconomics, political economy, and applied econometrics. Currently resides in Jakarta.
+</div>
+</div>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adinramaadin/">
-      <i class="bi bi-linkedin" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/farhanadityaramadhan">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
+<div class="qf-links-title">
+Quick Links
+</div>
+<ul class="qf-links">
+<li>
+<a href="../../../index.html">Overview</a>
+</li>
+<li>
+<a href="../../../about.html">About</a>
+</li>
+<li>
+<a href="../../../webpages/projects/analysis.html">Analysis</a>
+</li>
+<li>
+<a href="../../../webpages/projects/research.html">Research</a>
+</li>
+<li>
+<a href="../../../webpages/projects/blog.html">Blog</a>
+</li>
+<li>
+<a href="../../../webpages/resources/resources.html">Resources</a>
+</li>
 </ul>
-    </div>
+</div>
+    <div class="nav-footer-right">
+<div class="qf-links-title">
+Contact
+</div>
+<div class="qf-contact">
+<i class="bi bi-envelope-fill"></i> adin.ramaadin@gmail.com
+</div>
+<div class="qf-contact">
+<i class="bi bi-geo-alt-fill"></i> Grogol, DKI Jakarta
+</div>
+<div class="qf-socials">
+<p><a class="qf-social-btn" href="https://www.linkedin.com/in/adinramaadin/" target="_blank"><i class="bi bi-linkedin"></i></a> <a class="qf-social-btn" href="https://github.com/farhanadityaramadhan" target="_blank"><i class="bi bi-github"></i></a> <a class="qf-social-btn" href="mailto:adin.ramaadin@gmail.com"><i class="bi bi-envelope-fill"></i></a></p>
+</div>
+</div>
   </div>
 </footer>
 

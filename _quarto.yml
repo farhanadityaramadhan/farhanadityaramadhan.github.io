@@ -8,12 +8,31 @@ website:
   favicon: images/randomfavicon.jpeg
   title: "Farhan (Adin) Aditya R."
   page-footer:
-    left: "© 2026 Farhan Aditya Ramadhan · Economics · Policy · Data"
-    right: 
-      - icon: linkedin
-        href: "https://www.linkedin.com/in/adinramaadin/"
-      - icon: github
-        href: "https://github.com/farhanadityaramadhan"
+    left: |
+      <div class="qf-bio">
+        <div class="qf-name">Farhan Aditya Ramadhan</div>
+        <div class="qf-sub">Economics · Policy · Data</div>
+        <div class="qf-text">Economics graduate from Universitas Indonesia. Research interests in historical economics, macroeconomics, political economy, and applied econometrics. Currently residing in Jakarta.</div>
+      </div>
+    center: |
+      <div class="qf-links-title">Quick Links</div>
+      <ul class="qf-links">
+        <li><a href="/index.html">Overview</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/webpages/projects/analysis.html">Analysis</a></li>
+        <li><a href="/webpages/projects/research.html">Research</a></li>
+        <li><a href="/webpages/projects/blog.html">Blog</a></li>
+        <li><a href="/webpages/resources/resources.html">Resources</a></li>
+      </ul>
+    right: |
+      <div class="qf-links-title">Contact</div>
+      <div class="qf-contact"><i class="bi bi-envelope-fill"></i> adin.ramaadin@gmail.com</div>
+      <div class="qf-contact"><i class="bi bi-geo-alt-fill"></i> Grogol, DKI Jakarta</div>
+      <div class="qf-socials">
+        <a class="qf-social-btn" href="https://www.linkedin.com/in/adinramaadin/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a class="qf-social-btn" href="https://github.com/farhanadityaramadhan" target="_blank"><i class="bi bi-github"></i></a>
+        <a class="qf-social-btn" href="mailto:adin.ramaadin@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+      </div>
   navbar:
     background: primary
     search: true
@@ -62,6 +81,8 @@ format:
       - brand
     css: styles.css
     toc: true
+    header-includes: |
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
 

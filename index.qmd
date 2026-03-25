@@ -190,7 +190,7 @@ listing:
     </div>
     <div class="resources-grid">
       <a class="resource-card" href="webpages/resources/rstudio.qmd">
-        <div class="resource-card-icon"><i class="bi bi-bar-chart-fill"></i></div>
+        <div class="resource-card-icon"><i class="fa-brands fa-r-project"></i></div>
         <div class="resource-card-title">R &amp; RStudio</div>
         <div class="resource-card-desc">Books, tutorials, and notes for learning R, ggplot2, tidyverse, and Quarto.</div>
       </a>
@@ -219,16 +219,55 @@ listing:
 </div>
 <script>
 var positions = { analysis: 0, research: 0, blog: 0 };
+
+function forceCarousel(id) {
+  var wrapper = document.getElementById('wrapper-' + id);
+  if (!wrapper) return;
+  var grid = wrapper.querySelector('.list.grid');
+  if (!grid) return;
+
+  var availWidth = wrapper.parentElement.offsetWidth;
+  var gap = 24;
+  var cardWidth = Math.floor((availWidth - 2 * gap) / 3);
+
+  wrapper.style.overflow = 'hidden';
+  wrapper.style.width = '100%';
+
+  grid.style.display = 'flex';
+  grid.style.flexWrap = 'nowrap';
+  grid.style.flexDirection = 'row';
+  grid.style.width = 'max-content';
+  grid.style.transition = 'transform 0.4s ease';
+  grid.style.gap = gap + 'px';
+
+  var cols = wrapper.querySelectorAll('.g-col-1');
+  cols.forEach(function(col) {
+    col.style.width = cardWidth + 'px';
+    col.style.minWidth = cardWidth + 'px';
+    col.style.maxWidth = cardWidth + 'px';
+    col.style.flexShrink = '0';
+  });
+}
+
 function scrollListing(id, dir) {
   var wrapper = document.getElementById('wrapper-' + id);
-  var grid = wrapper.querySelector('.quarto-listing-grid');
+  if (!wrapper) return;
+  var grid = wrapper.querySelector('.list.grid');
   if (!grid) return;
-  var cardWidth = 340 + 24;
-  var cards = grid.querySelectorAll('.card').length;
-  var visible = Math.floor(wrapper.offsetWidth / cardWidth);
-  var max = Math.max(0, cards - visible);
+  var gap = 24;
+  var cardWidth = parseInt(wrapper.querySelectorAll('.g-col-1')[0].style.width);
+  var colWidth = cardWidth + gap;
+  var cols = wrapper.querySelectorAll('.g-col-1').length;
+  var visible = Math.round(wrapper.offsetWidth / colWidth);
+  var max = Math.max(0, cols - visible);
   positions[id] = Math.min(max, Math.max(0, positions[id] + dir));
-  grid.style.transform = 'translateX(-' + (positions[id] * cardWidth) + 'px)';
+  grid.style.transform = 'translateX(-' + (positions[id] * (colWidth - 1)) + 'px)';
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  ['analysis','research','blog'].forEach(forceCarousel);
+  setTimeout(function() { ['analysis','research','blog'].forEach(forceCarousel); }, 300);
+  setTimeout(function() { ['analysis','research','blog'].forEach(forceCarousel); }, 800);
+});
 </script>
 ```
