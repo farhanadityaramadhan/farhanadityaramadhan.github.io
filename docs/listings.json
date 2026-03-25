@@ -24,5 +24,13 @@
       "/webpages/projects/analysis/test.html",
       "/webpages/projects/blog/blog 1.html"
     ]
+  },
+  {
+    "listing": "/webpages/projects/projects.html",
+    "items": [
+      "/webpages/projects/analysis/test.html",
+      "/webpages/projects/research/test2.html",
+      "/webpages/projects/blog/blog 1.html"
+    ]
   }
 ]
