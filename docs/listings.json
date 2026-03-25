@@ -38,5 +38,29 @@
     "items": [
       "/webpages/resources/rstudio/rstudiotest.html"
     ]
+  },
+  {
+    "listing": "/webpages/resources/stata.html",
+    "items": [
+      "/webpages/resources/stata/statatest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/macro.html",
+    "items": [
+      "/webpages/resources/macro/macrotest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/econometrics.html",
+    "items": [
+      "/webpages/resources/econometrics/econometricstest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/causalinference.html",
+    "items": [
+      "/webpages/resources/causalinference/causaltest.html"
+    ]
   }
 ]

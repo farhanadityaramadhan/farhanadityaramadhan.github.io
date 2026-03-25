@@ -69,7 +69,7 @@ listing:
   <div class="content-block">
     <div class="hero-label">Economics · Policy · Data</div>
     <h1 class="hero-title">Farhan Aditya<br>Ramadhan</h1>
-    <p class="hero-sub">Economics graduate from Universitas Indonesia working in macroeconomics, historical economics, and applied econometrics. I use Stata, R, and Python across household, macro, and historical data, with methods ranging from instrumental variables and panel data to impact evaluation.</p>
+    <p class="hero-sub">Economics graduate from Universitas Indonesia with an interest in macroeconomics, historical economics, applied econometrics, and impact evaluation. I work mainly in Stata, R, and Python, with experience in household, macro, and historical data analysis. My core methods include instrumental variables, panel data, time-series analysis, and impact evaluation.</p>
     <div class="hero-tags">
       <span class="tag">Historical Economics</span>
       <span class="tag">Applied Econometrics</span>
@@ -98,6 +98,15 @@ listing:
       <span class="tools-strip-item">SQL</span>
       <span class="tools-strip-item">Quarto</span>
     </div>
+  </div>
+</div>
+```
+
+```{=html}
+<div class="home-group-header">
+  <div class="home-group-header-inner">
+    <span class="home-group-header-title">Projects</span>
+    <a href="webpages/projects/projects.qmd">View all →</a>
   </div>
 </div>
 ```
@@ -173,9 +182,43 @@ listing:
 <a href="webpages/projects/blog.qmd" class="listing-more">More →</a>
 
 ```{=html}
+<div class="resources-section">
+  <div class="resources-section-inner">
+    <div class="resources-header">
+      <span class="resources-header-title">Resources</span>
+    <a href="webpages/resources/resources.qmd">View all →</a>
+    </div>
+    <div class="resources-grid">
+      <a class="resource-card" href="webpages/resources/rstudio.qmd">
+        <div class="resource-card-icon"><i class="bi bi-bar-chart-fill"></i></div>
+        <div class="resource-card-title">R &amp; RStudio</div>
+        <div class="resource-card-desc">Books, tutorials, and notes for learning R, ggplot2, tidyverse, and Quarto.</div>
+      </a>
+      <a class="resource-card" href="webpages/resources/stata.qmd">
+        <div class="resource-card-icon"><i class="bi bi-table"></i></div>
+        <div class="resource-card-title">Stata</div>
+        <div class="resource-card-desc">Guides and do-file notes for data management, econometric estimation, and microdata analysis.</div>
+      </a>
+      <a class="resource-card" href="webpages/resources/macro.qmd">
+        <div class="resource-card-icon"><i class="bi bi-graph-up-arrow"></i></div>
+        <div class="resource-card-title">Macroeconomics</div>
+        <div class="resource-card-desc">Notes and resources on macroeconomic theory, time-series modelling, and policy analysis.</div>
+      </a>
+      <a class="resource-card" href="webpages/resources/econometrics.qmd">
+        <div class="resource-card-icon"><i class="bi bi-calculator"></i></div>
+        <div class="resource-card-title">Econometrics</div>
+        <div class="resource-card-desc">Applied econometrics resources covering OLS, panel data, IV, ARDL, and structural estimation.</div>
+      </a>
+      <a class="resource-card" href="webpages/resources/causalinference.qmd">
+        <div class="resource-card-icon"><i class="bi bi-diagram-3"></i></div>
+        <div class="resource-card-title">Causal Inference</div>
+        <div class="resource-card-desc">Resources on DiD, RD, IV, matching, and impact evaluation methods.</div>
+      </a>
+    </div>
+  </div>
+</div>
 <script>
 var positions = { analysis: 0, research: 0, blog: 0 };
-
 function scrollListing(id, dir) {
   var wrapper = document.getElementById('wrapper-' + id);
   var grid = wrapper.querySelector('.quarto-listing-grid');
