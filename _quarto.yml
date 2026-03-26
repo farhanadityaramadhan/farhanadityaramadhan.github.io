@@ -84,6 +84,6 @@ format:
     css: styles.css
     toc: true
     header-includes: |
-      <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+      <link rel="stylesheet" href="https://farhanadityaramadhan.github.io/fontawesome/css/all.min.css">
 
 
