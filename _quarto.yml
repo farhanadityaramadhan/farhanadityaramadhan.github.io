@@ -5,7 +5,6 @@ project:
     - files/
     - fonts/
     - fontawesome/
-    - google782a9d208dec3d96
 
 website:
   favicon: images/randomfavicon.jpeg
