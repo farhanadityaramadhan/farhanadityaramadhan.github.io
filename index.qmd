@@ -228,8 +228,18 @@ function forceCarousel(id) {
 
   var availWidth = wrapper.parentElement.offsetWidth;
   var gap = 24;
-  var cardWidth = Math.floor((availWidth - 2 * gap) / 3);
-  var wrapperWidth = (3 * cardWidth) + (2 * gap);
+  var minCardWidth = 340;
+
+  // start at 3, drop down until cards actually fit
+  var cols = 3;
+  while (cols > 1) {
+    var testWidth = cols * minCardWidth + (cols - 1) * gap;
+    if (testWidth <= availWidth) break;
+    cols--;
+  }
+
+  var cardWidth = Math.floor((availWidth - gap * (cols - 1)) / cols);
+  var wrapperWidth = cols * cardWidth + (cols - 1) * gap;
 
   wrapper.style.overflow = 'hidden';
   wrapper.style.width = wrapperWidth + 'px';
@@ -242,13 +252,15 @@ function forceCarousel(id) {
   grid.style.transition = 'transform 0.4s ease';
   grid.style.gap = gap + 'px';
 
-  var cols = wrapper.querySelectorAll('.g-col-1');
-  cols.forEach(function(col) {
+  var items = wrapper.querySelectorAll('.g-col-1');
+  items.forEach(function(col) {
     col.style.width = cardWidth + 'px';
     col.style.minWidth = cardWidth + 'px';
     col.style.maxWidth = cardWidth + 'px';
     col.style.flexShrink = '0';
   });
+
+  wrapper._visibleCols = cols;
 }
 
 function scrollListing(id, dir) {
@@ -260,7 +272,7 @@ function scrollListing(id, dir) {
   var cardWidth = parseInt(wrapper.querySelectorAll('.g-col-1')[0].style.width);
   var colWidth = cardWidth + gap;
   var cols = wrapper.querySelectorAll('.g-col-1').length;
-  var visible = Math.round(wrapper.offsetWidth / colWidth);
+  var visible = wrapper._visibleCols || 3;
   var max = Math.max(0, cols - visible);
   positions[id] = Math.min(max, Math.max(0, positions[id] + dir));
   grid.style.transform = 'translateX(-' + (positions[id] * (colWidth - 1)) + 'px)';
@@ -274,13 +286,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('resize', function() {
   positions = { analysis: 0, research: 0, blog: 0 };
-  ['analysis','research','blog'].forEach(function(id) {
-    var wrapper = document.getElementById('wrapper-' + id);
-    if (wrapper) {
-      wrapper.style.width = '';
-      wrapper.style.maxWidth = '';
-    }
-  });
   ['analysis','research','blog'].forEach(forceCarousel);
 });
 </script>
