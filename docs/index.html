@@ -637,7 +637,7 @@ function forceCarousel(id) {
   var grid = wrapper.querySelector('.list.grid');
   if (!grid) return;
 
-  var availWidth = wrapper.parentElement.offsetWidth;
+  var availWidth = wrapper.parentElement.offsetWidth || wrapper.offsetWidth;
   var gap = 24;
   var minCardWidth = 340;
 
@@ -649,8 +649,8 @@ function forceCarousel(id) {
     cols--;
   }
 
-  var cardWidth = Math.floor((availWidth - gap * (cols - 1)) / cols);
-  var wrapperWidth = cols * cardWidth + (cols - 1) * gap;
+  var cardWidth = 340;
+  var wrapperWidth = cols * cardWidth + (cols - 1) * gap + 1;
 
   wrapper.style.overflow = 'hidden';
   wrapper.style.width = wrapperWidth + 'px';
@@ -697,7 +697,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('resize', function() {
   positions = { analysis: 0, research: 0, blog: 0 };
-  ['analysis','research','blog'].forEach(forceCarousel);
+  ['analysis','research','blog'].forEach(function(id) {
+    var wrapper = document.getElementById('wrapper-' + id);
+    var grid = wrapper ? wrapper.querySelector('.list.grid') : null;
+    if (grid) grid.style.opacity = '0';
+  });
+  setTimeout(function() {
+    ['analysis','research','blog'].forEach(function(id) {
+      var wrapper = document.getElementById('wrapper-' + id);
+      if (wrapper) {
+        wrapper.style.width = '100%';
+        wrapper.style.maxWidth = '100%';
+      }
+    });
+    ['analysis','research','blog'].forEach(forceCarousel);
+    ['analysis','research','blog'].forEach(function(id) {
+      var wrapper = document.getElementById('wrapper-' + id);
+      var grid = wrapper ? wrapper.querySelector('.list.grid') : null;
+      if (grid) grid.style.opacity = '1';
+    });
+  }, 200);
 });
 </script>
 
