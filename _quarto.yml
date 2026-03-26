@@ -8,7 +8,7 @@ project:
 
 website:
   favicon: images/icons/randomfavicon.jpeg
-  title: "Farhan (Adin) Aditya R."
+  title: "Farhan (Adin) Aditya Ramadhan"
   description: "Economics graduate from Universitas Indonesia specializing in macroeconomics and historical economics, using causal inference and applied econometrics, with Stata, R, and Python"
   page-footer:
     left: |
@@ -38,6 +38,7 @@ website:
       </div>
   navbar:
     background: primary
+    title: "Farhan (Adin) Aditya R."
     search: true
     left:
       - href: index.qmd
