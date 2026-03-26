@@ -84,7 +84,7 @@ format:
       - brand
     css: styles.css
     toc: true
-    header-includes: |
-      <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    include-in-header: head.html
+      
 
 
