@@ -239,7 +239,7 @@ function forceCarousel(id) {
   }
 
   var cardWidth = 340;
-  var wrapperWidth = cols * cardWidth + (cols - 1) * gap + 1;
+  var wrapperWidth = cols * cardWidth + (cols - 1) * gap + 2;
 
   wrapper.style.overflow = 'hidden';
   wrapper.style.width = wrapperWidth + 'px';
