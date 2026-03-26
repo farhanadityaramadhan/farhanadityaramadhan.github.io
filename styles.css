@@ -19,11 +19,18 @@ h1, h2, h3, h4 {
   margin-top: 0;
 }
 
-h1 { font-size: 2.25rem; margin-bottom: 1rem; }
-h2 { font-size: 1.6rem;  margin-bottom: 0.75rem; }
+/* Fluid heading sizes using clamp() — scale gracefully across all screen sizes */
+h1 { font-size: clamp(1.5rem, 4vw, 2.25rem); margin-bottom: 1rem; }
+h2 { font-size: clamp(1.2rem, 3vw, 1.6rem);  margin-bottom: 0.75rem; }
 h3 { font-size: 1.2rem;  margin-bottom: 0.5rem; }
 
 p { margin-top: 0; margin-bottom: 1rem; }
+
+/* Responsive images — always */
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 a { color: #0071bc; text-decoration: none; }
 a:hover { text-decoration: underline; color: #004f84; }
@@ -80,14 +87,10 @@ a:hover { text-decoration: underline; color: #004f84; }
    FOOTER
    ============================================================ */
 
-/* ============================================================
-   QUARTO FOOTER — rich styled
-   ============================================================ */
-
 .nav-footer {
   background-color: #003366 !important;
   border-top: 3px solid #0071bc !important;
-  padding: 2rem 2.5rem 2rem !important;  /* ← make top and bottom equal */
+  padding: 2rem 2.5rem 2rem !important;
   align-items: start !important;
   display: flex !important;
   gap: 2.5rem;
@@ -99,7 +102,6 @@ a:hover { text-decoration: underline; color: #004f84; }
 .nav-footer-center { flex: 1; text-align: left !important; padding-top: 1rem; }
 .nav-footer-right  { flex: 1; text-align: left !important; padding-top: 1rem; }
 
-/* Col 1 - Bio */
 .qf-name {
   font-family: Georgia, serif;
   font-size: 1rem;
@@ -123,7 +125,6 @@ a:hover { text-decoration: underline; color: #004f84; }
   margin-bottom: 0;
 }
 
-/* Col 2 - Links */
 .qf-links-title {
   font-size: 0.72rem;
   font-weight: 600;
@@ -149,7 +150,6 @@ a:hover { text-decoration: underline; color: #004f84; }
 
 .qf-links a:hover { color: #ffffff !important; }
 
-/* Col 3 - Contact */
 .qf-contact {
   font-size: 0.8rem;
   color: #cce0f5;
@@ -163,7 +163,7 @@ a:hover { text-decoration: underline; color: #004f84; }
 
 .qf-socials {
   display: flex;
-  flex-direction: row;  /* ← add this */
+  flex-direction: row;
   gap: 0.5rem;
   margin-top: 0.85rem;
   margin-bottom: 0rem;
@@ -176,7 +176,7 @@ a:hover { text-decoration: underline; color: #004f84; }
   border: 1px solid rgba(255,255,255,0.2);
   background: rgba(255,255,255,0.07);
   color: #a8d0f0 !important;
-  display: inline-flex;  /* ← change from flex to inline-flex */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 0.95rem;
@@ -190,16 +190,6 @@ a:hover { text-decoration: underline; color: #004f84; }
   color: #ffffff !important;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-footer {
-    flex-direction: column !important;
-    gap: 1.75rem;
-    padding: 1.5rem 1.25rem 0 !important;
-  }
-
-  .qf-text { max-width: 100%; }
-}
 
 /* ============================================================
    TOC
@@ -285,7 +275,6 @@ a:hover { text-decoration: underline; color: #004f84; }
 /* ============================================================
    PROJECT LISTING PAGES (analysis.qmd, research.qmd, blog.qmd)
    ============================================================ */
-
 
 .quarto-listing-category {
   width: 100% !important;
@@ -502,7 +491,7 @@ body.page-index hr {
 
 .hero-title {
   font-family: Georgia, serif;
-  font-size: 2.75rem;
+  font-size: clamp(1.75rem, 5vw, 2.75rem); /* fluid — won't overflow on small screens */
   font-weight: normal;
   color: #ffffff;
   line-height: 1.15;
@@ -510,7 +499,7 @@ body.page-index hr {
 }
 
 .hero-sub {
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
   color: #cce0f5;
   max-width: 600px;
   margin-bottom: 1.5rem;
@@ -764,7 +753,7 @@ body.page-index .listing-more:hover { text-decoration: underline; }
 
 .resources-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* desktop: 3 columns */
   gap: 1rem;
 }
 
@@ -806,12 +795,12 @@ body.page-index .listing-more:hover { text-decoration: underline; }
   font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
 }
 
-/* remove white gap between resources section and footer */
 body.page-index #quarto-document-content,
 body.page-index main.content {
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
 }
+
 
 /* ============================================================
    ARTICLE PAGES — scoped to body.page-article
@@ -907,7 +896,7 @@ body.page-article #title-block-header {
 
 .about-name {
   font-family: Georgia, serif;
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: normal;
   color: #ffffff;
   line-height: 1.15;
@@ -1006,25 +995,90 @@ body.page-article #title-block-header {
 
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE BREAKPOINTS
    ============================================================ */
 
+/* ── Tablet landscape / large tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  /* Resources: drop from 3 to 2 columns */
+  .resources-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Tablet portrait (≤ 768px) ── */
 @media (max-width: 768px) {
   body.page-index #quarto-content { padding: 0 1.25rem; }
+
   .search-bar-inner { padding: 0 1.25rem; }
   .search-bar-input { max-width: 100%; }
+
   .hero-section { padding: 3rem 0; }
   .hero-section .content-block { padding: 0 1.25rem; margin: 0; }
-  .hero-title { font-size: 2rem; }
+
   body.page-index h2 { font-size: 1.35rem; }
+
   .tools-strip-inner { padding: 0 1.25rem; }
   .home-group-header { padding-top: 1.5rem; }
+
+  /* Footer: stack into single column */
+  .nav-footer {
+    flex-direction: column !important;
+    gap: 1.75rem;
+    padding: 1.5rem 1.25rem 0 !important;
+  }
+  .qf-text { max-width: 100%; }
+
+  /* Resources: single column */
   .resources-section-inner { padding: 0 1.25rem; }
   .resources-grid { grid-template-columns: 1fr; }
+
+  /* About page */
   .about-header-inner { flex-direction: column; gap: 2rem; padding: 0 1.25rem; }
   .about-header-meta { flex-direction: row; gap: 2rem; }
   .about-stat { text-align: left; }
   .about-body { padding: 0 1.25rem; }
   .about-skills-grid { grid-template-columns: 1fr; }
   .about-entry-header { flex-direction: column; gap: 0.2rem; }
+
+  /* Article banner: reduce height on tablet */
+  .article-banner { height: 260px; }
+}
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  /* Carousel cards: narrower to fit small screens */
+  body.page-index .listing-scroll-wrapper .card {
+    width: 280px !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+    height: auto !important;
+  }
+
+  /* About stats: wrap if there are more than 2 */
+  .about-header-meta {
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  /* Hero CTA buttons: stack vertically */
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Article banner: shorter on mobile */
+  .article-banner { height: 200px; }
+  .article-banner-overlay { padding: 1.25rem; }
+  .article-banner h1 { font-size: 1.4rem; }
+
+  /* Listing filter: full width */
+  #quarto-listing-filter { width: 100%; }
+
+  /* Tighter padding for inner content blocks */
+  .resources-section-inner,
+  .tools-strip-inner,
+  .search-bar-inner {
+    padding: 0 1rem;
+  }
 }
