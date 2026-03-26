@@ -644,9 +644,7 @@ body.page-index .listing-scroll-wrapper [class*="quarto-listing-grid"] {
 }
 
 body.page-index .listing-scroll-wrapper .card {
-  width: 340px !important;
-  min-width: 340px !important;
-  max-width: 340px !important;
+  /* width controlled by JS — no hardcoded value here */
   flex-shrink: 0 !important;
   flex-grow: 0 !important;
   height: 380px !important;
@@ -1049,9 +1047,7 @@ body.page-article #title-block-header {
 @media (max-width: 480px) {
   /* Carousel cards: narrower to fit small screens */
   body.page-index .listing-scroll-wrapper .card {
-    width: 280px !important;
-    min-width: 280px !important;
-    max-width: 280px !important;
+    /* width set by JS — removed hardcoded value so cards stretch to fill */
     height: auto !important;
   }
 

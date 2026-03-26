@@ -632,14 +632,6 @@ Mar 24, 2026
 <script>
 var positions = { analysis: 0, research: 0, blog: 0 };
 
-// Pick card width based on current screen width
-function getCardWidth() {
-  var vw = window.innerWidth;
-  if (vw <= 400) return 260;   // small phones
-  if (vw <= 600) return 280;   // larger phones
-  return 340;                  // tablet and desktop
-}
-
 function forceCarousel(id) {
   var wrapper = document.getElementById('wrapper-' + id);
   if (!wrapper) return;
@@ -648,21 +640,23 @@ function forceCarousel(id) {
 
   var availWidth = wrapper.parentElement.offsetWidth || wrapper.offsetWidth;
   var gap = 24;
-  var cardWidth = getCardWidth();
 
-  // Start at 3 columns, drop down until cards actually fit
+  // How many columns fit at 340px each?
   var cols = 3;
-  while (cols > 1) {
-    var testWidth = cols * cardWidth + (cols - 1) * gap;
-    if (testWidth <= availWidth) break;
+  while (cols > 1 && cols * 340 + (cols - 1) * gap > availWidth) {
     cols--;
   }
 
-  var wrapperWidth = cols * cardWidth + (cols - 1) * gap + 2;
+  // Subtract 1px safety margin so card math never exceeds wrapper by a pixel
+  var safeWidth = availWidth - 1;
+  var cardWidth = Math.floor((safeWidth - (cols - 1) * gap) / cols);
 
+  // Wrapper fills parent — aligns with header
+  // 1px left padding so card borders don't get clipped flush at scroll position
   wrapper.style.overflow = 'hidden';
-  wrapper.style.width = wrapperWidth + 'px';
-  wrapper.style.maxWidth = wrapperWidth + 'px';
+  wrapper.style.paddingLeft = '1px';
+  wrapper.style.width = availWidth + 'px';
+  wrapper.style.maxWidth = availWidth + 'px';
 
   grid.style.display = 'flex';
   grid.style.flexWrap = 'nowrap';
@@ -671,6 +665,7 @@ function forceCarousel(id) {
   grid.style.transition = 'transform 0.4s ease';
   grid.style.gap = gap + 'px';
 
+  // Apply cardWidth to every card item
   var items = wrapper.querySelectorAll('.g-col-1');
   items.forEach(function(col) {
     col.style.width = cardWidth + 'px';
@@ -681,6 +676,7 @@ function forceCarousel(id) {
 
   wrapper._visibleCols = cols;
   wrapper._cardWidth = cardWidth;
+  wrapper._gap = gap;
 }
 
 function scrollListing(id, dir) {
@@ -688,14 +684,17 @@ function scrollListing(id, dir) {
   if (!wrapper) return;
   var grid = wrapper.querySelector('.list.grid');
   if (!grid) return;
-  var gap = 24;
-  var cardWidth = wrapper._cardWidth || getCardWidth();
-  var colWidth = cardWidth + gap;
-  var cols = wrapper.querySelectorAll('.g-col-1').length;
+  var gap = wrapper._gap || 24;
   var visible = wrapper._visibleCols || 3;
-  var max = Math.max(0, cols - visible);
+  // Use getBoundingClientRect for sub-pixel accurate card width
+  var firstCard = wrapper.querySelector('.g-col-1');
+  var cardWidth = firstCard ? firstCard.getBoundingClientRect().width : (wrapper._cardWidth || 340);
+  var step = cardWidth + gap;
+  var totalCards = wrapper.querySelectorAll('.g-col-1').length;
+  var max = Math.max(0, totalCards - visible);
   positions[id] = Math.min(max, Math.max(0, positions[id] + dir));
-  grid.style.transform = 'translateX(-' + (positions[id] * (colWidth - 1)) + 'px)';
+  // Add 1px to push previous card's border fully out of view
+  grid.style.transform = 'translateX(-' + (positions[id] * step + 1) + 'px)';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -709,16 +708,9 @@ window.addEventListener('resize', function() {
   ['analysis','research','blog'].forEach(function(id) {
     var wrapper = document.getElementById('wrapper-' + id);
     var grid = wrapper ? wrapper.querySelector('.list.grid') : null;
-    if (grid) grid.style.opacity = '0';
+    if (grid) { grid.style.opacity = '0'; grid.style.transform = 'translateX(0)'; }
   });
   setTimeout(function() {
-    ['analysis','research','blog'].forEach(function(id) {
-      var wrapper = document.getElementById('wrapper-' + id);
-      if (wrapper) {
-        wrapper.style.width = '100%';
-        wrapper.style.maxWidth = '100%';
-      }
-    });
     ['analysis','research','blog'].forEach(forceCarousel);
     ['analysis','research','blog'].forEach(function(id) {
       var wrapper = document.getElementById('wrapper-' + id);
