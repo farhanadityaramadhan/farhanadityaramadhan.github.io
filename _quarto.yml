@@ -4,6 +4,7 @@ project:
   resources: 
     - files/
     - fonts/
+    - fontawesome/
 
 website:
   favicon: images/randomfavicon.jpeg
