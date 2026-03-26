@@ -107,7 +107,7 @@ a:hover { text-decoration: underline; color: var(--color-accent-dark); }
 
 .navbar {
   background-color: var(--color-primary) !important;
-  border-bottom: 3px solid var(--color-accent);
+  border-bottom: none;
   padding: 0.5rem 2rem;
 }
 
@@ -154,7 +154,7 @@ a:hover { text-decoration: underline; color: var(--color-accent-dark); }
 
 .nav-footer {
   background-color: var(--color-primary) !important;
-  border-top: 3px solid var(--color-accent) !important;
+  border-top: none;
   padding: 2rem 2.5rem 2rem !important;
   align-items: start !important;
   display: flex !important;
@@ -227,13 +227,12 @@ a:hover { text-decoration: underline; color: var(--color-accent-dark); }
 .qf-contact i { color: var(--color-accent-light); font-size: 0.85rem; }
 
 .qf-socials {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0.75rem !important;
   margin-top: 0.85rem;
   margin-bottom: 0rem;
 }
-
 .qf-social-btn {
   width: 32px;
   height: 32px;
@@ -255,6 +254,26 @@ a:hover { text-decoration: underline; color: var(--color-accent-dark); }
   color: var(--color-bg) !important;
 }
 
+.nav-footer .qf-socials {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0.75rem !important;
+  margin-top: 0.85rem !important;
+}
+
+.nav-footer .qf-social-btn {
+  width: 36px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1rem !important;
+  margin-right: 0.15rem !important;
+}
+
+.nav-footer .qf-social-btn:last-child {
+  margin-right: 0 !important;
+}
 
 /* ============================================================
    TOC
