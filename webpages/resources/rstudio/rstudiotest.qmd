@@ -2,7 +2,7 @@
 title: "R basic"
 subtitle: ""
 date: 2026-03-24
-image: /images/analysis/test1.jpg
+image: /images/analysis/test1.webp
 categories: [R, book]
 description: "Estimating Indonesia's export elasticity..."
 ---
