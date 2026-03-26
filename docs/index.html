@@ -680,13 +680,13 @@ function scrollListing(id, dir) {
   var grid = wrapper.querySelector('.list.grid');
   if (!grid) return;
   var gap = 24;
+  var visible = wrapper._visibleCols || 3;
   var cardWidth = parseInt(wrapper.querySelectorAll('.g-col-1')[0].style.width);
   var colWidth = cardWidth + gap;
   var cols = wrapper.querySelectorAll('.g-col-1').length;
-  var visible = wrapper._visibleCols || 3;
   var max = Math.max(0, cols - visible);
   positions[id] = Math.min(max, Math.max(0, positions[id] + dir));
-  grid.style.transform = 'translateX(-' + (positions[id] * (colWidth - 1)) + 'px)';
+  grid.style.transform = 'translateX(-' + (positions[id] * colWidth) + 'px)';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
