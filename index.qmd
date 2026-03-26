@@ -5,6 +5,7 @@ page-layout: full
 toc: false
 title-block-banner: false
 body-classes: "page-index"
+html-math-method: plain
 listing:
 - id: research
   contents: webpages/projects/research/
