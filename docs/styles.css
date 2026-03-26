@@ -849,6 +849,19 @@ body.page-index .listing-more:hover { text-decoration: underline; }
   line-height: 1;
 }
 
+.resource-card-icon img {
+  filter: invert(27%) sepia(89%) saturate(1234%) hue-rotate(185deg) brightness(95%) contrast(101%);
+}
+
+.resource-card-icon img.original-color { filter: none; }
+
+.resource-card-icon img.icon-white-on-blue {
+  filter: none;
+  background-color: var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem;
+}
+
 .resource-card-title {
   font-family: var(--font-serif);
   font-size: 1rem;

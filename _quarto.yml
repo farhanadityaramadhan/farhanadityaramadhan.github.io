@@ -7,7 +7,7 @@ project:
     - fontawesome/
 
 website:
-  favicon: images/randomfavicon.jpeg
+  favicon: images/icons/randomfavicon.jpeg
   title: "Farhan (Adin) Aditya R."
   description: "Economics graduate from Universitas Indonesia specializing in macroeconomics and historical economics, using causal inference and applied econometrics, with Stata, R, and Python"
   page-footer:
