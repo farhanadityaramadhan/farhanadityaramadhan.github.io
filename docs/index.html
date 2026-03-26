@@ -628,8 +628,17 @@ Mar 24, 2026
     </div>
   </div>
 </div>
+
 <script>
 var positions = { analysis: 0, research: 0, blog: 0 };
+
+// Pick card width based on current screen width
+function getCardWidth() {
+  var vw = window.innerWidth;
+  if (vw <= 400) return 260;   // small phones
+  if (vw <= 600) return 280;   // larger phones
+  return 340;                  // tablet and desktop
+}
 
 function forceCarousel(id) {
   var wrapper = document.getElementById('wrapper-' + id);
@@ -639,17 +648,16 @@ function forceCarousel(id) {
 
   var availWidth = wrapper.parentElement.offsetWidth || wrapper.offsetWidth;
   var gap = 24;
-  var minCardWidth = 340;
+  var cardWidth = getCardWidth();
 
-  // start at 3, drop down until cards actually fit
+  // Start at 3 columns, drop down until cards actually fit
   var cols = 3;
   while (cols > 1) {
-    var testWidth = cols * minCardWidth + (cols - 1) * gap;
+    var testWidth = cols * cardWidth + (cols - 1) * gap;
     if (testWidth <= availWidth) break;
     cols--;
   }
 
-  var cardWidth = 340;
   var wrapperWidth = cols * cardWidth + (cols - 1) * gap + 2;
 
   wrapper.style.overflow = 'hidden';
@@ -672,6 +680,7 @@ function forceCarousel(id) {
   });
 
   wrapper._visibleCols = cols;
+  wrapper._cardWidth = cardWidth;
 }
 
 function scrollListing(id, dir) {
@@ -680,7 +689,7 @@ function scrollListing(id, dir) {
   var grid = wrapper.querySelector('.list.grid');
   if (!grid) return;
   var gap = 24;
-  var cardWidth = parseInt(wrapper.querySelectorAll('.g-col-1')[0].style.width);
+  var cardWidth = wrapper._cardWidth || getCardWidth();
   var colWidth = cardWidth + gap;
   var cols = wrapper.querySelectorAll('.g-col-1').length;
   var visible = wrapper._visibleCols || 3;
