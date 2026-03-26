@@ -13,7 +13,6 @@ listing:
   sort: "date desc"
   type: grid
   grid-columns: 3
-  max-items: 6
   image-height: 150px
   fields: [image, title, subtitle, date, categories]
   categories: false
@@ -24,7 +23,6 @@ listing:
   sort: "date desc"
   type: grid
   grid-columns: 3
-  max-items: 6
   image-height: 150px
   fields: [image, title, subtitle, date, categories]
   categories: false
@@ -35,7 +33,6 @@ listing:
   sort: "date desc"
   type: grid
   grid-columns: 3
-  max-items: 6
   image-height: 150px
   fields: [image, title, subtitle, date, categories]
   categories: false
