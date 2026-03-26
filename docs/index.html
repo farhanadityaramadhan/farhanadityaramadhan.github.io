@@ -639,27 +639,28 @@ function forceCarousel(id) {
 
   var availWidth = wrapper.parentElement.offsetWidth || wrapper.offsetWidth;
   var gap = 24;
+  var minCardWidth = 340;
 
+  // start at 3, drop down until cards actually fit
   var cols = 3;
   while (cols > 1) {
-    var testWidth = cols * 340 + (cols - 1) * gap;
+    var testWidth = cols * minCardWidth + (cols - 1) * gap;
     if (testWidth <= availWidth) break;
     cols--;
   }
 
-  var cardWidth = Math.floor((availWidth - (cols - 1) * gap) / cols);
-  var wrapperWidth = cols * cardWidth + (cols - 1) * gap;
+  var cardWidth = 340;
+  var wrapperWidth = cols * cardWidth + (cols - 1) * gap + 1;
 
   wrapper.style.overflow = 'hidden';
   wrapper.style.width = wrapperWidth + 'px';
   wrapper.style.maxWidth = wrapperWidth + 'px';
-  wrapper.style.margin = '0 auto';
 
   grid.style.display = 'flex';
   grid.style.flexWrap = 'nowrap';
   grid.style.flexDirection = 'row';
   grid.style.width = 'max-content';
-  grid.style.transition = 'transform 0.4s ease, opacity 0.2s ease';
+  grid.style.transition = 'transform 0.4s ease';
   grid.style.gap = gap + 'px';
 
   var items = wrapper.querySelectorAll('.g-col-1');
@@ -671,7 +672,6 @@ function forceCarousel(id) {
   });
 
   wrapper._visibleCols = cols;
-  wrapper._cardWidth = cardWidth;
 }
 
 function scrollListing(id, dir) {
@@ -680,13 +680,13 @@ function scrollListing(id, dir) {
   var grid = wrapper.querySelector('.list.grid');
   if (!grid) return;
   var gap = 24;
-  var visible = wrapper._visibleCols || 3;
-  var cardWidth = wrapper._cardWidth || 340;
-  var colWidth = cardWidth + (visible > 1 ? gap : 0);
+  var cardWidth = parseInt(wrapper.querySelectorAll('.g-col-1')[0].style.width);
+  var colWidth = cardWidth + gap;
   var cols = wrapper.querySelectorAll('.g-col-1').length;
+  var visible = wrapper._visibleCols || 3;
   var max = Math.max(0, cols - visible);
   positions[id] = Math.min(max, Math.max(0, positions[id] + dir));
-  grid.style.transform = 'translateX(-' + (positions[id] * colWidth) + 'px)';
+  grid.style.transform = 'translateX(-' + (positions[id] * (colWidth - 1)) + 'px)';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
