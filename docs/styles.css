@@ -1,6 +1,29 @@
 /* ============================================================
    GLOBAL
    ============================================================ */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/SourceSansPro-Light_ttf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/SourceSansPro-Regular_ttf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/SourceSansPro-Bold_ttf.woff2") format("woff2");
+}
 
 body {
   font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
