@@ -271,7 +271,7 @@ function scrollListing(id, dir) {
   var gap = 24;
   var visible = wrapper._visibleCols || 3;
   var cardWidth = wrapper._cardWidth || 340;
-  var colWidth = cardWidth + gap;
+  var colWidth = cardWidth + (visible > 1 ? gap : 0);
   var cols = wrapper.querySelectorAll('.g-col-1').length;
   var max = Math.max(0, cols - visible);
   positions[id] = Math.min(max, Math.max(0, positions[id] + dir));
