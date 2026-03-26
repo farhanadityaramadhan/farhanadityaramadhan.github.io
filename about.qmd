@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-About this site
+Economics graduate from Universitas Indonesia specializing in macroeconomics and historical economics, using causal inference and applied econometrics, with Stata, R, and Python
 
 ```{r}
 1 + 1
