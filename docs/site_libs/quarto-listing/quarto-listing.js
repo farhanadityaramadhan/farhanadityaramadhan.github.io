@@ -193,6 +193,7 @@ function updateCategoryUI() {
 }
 
 function filterListingCategories() {
+  if (!window["quarto-listings"]) return;
   const listingIds = Object.keys(window["quarto-listings"]);
   const hasLangFilter = selectedLanguages.size > 0;
   const hasCatFilter = !(
