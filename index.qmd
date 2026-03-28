@@ -38,6 +38,16 @@ listing:
   categories: false
   sort-ui: false
   filter-ui: false
+- id: playground
+  contents: webpages/projects/playground/
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  image-height: 150px
+  fields: [image, title, subtitle, date, categories]
+  categories: false
+  sort-ui: false
+  filter-ui: false
 ---
 
 ```{=html}
@@ -180,6 +190,30 @@ listing:
 
 <a href="webpages/projects/blog.qmd" class="listing-more">More →</a>
 
+---
+
+```{=html}
+<div class="listing-header">
+  <h2>Playground</h2>
+  <div class="listing-arrow-row">
+    <button class="listing-arrow" onclick="scrollListing('playground', -1)">&#8592;</button>
+    <button class="listing-arrow" onclick="scrollListing('playground', 1)">&#8594;</button>
+  </div>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-playground">
+```
+
+:::{#playground}
+:::
+
+```{=html}
+  </div>
+</div>
+```
+
+<a href="webpages/projects/playground.qmd" class="listing-more">More →</a>
+
 ```{=html}
 <div class="resources-section">
   <div class="resources-section-inner">
@@ -220,7 +254,7 @@ listing:
 </div>
 
 <script>
-var positions = { analysis: 0, research: 0, blog: 0 };
+var positions = { analysis: 0, research: 0, blog: 0, playground: 0 };
 
 function forceCarousel(id) {
   var wrapper = document.getElementById('wrapper-' + id);
@@ -288,21 +322,21 @@ function scrollListing(id, dir) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  ['analysis','research','blog'].forEach(forceCarousel);
-  setTimeout(function() { ['analysis','research','blog'].forEach(forceCarousel); }, 300);
-  setTimeout(function() { ['analysis','research','blog'].forEach(forceCarousel); }, 800);
+  ['analysis','research','blog','playground'].forEach(forceCarousel);
+  setTimeout(function() { ['analysis','research','blog','playground'].forEach(forceCarousel); }, 300);
+  setTimeout(function() { ['analysis','research','blog','playground'].forEach(forceCarousel); }, 800);
 });
 
 window.addEventListener('resize', function() {
-  positions = { analysis: 0, research: 0, blog: 0 };
-  ['analysis','research','blog'].forEach(function(id) {
+  positions = { analysis: 0, research: 0, blog: 0, playground: 0 };
+  ['analysis','research','blog','playground'].forEach(function(id) {
     var wrapper = document.getElementById('wrapper-' + id);
     var grid = wrapper ? wrapper.querySelector('.list.grid') : null;
     if (grid) { grid.style.opacity = '0'; grid.style.transform = 'translateX(0)'; }
   });
   setTimeout(function() {
-    ['analysis','research','blog'].forEach(forceCarousel);
-    ['analysis','research','blog'].forEach(function(id) {
+    ['analysis','research','blog','playground'].forEach(forceCarousel);
+    ['analysis','research','blog','playground'].forEach(function(id) {
       var wrapper = document.getElementById('wrapper-' + id);
       var grid = wrapper ? wrapper.querySelector('.list.grid') : null;
       if (grid) grid.style.opacity = '1';

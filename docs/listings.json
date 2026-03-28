@@ -12,6 +12,12 @@
     ]
   },
   {
+    "listing": "/webpages/projects/playground.html",
+    "items": [
+      "/webpages/projects/playground/test2.html"
+    ]
+  },
+  {
     "listing": "/webpages/projects/blog.html",
     "items": [
       "/webpages/projects/blog/blog 1.html"
@@ -34,7 +40,8 @@
       "/webpages/projects/analysis/test3.html",
       "/webpages/projects/analysis/test4.html",
       "/webpages/projects/analysis/test5.html",
-      "/webpages/projects/blog/blog 1.html"
+      "/webpages/projects/blog/blog 1.html",
+      "/webpages/projects/playground/test2.html"
     ]
   },
   {

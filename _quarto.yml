@@ -49,6 +49,7 @@ website:
           - webpages/projects/analysis.qmd
           - webpages/projects/research.qmd
           - webpages/projects/blog.qmd
+          - webpages/projects/playground.qmd
       - text: "Resources"
         menu: 
           - webpages/resources/rstudio.qmd
