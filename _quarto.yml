@@ -5,6 +5,8 @@ project:
     - files/
     - fonts/
     - fontawesome/
+  post-render: 
+    - scripts/fix-listing.bat
 
 website:
   favicon: images/icons/randomfavicon.jpeg

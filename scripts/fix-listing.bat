@@ -1,0 +1,1 @@
+copy /Y src\quarto-listing-multiselect.js docs\site_libs\quarto-listing\quarto-listing.js
