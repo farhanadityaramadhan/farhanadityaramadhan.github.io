@@ -1,6 +1,6 @@
 ---
 title: "Playground"
-subtitle: "Applied econometrics and policy analysis"
+subtitle: "Replications, experiments, and coding explorations"
 page-layout: full
 toc: false
 listing: 

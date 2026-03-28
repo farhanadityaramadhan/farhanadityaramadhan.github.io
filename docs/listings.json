@@ -12,6 +12,16 @@
     ]
   },
   {
+    "listing": "/webpages/resources/resources.html",
+    "items": [
+      "/webpages/resources/rstudio/rstudiotest.html",
+      "/webpages/resources/stata/statatest.html",
+      "/webpages/resources/macro/macrotest.html",
+      "/webpages/resources/econometrics/econometricstest.html",
+      "/webpages/resources/causalinference/causaltest.html"
+    ]
+  },
+  {
     "listing": "/webpages/projects/playground.html",
     "items": [
       "/webpages/projects/playground/test2.html"
@@ -42,6 +52,18 @@
       "/webpages/projects/analysis/test5.html",
       "/webpages/projects/blog/blog 1.html",
       "/webpages/projects/playground/test2.html"
+    ]
+  },
+  {
+    "listing": "/webpages/projects/projects.html",
+    "items": [
+      "/webpages/projects/analysis/test.html",
+      "/webpages/projects/playground/test2.html",
+      "/webpages/projects/analysis/test3.html",
+      "/webpages/projects/analysis/test4.html",
+      "/webpages/projects/analysis/test5.html",
+      "/webpages/projects/research/test2.html",
+      "/webpages/projects/blog/blog 1.html"
     ]
   },
   {

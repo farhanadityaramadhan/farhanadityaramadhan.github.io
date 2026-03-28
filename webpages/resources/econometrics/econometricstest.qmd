@@ -3,7 +3,7 @@ title: "Econometrics basic"
 subtitle: "testeconometrics"
 date: 2026-03-24
 image: /images/analysis/test1.webp
-categories: [Econometrics, book]
+categories: [Econometrics, book, lang:English]
 description: "Estimating Indonesia's export elasticity..."
 ---
 ## Background

@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../images/icons/randomfavicon.jpeg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -69,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-all-resources .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-subtitle','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-all-resources'] = new List('listing-all-resources', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
 
 
@@ -245,6 +276,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -351,23 +411,23 @@ document.addEventListener("DOMContentLoaded", function () {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Ym9vaw==">book <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Q2F1c2FsaXR5">Causality <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWNvbm9tZXRyaWNz">Econometrics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGFuZyUzQUVuZ2xpc2g=">lang:English <span class="quarto-category-count">(5)</span></div><div class="category" data-category="TWFjcm8=">Macro <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGE=">Stata <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Resources</h1>
+<p class="subtitle lead">All curated resources across R, Stata, macroeconomics, econometrics, and causal inference</p>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -378,6 +438,184 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </header>
 
+
+<div id="listing-all-resources" class="quarto-listing quarto-listing-container-grid">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-all-resources-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-all-resources'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="UiUyQ2Jvb2slMkNsYW5nJTNBRW5nbGlzaA==" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774705290193" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="../../webpages/resources/rstudio/rstudiotest.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 280px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+R basic
+</h5>
+<div class="card-subtitle listing-subtitle">
+
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ym9vaw=='); return false;">book</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
+
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 24, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774705301215" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="../../webpages/resources/stata/statatest.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 280px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Stata basic
+</h5>
+<div class="card-subtitle listing-subtitle">
+
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGE='); return false;">Stata</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ym9vaw=='); return false;">book</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
+
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 24, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="TWFjcm8lMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774705283067" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="../../webpages/resources/macro/macrotest.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 280px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Macro basic
+</h5>
+<div class="card-subtitle listing-subtitle">
+
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjcm8='); return false;">Macro</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ym9vaw=='); return false;">book</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
+
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 24, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="RWNvbm9tZXRyaWNzJTJDYm9vayUyQ2xhbmclM0FFbmdsaXNo" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774705276486" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
+<a href="../../webpages/resources/econometrics/econometricstest.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 280px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Econometrics basic
+</h5>
+<div class="card-subtitle listing-subtitle">
+testeconometrics
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RWNvbm9tZXRyaWNz'); return false;">Econometrics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ym9vaw=='); return false;">book</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
+
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 24, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="Q2F1c2FsaXR5JTJDYm9vayUyQ2xhbmclM0FFbmdsaXNo" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1774705269346" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="../../webpages/resources/causalinference/causaltest.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 280px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Causal Inference basic
+</h5>
+<div class="card-subtitle listing-subtitle">
+
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q2F1c2FsaXR5'); return false;">Causality</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ym9vaw=='); return false;">book</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
+
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 24, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 
 
 

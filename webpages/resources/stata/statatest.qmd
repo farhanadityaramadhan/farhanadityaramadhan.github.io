@@ -3,6 +3,6 @@ title: "Stata basic"
 subtitle: ""
 date: 2026-03-24
 image: /images/analysis/test1.webp
-categories: [Stata, book]
+categories: [Stata, book, lang:English]
 description: "Estimating Indonesia's export elasticity..."
 ---
