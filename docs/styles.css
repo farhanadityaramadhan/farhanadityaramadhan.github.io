@@ -362,7 +362,19 @@ a:hover { text-decoration: underline; color: var(--color-accent-dark); }
    PROJECT LISTING PAGES (analysis.qmd, research.qmd, blog.qmd)
    ============================================================ */
 
+.margin-sidebar {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.quarto-listing-category.category-default {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 .quarto-listing-category {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
   position: static !important;
@@ -1171,3 +1183,53 @@ body.page-article #title-block-header {
     padding: 0 1rem;
   }
 }
+
+
+
+/* ============================================================
+   LANGUAGE CATEGORY — sidebar + cards
+   ============================================================ */
+
+/* Hide Quarto's built-in Categories h5 — we render our own inside the sidebar */
+.margin-sidebar h5.quarto-listing-category-title {
+  display: none !important;
+}
+
+/* Style lang: pills on cards differently — separate line, different look */
+.listing-categories .listing-category[data-value^="lang:"] {
+  display: block;
+  margin-top: 0.4rem;
+  background: var(--color-bg-muted);
+  color: var(--color-text-subtle);
+  border-color: var(--color-border-mid);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.quarto-listing-category-language-title {
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--color-text-faint);
+  margin-top: 0.5rem;  /* was 1rem */
+  margin-bottom: 0.25rem;  /* was 0.5rem */
+}
+
+.listing-lang-wrapper {
+  margin-top: 0.35rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.listing-lang-wrapper .listing-category {
+  font-size: 0.72rem;
+  background: transparent;
+  color: var(--color-text-subtle);
+  border: none;
+  padding: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+

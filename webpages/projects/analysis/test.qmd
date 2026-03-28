@@ -2,7 +2,7 @@
 title: "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability"
 subtitle: "Mockup article 2"
 date: 2026-03-26
-categories: [Historical Economics, Political Economy, Causal Inference, Public Finance]
+categories: [Historical Economics, Political Economy, Causal Inference, Public Finance, lang:Indonesian]
 image: /images/analysis/test1.webp
 description: "Using historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries."
 ---

@@ -97,6 +97,155 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  function rebuildSidebar() {
+
+    var sidebar = document.querySelector(".quarto-listing-category");
+
+    if (!sidebar) return;
+
+
+
+    var allCats = sidebar.querySelectorAll(".category");
+
+    var catTitle = sidebar.querySelector(".quarto-listing-category-title");
+
+    var langCats = [];
+
+    var regularCats = [];
+
+
+
+    allCats.forEach(function (el) {
+
+      var raw = decodeURIComponent(atob(el.getAttribute("data-category")));
+
+      if (raw.startsWith("lang:")) {
+
+        el.textContent = raw.replace("lang:", "");
+
+        langCats.push(el);
+
+      } else {
+
+        regularCats.push(el);
+
+      }
+
+    });
+
+
+
+    if (langCats.length === 0) return;
+
+
+
+    sidebar.innerHTML = "";
+
+
+
+    var langTitle = document.createElement("div");
+
+    langTitle.className = "quarto-listing-category-language-title";
+
+    langTitle.textContent = "Language";
+
+    sidebar.appendChild(langTitle);
+
+    langCats.forEach(function (el) { sidebar.appendChild(el); });
+
+
+
+    var catLabel = document.createElement("div");
+
+    catLabel.className = "quarto-listing-category-language-title";
+
+    catLabel.textContent = "Categories";
+
+    sidebar.appendChild(catLabel);
+
+    regularCats.forEach(function (el) { sidebar.appendChild(el); });
+
+  }
+
+
+
+  setTimeout(rebuildSidebar, 100);
+
+  setTimeout(rebuildSidebar, 500);
+
+});
+
+</script>
+
+
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Fix lang: pills on cards
+
+  function fixLangPills() {
+
+    document.querySelectorAll(".listing-category").forEach(function (el) {
+
+      var text = el.textContent.trim();
+
+      if (text.toUpperCase().startsWith("LANG:")) {
+
+        el.textContent = text.replace(/^lang:/i, "");
+
+        el.setAttribute("data-value", el.getAttribute("data-value") || text.toLowerCase());
+
+        // Move to its own line
+
+        var parent = el.parentElement;
+
+        var wrapper = document.createElement("div");
+
+        wrapper.className = "listing-lang-wrapper";
+
+        parent.parentElement.insertBefore(wrapper, parent.nextSibling);
+
+        wrapper.appendChild(el);
+
+      }
+
+    });
+
+  }
+
+  setTimeout(fixLangPills, 200);
+
+  setTimeout(fixLangPills, 600);
+
+});
+
+</script>
+
+
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll("input.search.form-control").forEach(function (el) {
+
+    el.placeholder = "Search...";
+
+  });
+
+});
+
+</script>
 
 
 <link rel="stylesheet" href="../../../styles.css">
@@ -219,6 +368,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-categories">
     <div class="quarto-category">Stata</div>
     <div class="quarto-category">book</div>
+    <div class="quarto-category">lang:English</div>
   </div>
   </div>
 
