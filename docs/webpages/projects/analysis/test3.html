@@ -248,6 +248,24 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  var brand = document.querySelector("a.navbar-brand");
+
+  if (brand && !brand.getAttribute("aria-label")) {
+
+    brand.setAttribute("aria-label", "Farhan Aditya Ramadhan - Home");
+
+  }
+
+});
+
+</script>
+
+
 <link rel="stylesheet" href="../../../styles.css">
 </head>
 
@@ -331,17 +349,17 @@ document.addEventListener("DOMContentLoaded", function () {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house-door-fill" role="img">
+    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house-door-fill" role="img" aria-label="Home">
 </i> 
 <span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://www.linkedin.com/in/adinramaadin/"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adinramaadin/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
 </i> 
 <span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/farhanadityaramadhan"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/farhanadityaramadhan"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"> </span></a>
   </li>  
@@ -853,7 +871,7 @@ Contact
 <i class="bi bi-geo-alt-fill"></i> Grogol, DKI Jakarta
 </div>
 <div style="display:flex;flex-direction:row;margin-top:0.85rem;">
-<p><a class="qf-social-btn" href="https://www.linkedin.com/in/adinramaadin/" target="_blank"><i class="bi bi-linkedin"></i></a> <a class="qf-social-btn" href="https://github.com/farhanadityaramadhan" target="_blank"><i class="bi bi-github"></i></a> <a class="qf-social-btn" href="mailto:adin.ramaadin@gmail.com"><i class="bi bi-envelope-fill"></i></a></p>
+<p><a class="qf-social-btn" href="https://www.linkedin.com/in/adinramaadin/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a> <a class="qf-social-btn" href="https://github.com/farhanadityaramadhan" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a> <a class="qf-social-btn" href="mailto:adin.ramaadin@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a></p>
 </div>
 </div>
   </div>

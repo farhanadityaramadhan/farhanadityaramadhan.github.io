@@ -86,3 +86,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var brand = document.querySelector("a.navbar-brand");
+  if (brand && !brand.getAttribute("aria-label")) {
+    brand.setAttribute("aria-label", "Farhan Aditya Ramadhan - Home");
+  }
+});
+</script>

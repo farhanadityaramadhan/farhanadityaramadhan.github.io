@@ -34,9 +34,9 @@ website:
       <div class="qf-contact"><i class="bi bi-envelope-fill"></i> adin.ramaadin@gmail.com</div>
       <div class="qf-contact"><i class="bi bi-geo-alt-fill"></i> Grogol, DKI Jakarta</div>
       <div style="display:flex;flex-direction:row;margin-top:0.85rem;">
-        <a class="qf-social-btn" href="https://www.linkedin.com/in/adinramaadin/" target="_blank"><i class="bi bi-linkedin"></i></a>
-        <a class="qf-social-btn" href="https://github.com/farhanadityaramadhan" target="_blank"><i class="bi bi-github"></i></a>
-        <a class="qf-social-btn" href="mailto:adin.ramaadin@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+        <a class="qf-social-btn" href="https://www.linkedin.com/in/adinramaadin/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a class="qf-social-btn" href="https://github.com/farhanadityaramadhan" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a class="qf-social-btn" href="mailto:adin.ramaadin@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
       </div>
   navbar:
     background: primary
@@ -64,12 +64,15 @@ website:
       - href: index.qmd
         text: " "
         icon: house-door-fill
+        aria-label: "Home"
       - href: "https://www.linkedin.com/in/adinramaadin/"
         text: " "
         icon: linkedin
+        aria-label: "LinkedIn"
       - href: "https://github.com/farhanadityaramadhan"
         text: " "
         icon: github
+        aria-label: "GitHub"
   # sidebar: 
   #   - id: resources
   #     title: "Resources"
