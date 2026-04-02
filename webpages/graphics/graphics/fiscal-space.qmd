@@ -1,0 +1,12 @@
+---
+title: "Fiscal Space Explorer"
+subtitle: "Government revenue, spending, and deficit across Indonesian provinces"
+date: 2025-05-01
+categories: [Public Finance, Interactive, lang:Indonesian]
+description: "An interactive comparison of provincial fiscal capacity — own-source revenue, transfer dependence, and fiscal deficit — using DJPK data."
+format:
+  html:
+    toc: false
+---
+
+Placeholder — replace with your Shiny or Observable embed.

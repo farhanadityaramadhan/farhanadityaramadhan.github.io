@@ -1,0 +1,96 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - files/
+    - fonts/
+    - fontawesome/
+    - images/
+  post-render:
+    # NOTE: .bat is Windows-only. Replace with a shell script if rendering on
+    # macOS/Linux or GitHub Actions.
+    - tools/fix-listing.bat
+
+website:
+  favicon: images/icons/randomfavicon.jpeg  # TODO: replace with final favicon
+  title: "Farhan (Adin) Aditya Ramadhan"
+  description: "Economics graduate from Universitas Indonesia specializing in macroeconomics and historical economics, using causal inference and applied econometrics, with Stata, R, and Python"
+
+  page-footer:
+    left: |
+      <div class="qf-bio">
+        <div class="qf-name">Farhan Aditya Ramadhan</div>
+        <div class="qf-sub">Economics · Policy · Data</div>
+        <div class="qf-text">Economics graduate from Universitas Indonesia. Research interests in historical economics, macroeconomics, political economy, and applied econometrics. Currently residing in Jakarta.</div>
+      </div>
+      <div class="qf-license">
+        &copy; 2026 Farhan Aditya Ramadhan &middot;
+        Code: <a href="https://github.com/farhanadityaramadhan/farhanadityaramadhan.github.io/blob/main/LICENSE" target="_blank">MIT</a> &middot;
+        Content: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+      </div>
+    center: |
+      <div class="qf-links-title">Quick Links</div>
+      <ul class="qf-links">
+        <li><a href="/index.html">Overview</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/webpages/projects/analysis.html">Analysis</a></li>
+        <li><a href="/webpages/projects/research.html">Research</a></li>
+        <li><a href="/webpages/projects/blog.html">Blog</a></li>
+        <li><a href="/webpages/resources/resources.html">Resources</a></li>
+      </ul>
+    right: |
+      <div class="qf-links-title">Contact</div>
+      <div class="qf-contact"><i class="bi bi-envelope-fill"></i> adin.ramaadin@gmail.com</div>
+      <div class="qf-contact"><i class="bi bi-geo-alt-fill"></i> Grogol, DKI Jakarta</div>
+      <div class="qf-socials">
+        <a class="qf-social-btn" href="https://www.linkedin.com/in/adinramaadin/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a class="qf-social-btn" href="https://github.com/farhanadityaramadhan" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a class="qf-social-btn" href="mailto:adin.ramaadin@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+      </div>
+
+  navbar:
+    background: primary
+    title: "Farhan (Adin) Aditya R."
+    search: true
+    left:
+      - href: index.qmd
+        text: "Overview"
+      - about.qmd
+      - text: "Projects"
+        menu:
+          - webpages/projects/analysis.qmd
+          - webpages/projects/research.qmd
+          - webpages/projects/blog.qmd
+          - webpages/projects/playground.qmd
+      - text: "Resources"
+        menu:
+          - webpages/resources/rstudio.qmd
+          - webpages/resources/stata.qmd
+          - webpages/resources/python.qmd
+          - webpages/resources/macro.qmd
+          - webpages/resources/econometrics.qmd
+          - webpages/resources/causalinference.qmd
+      - href: webpages/graphics/graphics.qmd
+        text: "Graphics"
+    right:
+      - href: index.qmd
+        text: " "
+        icon: house-door-fill
+        aria-label: "Home"
+      - href: "https://www.linkedin.com/in/adinramaadin/"
+        text: " "
+        icon: linkedin
+        aria-label: "LinkedIn"
+      - href: "https://github.com/farhanadityaramadhan"
+        text: " "
+        icon: github
+        aria-label: "GitHub"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+    include-in-header: head.html

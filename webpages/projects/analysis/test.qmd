@@ -1,0 +1,81 @@
+---
+title: "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability"
+subtitle: "Mockup article 2"
+date: 2026-03-26
+categories: [Historical Economics, Political Economy, Causal Inference, Public Finance, lang:Indonesian]
+image: /images/analysis/test1.webp
+description: "Using historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries."
+---
+
+## Introduction
+
+In 1960, only 30 percent of countries were democratic. By 2000, as the "Third Wave" of democratization matured, that share had doubled to 60 percent. However, that momentum did not last. By 2024, the world had experienced democratic decline for nineteen consecutive years. More countries had stepped back from democracy than moved toward it, either through the collapse of democratic regimes or the weakening of existing ones.
+
+One influential explanation focuses on what revenue sources countries rely on. The *fiscal contract theory* argues that whether countries raise revenue through taxes on citizens and businesses (earned revenue) or through relatively captive non-tax sources such as natural resource rents and foreign aid (unearned revenue) shapes both the level and quality of democracy. When governments rely on taxation, citizens demand accountability in return — deepening democratic practices. When governments rely on unearned revenue, they can bypass this bargaining, weakening state-citizen links and fostering patronage and repression.
+
+Compelling as this explanation is, the empirical evidence remains mixed. Some studies find that increased tax reliance enhances democracy, others find minimal effect, and some suggest it may even reinforce authoritarian control. This paper therefore asks: does greater tax reliance *actually cause* higher levels of democracy?
+
+## The Identification Challenge
+
+Testing this causal relationship is difficult for two reasons.
+
+First, reverse causality. Countries with more democratic governments may find it easier to raise taxes because citizens are more willing to contribute when they trust that revenues will be used responsibly. As compliance rises, governments gain more revenue to strengthen institutions and deepen accountability — reinforcing a virtuous cycle between taxation and democracy.
+
+Second, omitted variables. Both democracy and tax reliance may reflect deeper historical factors — long-standing social contracts about authority, legitimacy, and the role of the state — that have evolved over centuries and are difficult to observe or measure.
+
+## Identification Strategy
+
+This paper exploits historical differences in **crop appropriability** as a source of exogenous variation in tax reliance. Building on Mayshar et al. (2022), I argue that the types of crops cultivated in historical societies created long-lasting differences in taxation systems and state-society bargaining that shaped modern patterns of tax reliance and democracy.
+
+The key distinction is between two crop types:
+
+- **Appropriable crops** (cereals: wheat, rice, barley) — harvested seasonally, easily stored, durable, and energy dense, making them easy to monitor, confiscate, and tax.
+- **Less-appropriable crops** (roots and tubers: cassava, yams, potatoes) — bulky, perennial, and perishable once harvested, making them difficult to appropriate.
+
+Potential yields for these crops depend on soil quality, climate, and topography — factors fixed by geography and predetermined relative to any modern political or economic system. This geographic variation provides a plausibly exogenous instrument for contemporary tax reliance.
+
+## Data and Measurement
+
+The instrument is constructed from the FAO's Global Agro-Ecological Zones (GAEZ) database, which reports potential caloric yields for major crops under uniform agronomic conditions reflecting pre-industrial agriculture. I calculate the caloric yield differential between cereals and roots/tubers for the post-1550 period, when the Columbian Exchange had distributed crops globally, following Mayshar et al. (2022).
+
+Tax reliance is measured as the share of tax revenue in total government revenue, following Prichard et al. (2018). Democracy is measured across five dimensions from V-Dem: electoral, liberal, participatory, deliberative, and egalitarian democracy.
+
+## Results
+
+| Specification | OLS | 2SLS |
+|---|---|---|
+| Electoral Democracy | 0.31*** | 0.58** |
+| Liberal Democracy | 0.28*** | 0.51** |
+| Participatory Democracy | 0.24*** | 0.49** |
+| Deliberative Democracy | 0.30*** | 0.55** |
+| Egalitarian Democracy | 0.22*** | 0.44** |
+
+: Effect of Tax Reliance on Democracy (standardized coefficients) {#tbl-results}
+
+The first-stage F-statistic of 66.58 substantially exceeds the Stock-Yogo critical value of 16.38, confirming the instrument is not subject to weak instrument bias. The partial R² of 0.33 indicates that crop appropriability explains a substantial share of cross-country variation in contemporary tax reliance.
+
+The 2SLS estimates are consistently larger than OLS, suggesting that OLS is downward biased — likely because countries that are already less democratic tend to be pushed toward tax reliance by reformers, attenuating the OLS estimate.
+
+## Discussion
+
+The results support the fiscal contract theory: tax reliance has a positive causal effect on democracy. A one standard deviation increase in tax reliance raises electoral democracy by approximately 0.58 standard deviations in the 2SLS specification.
+
+The instrument's validity rests on the exclusion restriction that crop appropriability affects contemporary democracy only through tax reliance. The primary concern is that cereal suitability may correlate with income, urbanization, or education that independently promote democracy. I address this by controlling for all three in every specification. The estimates remain stable across robustness checks including controls for colonial history, ethnic fractionalization, and alternative geographic factors.
+
+## Conclusion
+
+This paper provides causal evidence that greater tax reliance strengthens democracy. Using geographic suitability for appropriable crops as an instrument — a source of variation that predates modern political and economic systems by millennia — I show that the positive cross-country correlation between tax reliance and democracy reflects a genuine causal relationship.
+
+The findings have direct implications for development policy. Efforts to shift government revenue toward citizen taxation, rather than reliance on resource rents or foreign aid, may strengthen democratic accountability over the long run. The historical roots of this relationship suggest, however, that such transitions are slow and path-dependent — shaped by social contracts and institutional legacies that accumulate over generations.
+
+## References
+
+Mayshar, J., Moav, O., & Neeman, Z. (2022). Geography, transparency, and institutions. *American Political Science Review*, 116(2), 591–606.
+
+Prichard, W., Salardi, P., & Segal, P. (2018). Taxation, non-tax revenue and democracy. *World Development*, 109, 295–312.
+
+Acemoglu, D., Naidu, S., Restrepo, P., & Robinson, J. A. (2019). Democracy does cause growth. *Journal of Political Economy*, 127(1), 47–100.
+
+Tilly, C. (1992). *Coercion, capital, and European states, AD 990–1992*. Blackwell.
+
+V-Dem Institute. (2025). *V-Dem dataset v15*. University of Gothenburg.

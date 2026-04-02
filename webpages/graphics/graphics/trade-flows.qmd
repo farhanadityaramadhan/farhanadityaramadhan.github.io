@@ -1,0 +1,12 @@
+---
+title: "Indonesia Trade Flow Map"
+subtitle: "Export and import flows by commodity and partner country"
+date: 2025-02-01
+categories: [Trade, Interactive, lang:English]
+description: "An interactive map and chord diagram of Indonesian trade flows by major commodity groups and trading partners using BPS trade statistics."
+format:
+  html:
+    toc: false
+---
+
+Placeholder — replace with your Shiny or Observable embed.

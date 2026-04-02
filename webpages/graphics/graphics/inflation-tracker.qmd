@@ -1,0 +1,12 @@
+---
+title: "Indonesian Inflation Tracker"
+subtitle: "Monthly CPI and component breakdown, 2015–2024"
+date: 2025-03-01
+categories: [Macroeconomics, Interactive, lang:English]
+description: "An interactive tracker of Indonesian consumer price inflation by component — food, energy, core — using BPS CPI data from 2015 to 2024."
+format:
+  html:
+    toc: false
+---
+
+Placeholder — replace with your Shiny or Observable embed.

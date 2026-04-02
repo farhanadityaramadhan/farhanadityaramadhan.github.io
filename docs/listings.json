@@ -1,0 +1,118 @@
+[
+  {
+    "listing": "/webpages/resources/stata.html",
+    "items": [
+      "/webpages/resources/stata/statatest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/rstudio.html",
+    "items": [
+      "/webpages/resources/rstudio/rstudiotest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/resources.html",
+    "items": [
+      "/webpages/resources/rstudio/rstudiotest.html",
+      "/webpages/resources/stata/statatest.html",
+      "/webpages/resources/macro/macrotest.html",
+      "/webpages/resources/econometrics/econometricstest.html",
+      "/webpages/resources/causalinference/causaltest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/projects/playground.html",
+    "items": [
+      "/webpages/projects/playground/test2.html"
+    ]
+  },
+  {
+    "listing": "/webpages/projects/blog.html",
+    "items": [
+      "/webpages/projects/blog/blog 1.html"
+    ]
+  },
+  {
+    "listing": "/webpages/projects/analysis.html",
+    "items": [
+      "/webpages/projects/analysis/test.html",
+      "/webpages/projects/analysis/test3.html",
+      "/webpages/projects/analysis/test4.html",
+      "/webpages/projects/analysis/test5.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/webpages/projects/research/test2.html",
+      "/webpages/projects/analysis/test.html",
+      "/webpages/projects/analysis/test3.html",
+      "/webpages/projects/analysis/test4.html",
+      "/webpages/projects/analysis/test5.html",
+      "/webpages/projects/blog/blog 1.html",
+      "/webpages/projects/playground/test2.html",
+      "/webpages/graphics/graphics/education-outcomes.html",
+      "/webpages/graphics/graphics/democracy-fiscal.html",
+      "/webpages/graphics/graphics/poverty-map.html",
+      "/webpages/graphics/graphics/fiscal-space.html",
+      "/webpages/graphics/graphics/labor-market-dashboard.html",
+      "/webpages/graphics/graphics/inflation-tracker.html",
+      "/webpages/graphics/graphics/trade-flows.html"
+    ]
+  },
+  {
+    "listing": "/webpages/graphics/graphics.html",
+    "items": [
+      "/webpages/graphics/graphics/education-outcomes.html",
+      "/webpages/graphics/graphics/democracy-fiscal.html",
+      "/webpages/graphics/graphics/poverty-map.html",
+      "/webpages/graphics/graphics/fiscal-space.html",
+      "/webpages/graphics/graphics/labor-market-dashboard.html",
+      "/webpages/graphics/graphics/inflation-tracker.html",
+      "/webpages/graphics/graphics/trade-flows.html"
+    ]
+  },
+  {
+    "listing": "/webpages/projects/projects.html",
+    "items": [
+      "/webpages/projects/analysis/test.html",
+      "/webpages/projects/playground/test2.html",
+      "/webpages/projects/analysis/test3.html",
+      "/webpages/projects/analysis/test4.html",
+      "/webpages/projects/analysis/test5.html",
+      "/webpages/projects/research/test2.html",
+      "/webpages/projects/blog/blog 1.html"
+    ]
+  },
+  {
+    "listing": "/webpages/projects/research.html",
+    "items": [
+      "/webpages/projects/research/test2.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/causalinference.html",
+    "items": [
+      "/webpages/resources/causalinference/causaltest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/econometrics.html",
+    "items": [
+      "/webpages/resources/econometrics/econometricstest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/macro.html",
+    "items": [
+      "/webpages/resources/macro/macrotest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/python.html",
+    "items": [
+      "/webpages/resources/python/pythonarticle.html"
+    ]
+  }
+]

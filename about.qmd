@@ -1,0 +1,7 @@
+---
+title: "About"
+---
+
+This site has three main areas. Projects is where I put my empirical work — data analysis, research writing, blog posts, and experiments. Resources is a collection of books, tutorials, and notes on the tools and methods I use most: R, Stata, econometrics, macroeconomics, and causal inference. Think of it as a curated reading list and reference shelf.
+
+I built this site with Quarto and host it on GitHub Pages. Most of the analysis here is done in Stata, R, or Python. Where possible I try to make the code available alongside the work.

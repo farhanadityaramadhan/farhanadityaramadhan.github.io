@@ -1,0 +1,331 @@
+[
+  {
+    "objectID": "webpages/resources/stata.html",
+    "href": "webpages/resources/stata.html",
+    "title": "STATA",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nStata basic\n\n\n\n\n\n\nStata\n\nbook\n\nlang:English\n\n\n\nEstimating Indonesia’s export elasticity…\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/resources/rstudio.html",
+    "href": "webpages/resources/rstudio.html",
+    "title": "R & Rstudio",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nR basic\n\n\n\n\n\n\nR\n\nbook\n\nlang:English\n\n\n\nEstimating Indonesia’s export elasticity…\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/resources/resources.html",
+    "href": "webpages/resources/resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nR basic\n\n\n\n\n\n\nR\n\nbook\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nStata basic\n\n\n\n\n\n\nStata\n\nbook\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nMacro basic\n\n\n\n\n\n\nMacro\n\nbook\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nEconometrics basic\n\n\ntesteconometrics\n\n\n\nEconometrics\n\nbook\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCausal Inference basic\n\n\n\n\n\n\nCausality\n\nbook\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/resources/python/pythonarticle.html",
+    "href": "webpages/resources/python/pythonarticle.html",
+    "title": "Python basic",
+    "section": "",
+    "text": "saddsa"
+  },
+  {
+    "objectID": "webpages/resources/econometrics/econometricstest.html",
+    "href": "webpages/resources/econometrics/econometricstest.html",
+    "title": "Econometrics basic",
+    "section": "",
+    "text": "Understanding how exports respond to exchange rate movements is central to evaluating expenditure-switching policies and the"
+  },
+  {
+    "objectID": "webpages/resources/econometrics/econometricstest.html#background",
+    "href": "webpages/resources/econometrics/econometricstest.html#background",
+    "title": "Econometrics basic",
+    "section": "",
+    "text": "Understanding how exports respond to exchange rate movements is central to evaluating expenditure-switching policies and the"
+  },
+  {
+    "objectID": "webpages/resources/causalinference/causaltest.html",
+    "href": "webpages/resources/causalinference/causaltest.html",
+    "title": "Causal Inference basic",
+    "section": "",
+    "text": "saddsa"
+  },
+  {
+    "objectID": "webpages/projects/research/test2.html",
+    "href": "webpages/projects/research/test2.html",
+    "title": "This is a Mock-Up Article",
+    "section": "",
+    "text": "Understanding how exports respond to exchange rate movements is central to evaluating expenditure-switching policies and the effectiveness of currency depreciation as a trade tool. For Indonesia, a commodity-dependent open economy, this question carries particular weight: the rupiah has experienced several sharp depreciations since the 1997 Asian financial crisis, yet the export response has been uneven across sectors and time.\nThis analysis estimates Indonesia’s aggregate export elasticity using an Autoregressive Distributed Lag (ARDL) bounds testing framework, augmented with Fourier terms to capture smooth structural breaks without imposing a known break date. The approach follows Enders and Jones (2016) and is estimated over quarterly data from 1990Q1 to 2023Q4."
+  },
+  {
+    "objectID": "webpages/projects/research/test2.html#background",
+    "href": "webpages/projects/research/test2.html#background",
+    "title": "This is a Mock-Up Article",
+    "section": "",
+    "text": "Understanding how exports respond to exchange rate movements is central to evaluating expenditure-switching policies and the effectiveness of currency depreciation as a trade tool. For Indonesia, a commodity-dependent open economy, this question carries particular weight: the rupiah has experienced several sharp depreciations since the 1997 Asian financial crisis, yet the export response has been uneven across sectors and time.\nThis analysis estimates Indonesia’s aggregate export elasticity using an Autoregressive Distributed Lag (ARDL) bounds testing framework, augmented with Fourier terms to capture smooth structural breaks without imposing a known break date. The approach follows Enders and Jones (2016) and is estimated over quarterly data from 1990Q1 to 2023Q4."
+  },
+  {
+    "objectID": "webpages/projects/research/test2.html#data-and-variables",
+    "href": "webpages/projects/research/test2.html#data-and-variables",
+    "title": "This is a Mock-Up Article",
+    "section": "Data and Variables",
+    "text": "Data and Variables\nThe model uses four core variables. Real exports are measured in constant 2015 USD from the World Bank national accounts data. The real effective exchange rate (REER) is sourced from the BIS, indexed to 2020. Foreign income is proxied by a trade-weighted average of GDP growth among Indonesia’s top ten export destinations. Domestic supply capacity is controlled for using gross fixed capital formation as a share of GDP.\nAll variables are log-transformed. Unit root properties are confirmed using ADF and KPSS tests, with mixed orders of integration — I(0) and I(1) — making the ARDL framework appropriate over the Johansen cointegration approach."
+  },
+  {
+    "objectID": "webpages/projects/research/test2.html#estimation-results",
+    "href": "webpages/projects/research/test2.html#estimation-results",
+    "title": "This is a Mock-Up Article",
+    "section": "Estimation Results",
+    "text": "Estimation Results\nThe bounds test rejects the null of no long-run relationship at the 1% significance level (F-statistic = 6.84, upper bound critical value = 5.06 at 1%). The long-run coefficients are reported below.\n\n\n\nTable 1: Long-run ARDL coefficients\n\n\n\n\n\nVariable\nCoefficient\nStd. Error\nt-statistic\np-value\n\n\n\n\nln(REER)\n−0.842\n0.134\n−6.28\n0.000\n\n\nln(Foreign Income)\n1.203\n0.211\n5.70\n0.000\n\n\nln(GFCF/GDP)\n0.461\n0.188\n2.45\n0.016\n\n\nFourier sin(1)\n−0.073\n0.029\n−2.51\n0.013\n\n\nFourier cos(1)\n0.041\n0.027\n1.52\n0.131\n\n\n\n\n\n\nThe long-run exchange rate elasticity of −0.842 implies that a 10% real depreciation of the rupiah is associated with an 8.4% increase in real exports in the long run, consistent with the Marshall-Lerner condition being satisfied. Foreign income elasticity exceeds unity, suggesting exports are income-elastic with respect to trading partners — a result that underlines Indonesia’s sensitivity to demand conditions in China, the United States, and Japan."
+  },
+  {
+    "objectID": "webpages/projects/research/test2.html#short-run-dynamics",
+    "href": "webpages/projects/research/test2.html#short-run-dynamics",
+    "title": "This is a Mock-Up Article",
+    "section": "Short-run Dynamics",
+    "text": "Short-run Dynamics\nThe error correction term (ECT) is estimated at −0.213, significant at the 1% level, implying that roughly 21% of any deviation from the long-run equilibrium is corrected each quarter. The half-life of a shock is approximately 3.3 quarters.\nShort-run exchange rate effects are smaller and less precisely estimated. The contemporaneous coefficient on ΔREER is −0.31 (p = 0.04), rising to −0.58 when accumulated over four quarters. This J-curve pattern — where the trade balance initially worsens before improving following a depreciation — is consistent with prior findings for Indonesian trade (Bahmani-Oskooee and Kovyryalova, 2008)."
+  },
+  {
+    "objectID": "webpages/projects/research/test2.html#diagnostic-tests",
+    "href": "webpages/projects/research/test2.html#diagnostic-tests",
+    "title": "This is a Mock-Up Article",
+    "section": "Diagnostic Tests",
+    "text": "Diagnostic Tests\nBreusch-Godfrey LM test (serial correlation): F = 1.24, p = 0.29   ✓\nARCH test (heteroskedasticity):               F = 0.88, p = 0.42   ✓\nRamsey RESET (functional form):               F = 1.61, p = 0.21   ✓\nCUSUM test:                                   Stable at 5% level   ✓\nAll diagnostics pass. The CUSUM and CUSUM-of-squares tests indicate parameter stability across the sample period, with the Fourier terms absorbing the smooth transition associated with the 1997–98 crisis and the 2008 global financial crisis."
+  },
+  {
+    "objectID": "webpages/projects/research/test2.html#discussion",
+    "href": "webpages/projects/research/test2.html#discussion",
+    "title": "This is a Mock-Up Article",
+    "section": "Discussion",
+    "text": "Discussion\nThe results suggest Indonesia’s export sector does respond to real exchange rate movements in a direction consistent with standard trade theory, but the magnitude is moderate rather than large. The long-run elasticity of −0.84 is below what expenditure-switching models would predict for a fully competitive export sector, likely reflecting the commodity composition of Indonesia’s export basket — palm oil, coal, and natural gas are priced in USD and less sensitive to bilateral exchange rate movements than manufactured goods.\nThe high income elasticity (1.20) implies that sustaining export growth depends more on conditions in partner economies than on domestic exchange rate policy. This has direct implications for fiscal and monetary coordination: currency depreciation alone is an insufficient lever for export promotion if global demand is weak."
+  },
+  {
+    "objectID": "webpages/projects/research/test2.html#conclusion",
+    "href": "webpages/projects/research/test2.html#conclusion",
+    "title": "This is a Mock-Up Article",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis analysis confirms a stable long-run cointegrating relationship between Indonesian real exports, the REER, and foreign income. The exchange rate elasticity satisfies the Marshall-Lerner condition but remains below unity, suggesting moderate expenditure-switching effects. Short-run adjustment is slow, with a 21% quarterly error correction rate and evidence of J-curve dynamics. Future work should disaggregate by sector to identify whether commodity versus manufactured exports drive these aggregate results differently."
+  },
+  {
+    "objectID": "webpages/projects/research/test2.html#references",
+    "href": "webpages/projects/research/test2.html#references",
+    "title": "This is a Mock-Up Article",
+    "section": "References",
+    "text": "References\nBahmani-Oskooee, M., & Kovyryalova, M. (2008). Impact of exchange rate uncertainty on trade flows. The World Economy, 31(8), 1097–1128.\nEnders, W., & Jones, P. (2016). Grain prices, oil prices, and multiple smooth breaks in a VAR. Studies in Nonlinear Dynamics & Econometrics, 20(4), 399–419.\nPesaran, M. H., Shin, Y., & Smith, R. J. (2001). Bounds testing approaches to the analysis of level relationships. Journal of Applied Econometrics, 16(3), 289–326."
+  },
+  {
+    "objectID": "webpages/projects/playground.html",
+    "href": "webpages/projects/playground.html",
+    "title": "Playground",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nDoes Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability\n\n\nMockup article 2\n\n\n\nlang:Indonesian\n\n\n\nUsing historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries.\n\n\n\nMar 26, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/projects/blog.html",
+    "href": "webpages/projects/blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nblog 1\n\n\nShort-run vs long-run dynamics\n\n\n\ntest\n\nlang:English\n\n\n\nEstimating export elasticity using ARDL.\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/projects/analysis.html",
+    "href": "webpages/projects/analysis.html",
+    "title": "Analysis",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nDoes Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability\n\n\nMockup article 2\n\n\n\nHistorical Economics\n\nPolitical Economy\n\nCausal Inference\n\nPublic Finance\n\nlang:Indonesian\n\n\n\nUsing historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries.\n\n\n\nMar 26, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest3\n\n\n\n\n\n\nStata\n\nbook\n\nlang:English\n\n\n\nEstimating Indonesia’s export elasticity…\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest4\n\n\n\n\n\n\nStata\n\nbook\n\nlang:Indonesian\n\n\n\nEstimating Indonesia’s export elasticity…\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest5\n\n\n\n\n\n\nStata\n\nbook\n\nlang:English\n\n\n\nEstimating Indonesia’s export elasticity…\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/projects/analysis/test.html",
+    "href": "webpages/projects/analysis/test.html",
+    "title": "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability",
+    "section": "",
+    "text": "In 1960, only 30 percent of countries were democratic. By 2000, as the “Third Wave” of democratization matured, that share had doubled to 60 percent. However, that momentum did not last. By 2024, the world had experienced democratic decline for nineteen consecutive years. More countries had stepped back from democracy than moved toward it, either through the collapse of democratic regimes or the weakening of existing ones.\nOne influential explanation focuses on what revenue sources countries rely on. The fiscal contract theory argues that whether countries raise revenue through taxes on citizens and businesses (earned revenue) or through relatively captive non-tax sources such as natural resource rents and foreign aid (unearned revenue) shapes both the level and quality of democracy. When governments rely on taxation, citizens demand accountability in return — deepening democratic practices. When governments rely on unearned revenue, they can bypass this bargaining, weakening state-citizen links and fostering patronage and repression.\nCompelling as this explanation is, the empirical evidence remains mixed. Some studies find that increased tax reliance enhances democracy, others find minimal effect, and some suggest it may even reinforce authoritarian control. This paper therefore asks: does greater tax reliance actually cause higher levels of democracy?"
+  },
+  {
+    "objectID": "webpages/projects/analysis/test.html#introduction",
+    "href": "webpages/projects/analysis/test.html#introduction",
+    "title": "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability",
+    "section": "",
+    "text": "In 1960, only 30 percent of countries were democratic. By 2000, as the “Third Wave” of democratization matured, that share had doubled to 60 percent. However, that momentum did not last. By 2024, the world had experienced democratic decline for nineteen consecutive years. More countries had stepped back from democracy than moved toward it, either through the collapse of democratic regimes or the weakening of existing ones.\nOne influential explanation focuses on what revenue sources countries rely on. The fiscal contract theory argues that whether countries raise revenue through taxes on citizens and businesses (earned revenue) or through relatively captive non-tax sources such as natural resource rents and foreign aid (unearned revenue) shapes both the level and quality of democracy. When governments rely on taxation, citizens demand accountability in return — deepening democratic practices. When governments rely on unearned revenue, they can bypass this bargaining, weakening state-citizen links and fostering patronage and repression.\nCompelling as this explanation is, the empirical evidence remains mixed. Some studies find that increased tax reliance enhances democracy, others find minimal effect, and some suggest it may even reinforce authoritarian control. This paper therefore asks: does greater tax reliance actually cause higher levels of democracy?"
+  },
+  {
+    "objectID": "webpages/projects/analysis/test.html#the-identification-challenge",
+    "href": "webpages/projects/analysis/test.html#the-identification-challenge",
+    "title": "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability",
+    "section": "The Identification Challenge",
+    "text": "The Identification Challenge\nTesting this causal relationship is difficult for two reasons.\nFirst, reverse causality. Countries with more democratic governments may find it easier to raise taxes because citizens are more willing to contribute when they trust that revenues will be used responsibly. As compliance rises, governments gain more revenue to strengthen institutions and deepen accountability — reinforcing a virtuous cycle between taxation and democracy.\nSecond, omitted variables. Both democracy and tax reliance may reflect deeper historical factors — long-standing social contracts about authority, legitimacy, and the role of the state — that have evolved over centuries and are difficult to observe or measure."
+  },
+  {
+    "objectID": "webpages/projects/analysis/test.html#identification-strategy",
+    "href": "webpages/projects/analysis/test.html#identification-strategy",
+    "title": "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability",
+    "section": "Identification Strategy",
+    "text": "Identification Strategy\nThis paper exploits historical differences in crop appropriability as a source of exogenous variation in tax reliance. Building on Mayshar et al. (2022), I argue that the types of crops cultivated in historical societies created long-lasting differences in taxation systems and state-society bargaining that shaped modern patterns of tax reliance and democracy.\nThe key distinction is between two crop types:\n\nAppropriable crops (cereals: wheat, rice, barley) — harvested seasonally, easily stored, durable, and energy dense, making them easy to monitor, confiscate, and tax.\nLess-appropriable crops (roots and tubers: cassava, yams, potatoes) — bulky, perennial, and perishable once harvested, making them difficult to appropriate.\n\nPotential yields for these crops depend on soil quality, climate, and topography — factors fixed by geography and predetermined relative to any modern political or economic system. This geographic variation provides a plausibly exogenous instrument for contemporary tax reliance."
+  },
+  {
+    "objectID": "webpages/projects/analysis/test.html#data-and-measurement",
+    "href": "webpages/projects/analysis/test.html#data-and-measurement",
+    "title": "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability",
+    "section": "Data and Measurement",
+    "text": "Data and Measurement\nThe instrument is constructed from the FAO’s Global Agro-Ecological Zones (GAEZ) database, which reports potential caloric yields for major crops under uniform agronomic conditions reflecting pre-industrial agriculture. I calculate the caloric yield differential between cereals and roots/tubers for the post-1550 period, when the Columbian Exchange had distributed crops globally, following Mayshar et al. (2022).\nTax reliance is measured as the share of tax revenue in total government revenue, following Prichard et al. (2018). Democracy is measured across five dimensions from V-Dem: electoral, liberal, participatory, deliberative, and egalitarian democracy."
+  },
+  {
+    "objectID": "webpages/projects/analysis/test.html#results",
+    "href": "webpages/projects/analysis/test.html#results",
+    "title": "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability",
+    "section": "Results",
+    "text": "Results\n\n\n\nTable 1: Effect of Tax Reliance on Democracy (standardized coefficients)\n\n\n\n\n\nSpecification\nOLS\n2SLS\n\n\n\n\nElectoral Democracy\n0.31***\n0.58**\n\n\nLiberal Democracy\n0.28***\n0.51**\n\n\nParticipatory Democracy\n0.24***\n0.49**\n\n\nDeliberative Democracy\n0.30***\n0.55**\n\n\nEgalitarian Democracy\n0.22***\n0.44**\n\n\n\n\n\n\nThe first-stage F-statistic of 66.58 substantially exceeds the Stock-Yogo critical value of 16.38, confirming the instrument is not subject to weak instrument bias. The partial R² of 0.33 indicates that crop appropriability explains a substantial share of cross-country variation in contemporary tax reliance.\nThe 2SLS estimates are consistently larger than OLS, suggesting that OLS is downward biased — likely because countries that are already less democratic tend to be pushed toward tax reliance by reformers, attenuating the OLS estimate."
+  },
+  {
+    "objectID": "webpages/projects/analysis/test.html#discussion",
+    "href": "webpages/projects/analysis/test.html#discussion",
+    "title": "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability",
+    "section": "Discussion",
+    "text": "Discussion\nThe results support the fiscal contract theory: tax reliance has a positive causal effect on democracy. A one standard deviation increase in tax reliance raises electoral democracy by approximately 0.58 standard deviations in the 2SLS specification.\nThe instrument’s validity rests on the exclusion restriction that crop appropriability affects contemporary democracy only through tax reliance. The primary concern is that cereal suitability may correlate with income, urbanization, or education that independently promote democracy. I address this by controlling for all three in every specification. The estimates remain stable across robustness checks including controls for colonial history, ethnic fractionalization, and alternative geographic factors."
+  },
+  {
+    "objectID": "webpages/projects/analysis/test.html#conclusion",
+    "href": "webpages/projects/analysis/test.html#conclusion",
+    "title": "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis paper provides causal evidence that greater tax reliance strengthens democracy. Using geographic suitability for appropriable crops as an instrument — a source of variation that predates modern political and economic systems by millennia — I show that the positive cross-country correlation between tax reliance and democracy reflects a genuine causal relationship.\nThe findings have direct implications for development policy. Efforts to shift government revenue toward citizen taxation, rather than reliance on resource rents or foreign aid, may strengthen democratic accountability over the long run. The historical roots of this relationship suggest, however, that such transitions are slow and path-dependent — shaped by social contracts and institutional legacies that accumulate over generations."
+  },
+  {
+    "objectID": "webpages/projects/analysis/test.html#references",
+    "href": "webpages/projects/analysis/test.html#references",
+    "title": "Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability",
+    "section": "References",
+    "text": "References\nMayshar, J., Moav, O., & Neeman, Z. (2022). Geography, transparency, and institutions. American Political Science Review, 116(2), 591–606.\nPrichard, W., Salardi, P., & Segal, P. (2018). Taxation, non-tax revenue and democracy. World Development, 109, 295–312.\nAcemoglu, D., Naidu, S., Restrepo, P., & Robinson, J. A. (2019). Democracy does cause growth. Journal of Political Economy, 127(1), 47–100.\nTilly, C. (1992). Coercion, capital, and European states, AD 990–1992. Blackwell.\nV-Dem Institute. (2025). V-Dem dataset v15. University of Gothenburg."
+  },
+  {
+    "objectID": "webpages/graphics/graphics/trade-flows.html",
+    "href": "webpages/graphics/graphics/trade-flows.html",
+    "title": "Indonesia Trade Flow Map",
+    "section": "",
+    "text": "Placeholder — replace with your Shiny or Observable embed."
+  },
+  {
+    "objectID": "webpages/graphics/graphics/labor-market-dashboard.html",
+    "href": "webpages/graphics/graphics/labor-market-dashboard.html",
+    "title": "Labor Market Dashboard",
+    "section": "",
+    "text": "Built from SAKERNAS 2022 microdata, this dashboard lets you compare labor market outcomes across demographic and regional groups.\n\n\n  \n    Interactive visualization placeholder\n    Replace this block with your Shiny iframe or Observable embed.\n    &lt;iframe src=\"https://your-shiny-app.shinyapps.io/labor-dashboard\" ...&gt;&lt;/iframe&gt;"
+  },
+  {
+    "objectID": "webpages/graphics/graphics/labor-market-dashboard.html#overview",
+    "href": "webpages/graphics/graphics/labor-market-dashboard.html#overview",
+    "title": "Labor Market Dashboard",
+    "section": "",
+    "text": "Built from SAKERNAS 2022 microdata, this dashboard lets you compare labor market outcomes across demographic and regional groups.\n\n\n  \n    Interactive visualization placeholder\n    Replace this block with your Shiny iframe or Observable embed.\n    &lt;iframe src=\"https://your-shiny-app.shinyapps.io/labor-dashboard\" ...&gt;&lt;/iframe&gt;"
+  },
+  {
+    "objectID": "webpages/graphics/graphics/labor-market-dashboard.html#data-sources",
+    "href": "webpages/graphics/graphics/labor-market-dashboard.html#data-sources",
+    "title": "Labor Market Dashboard",
+    "section": "Data sources",
+    "text": "Data sources\n\nBPS — SAKERNAS 2022 microdata (August round)"
+  },
+  {
+    "objectID": "webpages/graphics/graphics/labor-market-dashboard.html#notes",
+    "href": "webpages/graphics/graphics/labor-market-dashboard.html#notes",
+    "title": "Labor Market Dashboard",
+    "section": "Notes",
+    "text": "Notes\nDisability status is defined using the Washington Group Short Set (WG-SS) functional limitation questions as adapted in SAKERNAS 2022."
+  },
+  {
+    "objectID": "webpages/graphics/graphics/fiscal-space.html",
+    "href": "webpages/graphics/graphics/fiscal-space.html",
+    "title": "Fiscal Space Explorer",
+    "section": "",
+    "text": "Placeholder — replace with your Shiny or Observable embed."
+  },
+  {
+    "objectID": "webpages/graphics/graphics/democracy-fiscal.html",
+    "href": "webpages/graphics/graphics/democracy-fiscal.html",
+    "title": "Tax Reliance and Democracy",
+    "section": "",
+    "text": "Placeholder — replace with your Shiny or Observable embed."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This site has three main areas. Projects is where I put my empirical work — data analysis, research writing, blog posts, and experiments. Resources is a collection of books, tutorials, and notes on the tools and methods I use most: R, Stata, econometrics, macroeconomics, and causal inference. Think of it as a curated reading list and reference shelf.\nI built this site with Quarto and host it on GitHub Pages. Most of the analysis here is done in Stata, R, or Python. Where possible I try to make the code available alongside the work."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Farhan (Adin) Aditya R.",
+    "section": "",
+    "text": "Economics · Policy · Data\n    Farhan AdityaRamadhan\n    Economics graduate from Universitas Indonesia specializing in macroeconomics and historical economics, using causal inference and applied econometrics, with Stata, R, and Python.\n    \n      Historical Economics\n      Applied Econometrics\n      Macroeconomics\n      Political Economy\n      Development Economics\n      Public Finance\n    \n    \n      About Me\n      View CV →\n    \n  \n\n\n  \n    Stata\n    R\n    Python\n    EViews\n    LaTeX\n    SQL\n    Quarto\n  \n\n\n  \n    Highlights\n  \n  \n    \n      Analysis\n      Your Featured Post Title\n      A short description of this post — one or two sentences that give the reader a sense of what it covers.\n      Read more →\n    \n  \n  \n    \n      \n        Research\n        Second Featured Post\n        Read more →\n      \n    \n    \n      \n        Blog\n        Third Featured Post\n        Read more →\n      \n    \n    \n      \n        Playground\n        Fourth Featured Post\n        Read more →\n      \n    \n  \n\n\n  \n    Contents\n  \n  \n\n    \n    \n      \n      \n        Projects\n        Analysis\n        Empirical data analysis, econometric modelling, and policy evaluation.\n        Explore →\n      \n      \n        Analysis\n      \n    \n\n    \n    \n      \n      \n        Projects\n        Research\n        Academic-style writings and working papers.\n        Explore →\n      \n      \n        Research\n      \n    \n\n    \n    \n      \n      \n        Projects\n        Blog\n        Short-form writing on economics, methodology, data, and ideas.\n        Explore →\n      \n      \n        Blog\n      \n    \n\n    \n    \n      \n      \n        Projects\n        Playground\n        Code, experiments, and things I'm trying out with outputs and syntax included.\n        Explore →\n      \n      \n        Playground\n      \n    \n\n    \n    \n\n    \n    \n      \n      \n        Resources\n        R & RStudio\n        Books, tutorials, and notes on R, ggplot2, tidyverse, and Quarto.\n        Explore →\n      \n      \n        R / RStudio\n      \n    \n\n    \n    \n      \n      \n        Resources\n        Stata\n        Books, tutorials, and notes on Stata for data management and econometric estimation.\n        Explore →\n      \n      \n        Stata\n      \n    \n\n    \n    \n      \n      \n        Resources\n        Python\n        Books, tutorials, and notes on Python.\n        Explore →\n      \n      \n        Python\n      \n    \n\n    \n    \n      \n      \n        Resources\n        Macroeconomics\n        Books, tutorials, and notes on macroeconomics.\n        Explore →\n      \n      \n        Macro\n      \n    \n\n    \n    \n      \n      \n        Resources\n        Econometrics\n        Books, tutorials, and notes on applied econometrics and estimation methods.\n        Explore →\n      \n      \n        Econometrics\n      \n    \n\n    \n    \n      \n      \n        Resources\n        Causal Inference\n        Books, tutorials, and notes on causal inference and impact evaluation.\n        Explore →\n      \n      \n        Causal Inference\n      \n    \n\n    \n    \n\n    \n    \n      \n      \n        Projects\n        Graphics\n        Interactive charts, maps, and exploratory dashboards built with R.\n        Explore →\n      \n      \n        Graphics\n      \n    \n\n  \n\n\n\n\n  \n  \n\n\n\n\n\nEducation Outcomes Dashboard\n\n\nEnrollment, attainment, and spending across Indonesian provinces\n\n\n\nEducation\n\nInteractive\n\nlang:Indonesian\n\n\n\nAn interactive dashboard of education outcomes — gross enrollment rates, mean years of schooling, and per-student spending — across Indonesian provinces using BPS and Kemendikbud data.\n\n\n\n\n\nSep 1, 2025\n\n\n\n\n\n\n\nTax Reliance and Democracy\n\n\nCross-country scatter explorer, 1990–2020\n\n\n\nPolitical Economy\n\nHistorical Economics\n\nlang:English\n\n\n\nAn interactive scatter plot exploring the relationship between non-resource tax reliance and V-Dem democracy indices across 108 countries, 1990–2020.\n\n\n\n\n\nAug 1, 2025\n\n\n\n\n\n\n\nPoverty Rate Map\n\n\nProvincial and district poverty rates from SUSENAS 2023\n\n\n\nDevelopment Economics\n\nSUSENAS\n\nInteractive\n\nlang:English\n\n\n\nAn interactive choropleth map of poverty headcount rates at province and district level, disaggregated by urban and rural areas using SUSENAS 2023.\n\n\n\n\n\nJun 15, 2025\n\n\n\n\n\n\n\nFiscal Space Explorer\n\n\nGovernment revenue, spending, and deficit across Indonesian provinces\n\n\n\nPublic Finance\n\nInteractive\n\nlang:Indonesian\n\n\n\nAn interactive comparison of provincial fiscal capacity — own-source revenue, transfer dependence, and fiscal deficit — using DJPK data.\n\n\n\n\n\nMay 1, 2025\n\n\n\n\n\n\n\nLabor Market Dashboard\n\n\nWages, employment, and industry composition from SAKERNAS 2022\n\n\n\nLabor Economics\n\nSAKERNAS\n\nInteractive\n\nlang:English\n\n\n\nAn interactive dashboard visualizing labor market outcomes — wages, employment rates, hours worked, and industry composition — by gender, education, region, and disability status using SAKERNAS 2022 microdata.\n\n\n\n\n\nApr 15, 2025\n\n\n\n\n\n\n\nIndonesian Inflation Tracker\n\n\nMonthly CPI and component breakdown, 2015–2024\n\n\n\nMacroeconomics\n\nInteractive\n\nlang:English\n\n\n\nAn interactive tracker of Indonesian consumer price inflation by component — food, energy, core — using BPS CPI data from 2015 to 2024.\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\nIndonesia Trade Flow Map\n\n\nExport and import flows by commodity and partner country\n\n\n\nTrade\n\nInteractive\n\nlang:English\n\n\n\nAn interactive map and chord diagram of Indonesian trade flows by major commodity groups and trading partners using BPS trade statistics.\n\n\n\n\n\nFeb 1, 2025\n\n\n\n\n\nNo matching items\n\n  \n\n  \n    Graphics\n    \n      ↑\n      ↓\n    \n  \n\n  \n    \n      Interactive · Exploratory\n      GraphicsforExploration\n      \n        Interactive charts, maps, and exploratory dashboards\n        built with R — Shiny, plotly, highcharter, and more.\n      \n      See all →\n      \n        \n          \n          \n          \n          \n        \n      \n    \n\n    \n      \n        \n          \n        \n      \n    \n  \n\n\n  \n    Projects\n    View all →\n  \n\n\n  Analysis\n  \n    ←\n    →\n  \n\n\n  \n\n\n\n\n\n\n\n\n\n\nDoes Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability\n\n\nMockup article 2\n\n\n\nHistorical Economics\n\nPolitical Economy\n\nCausal Inference\n\nPublic Finance\n\nlang:Indonesian\n\n\n\n\nMar 26, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest3\n\n\n\n\n\n\nStata\n\nbook\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest4\n\n\n\n\n\n\nStata\n\nbook\n\nlang:Indonesian\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest5\n\n\n\n\n\n\nStata\n\nbook\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\n  \n\nMore →\n\n\n  Research\n  \n    ←\n    →\n  \n\n\n  \n\n\n\n\n\n\n\n\n\n\nThis is a Mock-Up Article\n\n\nShort-run vs long-run dynamics using ARDL bounds testing\n\n\n\nTrade\n\nEconometrics\n\nTime-Series\n\nlang:Indonesian\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\n  \n\nMore →\n\n\n  Blog\n  \n    ←\n    →\n  \n\n\n  \n\n\n\n\n\n\n\n\n\n\nblog 1\n\n\nShort-run vs long-run dynamics\n\n\n\ntest\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items\n\n  \n\nMore →\n\n\n  Playground\n  \n    ←\n    →\n  \n\n\n  \n\n\n\n\n\n\n\n\n\n\nDoes Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability\n\n\nMockup article 2\n\n\n\nlang:Indonesian\n\n\n\n\nMar 26, 2026\n\n\n\n\n\n\nNo matching items\n\n  \n\nMore →\n\n  \n    \n      Resources\n      View all →\n    \n    \n      \n        \n        R & RStudio\n        Books, tutorials, and notes for learning R, ggplot2, tidyverse, and Quarto.\n      \n      \n        \n          \n        \n        Stata\n        Guides and do-file notes for data management, econometric estimation, and microdata analysis.\n      \n      \n        \n        Python\n        Books, tutorials, and notes on Python.\n      \n      \n        \n        Macroeconomics\n        Notes and resources on macroeconomic theory, time-series modelling, and policy analysis.\n      \n      \n        \n        Econometrics\n        Applied econometrics resources covering OLS, panel data, IV, ARDL, and structural estimation.\n      \n      \n        \n        Causal Inference\n        Resources on DiD, RD, IV, matching, and impact evaluation methods."
+  },
+  {
+    "objectID": "webpages/graphics/graphics/education-outcomes.html",
+    "href": "webpages/graphics/graphics/education-outcomes.html",
+    "title": "Education Outcomes Dashboard",
+    "section": "",
+    "text": "Placeholder — replace with your Shiny or Observable embed."
+  },
+  {
+    "objectID": "webpages/graphics/graphics/inflation-tracker.html",
+    "href": "webpages/graphics/graphics/inflation-tracker.html",
+    "title": "Indonesian Inflation Tracker",
+    "section": "",
+    "text": "Placeholder — replace with your Shiny or Observable embed."
+  },
+  {
+    "objectID": "webpages/graphics/graphics/poverty-map.html",
+    "href": "webpages/graphics/graphics/poverty-map.html",
+    "title": "Poverty Rate Map",
+    "section": "",
+    "text": "Placeholder — replace with your Shiny or Observable embed."
+  },
+  {
+    "objectID": "webpages/graphics/graphics.html",
+    "href": "webpages/graphics/graphics.html",
+    "title": "Graphics for Exploration",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nEducation Outcomes Dashboard\n\n\nEnrollment, attainment, and spending across Indonesian provinces\n\n\n\nEducation\n\nInteractive\n\nlang:Indonesian\n\n\n\nAn interactive dashboard of education outcomes — gross enrollment rates, mean years of schooling, and per-student spending — across Indonesian provinces using BPS and…\n\n\n\nSep 1, 2025\n\n\n\n\n\n\n\n\n\n\n\nTax Reliance and Democracy\n\n\nCross-country scatter explorer, 1990–2020\n\n\n\nPolitical Economy\n\nHistorical Economics\n\nlang:English\n\n\n\nAn interactive scatter plot exploring the relationship between non-resource tax reliance and V-Dem democracy indices across 108 countries, 1990–2020.\n\n\n\nAug 1, 2025\n\n\n\n\n\n\n\n\n\n\n\nPoverty Rate Map\n\n\nProvincial and district poverty rates from SUSENAS 2023\n\n\n\nDevelopment Economics\n\nSUSENAS\n\nInteractive\n\nlang:English\n\n\n\nAn interactive choropleth map of poverty headcount rates at province and district level, disaggregated by urban and rural areas using SUSENAS 2023.\n\n\n\nJun 15, 2025\n\n\n\n\n\n\n\n\n\n\n\nFiscal Space Explorer\n\n\nGovernment revenue, spending, and deficit across Indonesian provinces\n\n\n\nPublic Finance\n\nInteractive\n\nlang:Indonesian\n\n\n\nAn interactive comparison of provincial fiscal capacity — own-source revenue, transfer dependence, and fiscal deficit — using DJPK data.\n\n\n\nMay 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLabor Market Dashboard\n\n\nWages, employment, and industry composition from SAKERNAS 2022\n\n\n\nLabor Economics\n\nSAKERNAS\n\nInteractive\n\nlang:English\n\n\n\nAn interactive dashboard visualizing labor market outcomes — wages, employment rates, hours worked, and industry composition — by gender, education, region, and disability…\n\n\n\nApr 15, 2025\n\n\n\n\n\n\n\n\n\n\n\nIndonesian Inflation Tracker\n\n\nMonthly CPI and component breakdown, 2015–2024\n\n\n\nMacroeconomics\n\nInteractive\n\nlang:English\n\n\n\nAn interactive tracker of Indonesian consumer price inflation by component — food, energy, core — using BPS CPI data from 2015 to 2024.\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\nIndonesia Trade Flow Map\n\n\nExport and import flows by commodity and partner country\n\n\n\nTrade\n\nInteractive\n\nlang:English\n\n\n\nAn interactive map and chord diagram of Indonesian trade flows by major commodity groups and trading partners using BPS trade statistics.\n\n\n\nFeb 1, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/projects/projects.html",
+    "href": "webpages/projects/projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nDoes Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability\n\n\nMockup article 2\n\n\n\nHistorical Economics\n\nPolitical Economy\n\nCausal Inference\n\nPublic Finance\n\nlang:Indonesian\n\n\n\n\nMar 26, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nDoes Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability\n\n\nMockup article 2\n\n\n\nlang:Indonesian\n\n\n\n\nMar 26, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest3\n\n\n\n\n\n\nStata\n\nbook\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest4\n\n\n\n\n\n\nStata\n\nbook\n\nlang:Indonesian\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest5\n\n\n\n\n\n\nStata\n\nbook\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis is a Mock-Up Article\n\n\nShort-run vs long-run dynamics using ARDL bounds testing\n\n\n\nTrade\n\nEconometrics\n\nTime-Series\n\nlang:Indonesian\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nblog 1\n\n\nShort-run vs long-run dynamics\n\n\n\ntest\n\nlang:English\n\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/projects/research.html",
+    "href": "webpages/projects/research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nThis is a Mock-Up Article\n\n\nShort-run vs long-run dynamics using ARDL bounds testing\n\n\n\nTrade\n\nEconometrics\n\nTime-Series\n\nlang:Indonesian\n\n\n\nEstimating Indonesia’s export elasticity…\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/resources/causalinference.html",
+    "href": "webpages/resources/causalinference.html",
+    "title": "Causal Inference",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCausal Inference basic\n\n\n\n\n\n\nCausality\n\nbook\n\nlang:English\n\n\n\nEstimating Indonesia’s export elasticity…\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/resources/econometrics.html",
+    "href": "webpages/resources/econometrics.html",
+    "title": "Econometrics",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nEconometrics basic\n\n\ntesteconometrics\n\n\n\nEconometrics\n\nbook\n\nlang:English\n\n\n\nEstimating Indonesia’s export elasticity…\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/resources/macro.html",
+    "href": "webpages/resources/macro.html",
+    "title": "Macroeconomics",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nMacro basic\n\n\n\n\n\n\nMacro\n\nbook\n\nlang:English\n\n\n\nEstimating Indonesia’s export elasticity…\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "webpages/resources/python.html",
+    "href": "webpages/resources/python.html",
+    "title": "Python",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nPython basic\n\n\n\n\n\n\nCausality\n\nbook\n\npython\n\nlang:English\n\n\n\nPython basic\n\n\n\nMar 24, 2026\n\n\n\n\n\n\nNo matching items"
+  }
+]

@@ -1,0 +1,12 @@
+---
+title: "Education Outcomes Dashboard"
+subtitle: "Enrollment, attainment, and spending across Indonesian provinces"
+date: 2025-09-01
+categories: [Education, Interactive, lang:Indonesian]
+description: "An interactive dashboard of education outcomes — gross enrollment rates, mean years of schooling, and per-student spending — across Indonesian provinces using BPS and Kemendikbud data."
+format:
+  html:
+    toc: false
+---
+
+Placeholder — replace with your Shiny or Observable embed.

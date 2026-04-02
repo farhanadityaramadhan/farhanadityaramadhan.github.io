@@ -1,0 +1,18 @@
+---
+title: "Python"
+subtitle: "Books, tutorials, and notes on Python."
+description: "{{< var section.analysis >}}"
+page-layout: full
+toc: false
+listing: 
+  contents: "python/*.qmd"
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, title, subtitle, description, date, categories]
+  grid-columns: 3
+  image-align: left
+  image-height: 200px
+---

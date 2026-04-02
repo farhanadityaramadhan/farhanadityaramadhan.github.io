@@ -1,0 +1,14 @@
+# Section descriptions — single source of truth.
+# Referenced in index.qmd and each listing page as {{< var section.X >}}
+
+section:
+  analysis:    "Empirical data analysis, econometric modelling, and policy evaluation."
+  research:    "Academic-style writings and working papers."
+  blog:        "Short-form writing on economics, methodology, data, and ideas."
+  playground:  "Experiments, interactive tools, and exploratory work in progress."
+  rstudio:     "Books, tutorials, and notes on R, ggplot2, tidyverse, and Quarto."
+  stata:       "Books, tutorials, and notes on Stata for data management and econometric estimation."
+  macro:       "Books, tutorials, and notes on macroeconomics."
+  econometrics: "Books, tutorials, and notes on applied econometrics and estimation methods."
+  causalinference: "Books, tutorials, and notes on causal inference and impact evaluation."
+  graphics:     "Interactive charts, maps, and exploratory dashboards built with R"

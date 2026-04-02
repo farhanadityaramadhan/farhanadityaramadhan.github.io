@@ -1,0 +1,17 @@
+---
+title: "Macroeconomics"
+subtitle: "Books, tutorials, and notes on macroeconomics."
+description: "{{< var section.analysis >}}"
+page-layout: full
+toc: false
+listing: 
+  contents: "macro/*.qmd"
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, title, subtitle, description, date, categories]
+  grid-columns: 3
+  image-align: left
+---
