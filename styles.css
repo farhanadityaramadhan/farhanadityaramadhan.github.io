@@ -259,7 +259,7 @@ body.page-index .listing-scroll-wrapper [class*="quarto-listing-grid"] {
 body.page-index .listing-scroll-wrapper .card {
   flex-shrink: 0 !important;
   flex-grow: 0 !important;
-  height: 380px !important;
+  height: 420px !important;
   overflow: hidden !important;
 }
 
@@ -1965,3 +1965,41 @@ body.page-index .listing-more:hover { text-decoration: underline; }
 
   .gc-left-title      { font-size: 1.7rem; }
 }
+
+/* ===== HARD RESET FOR ORDERING ===== */
+
+/* Pin lang+date to bottom of card body */
+.quarto-listing .card-body {
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  height: 100%;
+}
+
+.quarto-listing .card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.quarto-listing .listing-lang-wrapper {
+  order: 5 !important;
+  margin-top: auto;   /* pushes to bottom */
+  padding-top: 0.5rem;
+  padding-right: 6rem;
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.quarto-listing .listing-date {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.1rem;
+  white-space: nowrap;
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+  margin: 0;
+}
+
