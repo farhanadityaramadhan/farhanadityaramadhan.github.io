@@ -36,7 +36,6 @@ website:
         <li><a href="/webpages/projects/analysis.html">Analysis</a></li>
         <li><a href="/webpages/projects/research.html">Research</a></li>
         <li><a href="/webpages/projects/blog.html">Blog</a></li>
-        <li><a href="/webpages/resources/resources.html">Resources</a></li>
       </ul>
     right: |
       <div class="qf-links-title">Contact</div>

@@ -431,7 +431,7 @@ knitr::asis_output(html_out)
         Interactive charts, maps, and exploratory dashboards
         built with R — Shiny, plotly, highcharter, and more.
       </p>
-      <a class="gc-left-link" href="webpages/graphics/graphics.qmd">See all →</a>
+      <a class="gc-left-link" href="webpages/graphics/graphics.qmd">View all →</a>
       <div class="gc-left-deco" aria-hidden="true">
         <svg viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg">
           <polyline points="20,160 80,110 130,130 190,60 240,80"
@@ -458,7 +458,6 @@ knitr::asis_output(html_out)
 <div class="home-group-header">
   <div class="home-group-header-inner">
     <span class="home-group-header-title">Projects</span>
-    <a href="webpages/projects/projects.qmd">View all →</a>
   </div>
 </div>
 ```
@@ -558,7 +557,6 @@ knitr::asis_output(html_out)
   <div class="resources-section-inner">
     <div class="resources-header">
       <span class="resources-header-title">Resources</span>
-      <a href="webpages/resources/resources.qmd">View all →</a>
     </div>
     <div class="resources-grid">
       <a class="resource-card" href="webpages/resources/rstudio.qmd">

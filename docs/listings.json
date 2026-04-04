@@ -12,13 +12,33 @@
     ]
   },
   {
-    "listing": "/webpages/resources/resources.html",
+    "listing": "/webpages/resources/python.html",
     "items": [
-      "/webpages/resources/rstudio/rstudiotest.html",
-      "/webpages/resources/stata/statatest.html",
-      "/webpages/resources/macro/macrotest.html",
-      "/webpages/resources/econometrics/econometricstest.html",
+      "/webpages/resources/python/pythonarticle.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/macro.html",
+    "items": [
+      "/webpages/resources/macro/macrotest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/econometrics.html",
+    "items": [
+      "/webpages/resources/econometrics/econometricstest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/resources/causalinference.html",
+    "items": [
       "/webpages/resources/causalinference/causaltest.html"
+    ]
+  },
+  {
+    "listing": "/webpages/projects/research.html",
+    "items": [
+      "/webpages/projects/research/test2.html"
     ]
   },
   {
@@ -71,48 +91,6 @@
       "/webpages/graphics/graphics/labor-market-dashboard.html",
       "/webpages/graphics/graphics/inflation-tracker.html",
       "/webpages/graphics/graphics/trade-flows.html"
-    ]
-  },
-  {
-    "listing": "/webpages/projects/projects.html",
-    "items": [
-      "/webpages/projects/analysis/test.html",
-      "/webpages/projects/playground/test2.html",
-      "/webpages/projects/analysis/test3.html",
-      "/webpages/projects/analysis/test4.html",
-      "/webpages/projects/analysis/test5.html",
-      "/webpages/projects/research/test2.html",
-      "/webpages/projects/blog/blog 1.html"
-    ]
-  },
-  {
-    "listing": "/webpages/projects/research.html",
-    "items": [
-      "/webpages/projects/research/test2.html"
-    ]
-  },
-  {
-    "listing": "/webpages/resources/causalinference.html",
-    "items": [
-      "/webpages/resources/causalinference/causaltest.html"
-    ]
-  },
-  {
-    "listing": "/webpages/resources/econometrics.html",
-    "items": [
-      "/webpages/resources/econometrics/econometricstest.html"
-    ]
-  },
-  {
-    "listing": "/webpages/resources/macro.html",
-    "items": [
-      "/webpages/resources/macro/macrotest.html"
-    ]
-  },
-  {
-    "listing": "/webpages/resources/python.html",
-    "items": [
-      "/webpages/resources/python/pythonarticle.html"
     ]
   }
 ]
