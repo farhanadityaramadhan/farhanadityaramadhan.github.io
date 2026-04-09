@@ -1,0 +1,18 @@
+---
+title: "Analysis"
+subtitle: "Empirical data analysis, econometric modelling, and policy evaluation."
+description: "{{< var section.analysis >}}"
+page-layout: full
+toc: false
+listing: 
+  contents: "analysis/*.qmd"
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, title, subtitle, description, date, categories]
+  grid-columns: 3
+  page-size: 9
+  image-height: 200px
+---

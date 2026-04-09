@@ -1,0 +1,34 @@
+---
+title: "Labor Market Dashboard"
+subtitle: "Wages, employment, and industry composition from SAKERNAS 2022"
+date: 2025-04-15
+categories: [Labor Economics, SAKERNAS, Interactive, lang:English]
+description: "An interactive dashboard visualizing labor market outcomes — wages, employment rates, hours worked, and industry composition — by gender, education, region, and disability status using SAKERNAS 2022 microdata."
+image: "images/labor-dashboard-thumb.webp"
+format:
+  html:
+    toc: false
+---
+
+## Overview
+
+Built from SAKERNAS 2022 microdata, this dashboard lets you compare labor market outcomes across demographic and regional groups.
+
+```{=html}
+<!-- Embed your Shiny app, Observable notebook, or iframe here -->
+<div style="background: var(--color-bg-tinted); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; text-align: center; color: var(--color-text-muted); min-height: 300px; display: flex; align-items: center; justify-content: center;">
+  <div>
+    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">Interactive visualization placeholder</p>
+    <p style="font-size: 0.9rem;">Replace this block with your Shiny iframe or Observable embed.</p>
+    <code style="font-size: 0.8rem;">&lt;iframe src="https://your-shiny-app.shinyapps.io/labor-dashboard" ...&gt;&lt;/iframe&gt;</code>
+  </div>
+</div>
+```
+
+## Data sources
+
+- **BPS** — SAKERNAS 2022 microdata (August round)
+
+## Notes
+
+Disability status is defined using the Washington Group Short Set (WG-SS) functional limitation questions as adapted in SAKERNAS 2022.

@@ -1,0 +1,934 @@
+---
+title: "Farhan (Adin) Aditya R."
+subtitle: "Economics · Policy · Data"
+page-layout: full
+toc: false
+title-block-banner: false
+body-classes: "page-index"
+html-math-method: plain
+description: "Economics graduate from Universitas Indonesia specializing in macroeconomics and historical economics, using causal inference and applied econometrics, with Stata, R, and Python"
+engine: knitr
+
+# ============================================================
+# FEATURED POSTS — edit the four entries below.
+# Card 1 = large hero (has desc). Cards 2–4 = small row.
+# tag options: Analysis / Research / Blog / Playground
+# ============================================================
+params:
+  featured_1_title: "Your Featured Post Title"
+  featured_1_desc: "A short description of this post — one or two sentences that give the reader a sense of what it covers."
+  featured_1_tag: "Analysis"
+  featured_1_href: "webpages/projects/analysis/test.qmd"
+  featured_1_image: "images/workpanels/pexels-tomfisk-4884639.webp"
+
+  featured_2_title: "Second Featured Post"
+  featured_2_tag: "Research"
+  featured_2_href: "webpages/projects/research/test2.qmd"
+  featured_2_image: "images/workpanels/inaki-del-olmo-NIJuEQw0RKg-unsplash.webp"
+
+  featured_3_title: "Third Featured Post"
+  featured_3_tag: "Blog"
+  featured_3_href: "webpages/projects/blog/blog 1.qmd"
+  featured_3_image: "images/workpanels/pexels-pixabay-159497.webp"
+
+  featured_4_title: "Fourth Featured Post"
+  featured_4_tag: "Playground"
+  featured_4_href: "webpages/projects/playground/test2.qmd"
+  featured_4_image: "images/workpanels/chris-ried-ieic5Tq8YMk-unsplash.webp"
+
+listing:
+- id: research
+  contents: webpages/projects/research/
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  image-height: 150px
+  fields: [image, title, subtitle, date, categories]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+- id: analysis
+  contents: webpages/projects/analysis/
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  image-height: 150px
+  fields: [image, title, subtitle, date, categories]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+- id: blog
+  contents: webpages/projects/blog/
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  image-height: 150px
+  fields: [image, title, subtitle, date, categories]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+- id: playground
+  contents: webpages/projects/playground/
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  image-height: 150px
+  fields: [image, title, subtitle, date, categories]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+- id: graphics
+  contents: webpages/graphics/graphics/
+  sort: "date desc"
+  type: default
+  fields: [title, subtitle, categories, date, description]
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 100
+---
+
+```{=html}
+<div class="search-bar-section">
+  <div class="search-bar-inner">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+         viewBox="0 0 16 16" class="search-icon" aria-hidden="true">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/>
+    </svg>
+    <input
+      type="text"
+      class="search-bar-input"
+      placeholder="Search projects, analysis, blog posts..."
+      aria-label="Search site"
+      onclick="
+        var btn = document.querySelector('.aa-DetachedSearchButton, #quarto-search button, [data-bs-toggle=search]');
+        if (btn) { btn.click(); } else {
+          var e = new KeyboardEvent('keydown', {key: 'k', ctrlKey: true, bubbles: true});
+          document.dispatchEvent(e);
+        }
+      "
+      readonly
+    />
+  </div>
+</div>
+```
+
+```{=html}
+<section class="hero-section">
+  <div class="content-block">
+    <div class="hero-label">Economics · Policy · Data</div>
+    <h1 class="hero-title">Farhan Aditya<br>Ramadhan</h1>
+    <p class="hero-sub">Economics graduate from Universitas Indonesia specializing in macroeconomics and historical economics, using causal inference and applied econometrics, with Stata, R, and Python.</p>
+    <div class="hero-tags">
+      <span class="tag">Historical Economics</span>
+      <span class="tag">Applied Econometrics</span>
+      <span class="tag">Macroeconomics</span>
+      <span class="tag">Political Economy</span>
+      <span class="tag">Development Economics</span>
+      <span class="tag">Public Finance</span>
+    </div>
+    <div class="hero-cta">
+      <a href="about.qmd" class="btn-primary">About Me</a>
+      <a href="files/CV/Farhan-Aditya-Ramadhan_CV.pdf" class="btn-secondary" target="_blank">View CV →</a>
+    </div>
+  </div>
+</section>
+```
+
+```{=html}
+<div class="tools-strip">
+  <div class="tools-strip-inner">
+    <span class="tools-strip-item">Stata</span>
+    <span class="tools-strip-item">R</span>
+    <span class="tools-strip-item">Python</span>
+    <span class="tools-strip-item">EViews</span>
+    <span class="tools-strip-item">LaTeX</span>
+    <span class="tools-strip-item">SQL</span>
+    <span class="tools-strip-item">Quarto</span>
+  </div>
+</div>
+```
+
+```{r}
+#| echo: false
+#| results: asis
+library(glue)
+
+grad_hero <- "linear-gradient(to top, rgba(0,20,50,0.97) 0%, rgba(0,20,50,0.55) 35%, rgba(0,20,50,0.02) 100%)"
+grad_card <- "linear-gradient(to top, rgba(0,20,50,0.88) 0%, rgba(0,20,50,0.82) 35%, rgba(0,20,50,0.62) 100%)"
+
+hero_bg  <- glue("{grad_hero}, url('{params$featured_1_image}')")
+card2_bg <- glue("{grad_card}, url('{params$featured_2_image}')")
+card3_bg <- glue("{grad_card}, url('{params$featured_3_image}')")
+card4_bg <- glue("{grad_card}, url('{params$featured_4_image}')")
+
+html_out <- glue('
+<section class="featured-section">
+  <div class="featured-header">
+    <span class="featured-header-label">Highlights</span>
+  </div>
+  <a class="featured-hero" href="{params$featured_1_href}"
+     style="background-image: {hero_bg};">
+    <div class="featured-hero-content">
+      <span class="featured-card-tag">{params$featured_1_tag}</span>
+      <div class="featured-hero-title">{params$featured_1_title}</div>
+      <div class="featured-hero-desc">{params$featured_1_desc}</div>
+      <span class="featured-read-more">Read more &#8594;</span>
+    </div>
+  </a>
+  <div class="featured-row">
+    <a class="featured-card" href="{params$featured_2_href}"
+       style="background-image: {card2_bg};">
+      <div class="featured-card-content">
+        <span class="featured-card-tag">{params$featured_2_tag}</span>
+        <div class="featured-card-title">{params$featured_2_title}</div>
+        <span class="featured-read-more">Read more &#8594;</span>
+      </div>
+    </a>
+    <a class="featured-card" href="{params$featured_3_href}"
+       style="background-image: {card3_bg};">
+      <div class="featured-card-content">
+        <span class="featured-card-tag">{params$featured_3_tag}</span>
+        <div class="featured-card-title">{params$featured_3_title}</div>
+        <span class="featured-read-more">Read more &#8594;</span>
+      </div>
+    </a>
+    <a class="featured-card" href="{params$featured_4_href}"
+       style="background-image: {card4_bg};">
+      <div class="featured-card-content">
+        <span class="featured-card-tag">{params$featured_4_tag}</span>
+        <div class="featured-card-title">{params$featured_4_title}</div>
+        <span class="featured-read-more">Read more &#8594;</span>
+      </div>
+    </a>
+  </div>
+</section>')
+
+knitr::asis_output(html_out)
+```
+
+```{=html}
+<div class="mywork-section">
+  <div class="mywork-header">
+    <span class="mywork-header-title">Contents</span>
+  </div>
+  <div class="mywork-strip" id="mywork-strip">
+
+    <!-- 0: Analysis -->
+    <div class="mywork-panel active" data-index="0"
+         style="--panel-bg: url('images/workpanels/pexels-n-voitkevich-6120214.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Projects</div>
+        <div class="mywork-panel-title">Analysis</div>
+        <div class="mywork-panel-desc">Empirical data analysis, econometric modelling, and policy evaluation.</div>
+        <a class="mywork-panel-link" href="webpages/projects/analysis.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Analysis">
+        <span>Analysis</span>
+      </button>
+    </div>
+
+    <!-- 1: Research -->
+    <div class="mywork-panel" data-index="1"
+         style="--panel-bg: url('images/workpanels/inaki-del-olmo-NIJuEQw0RKg-unsplash.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Projects</div>
+        <div class="mywork-panel-title">Research</div>
+        <div class="mywork-panel-desc">Academic-style writings and working papers.</div>
+        <a class="mywork-panel-link" href="webpages/projects/research.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Research">
+        <span>Research</span>
+      </button>
+    </div>
+
+    <!-- 2: Blog -->
+    <div class="mywork-panel" data-index="2"
+         style="--panel-bg: url('images/workpanels/pexels-pixabay-159497.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Projects</div>
+        <div class="mywork-panel-title">Blog</div>
+        <div class="mywork-panel-desc">Short-form writing on economics, methodology, data, and ideas.</div>
+        <a class="mywork-panel-link" href="webpages/projects/blog.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Blog">
+        <span>Blog</span>
+      </button>
+    </div>
+
+    <!-- 3: Playground -->
+    <div class="mywork-panel" data-index="3"
+         style="--panel-bg: url('images/workpanels/chris-ried-ieic5Tq8YMk-unsplash.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Projects</div>
+        <div class="mywork-panel-title">Playground</div>
+        <div class="mywork-panel-desc">Code, experiments, and things I'm trying out with outputs and syntax included.</div>
+        <a class="mywork-panel-link" href="webpages/projects/playground.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Playground">
+        <span>Playground</span>
+      </button>
+    </div>
+
+    <!-- divider -->
+    <div class="mywork-divider"></div>
+
+    <!-- 4: R / RStudio -->
+    <div class="mywork-panel" data-index="4"
+         style="--panel-bg: url('images/workpanels/deng-xiang--WXQm_NTK0U-unsplash.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Resources</div>
+        <div class="mywork-panel-title">R &amp; RStudio</div>
+        <div class="mywork-panel-desc">Books, tutorials, and notes on R, ggplot2, tidyverse, and Quarto.</div>
+        <a class="mywork-panel-link" href="webpages/resources/rstudio.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="R and RStudio">
+        <span>R / RStudio</span>
+      </button>
+    </div>
+
+    <!-- 5: Stata -->
+    <div class="mywork-panel" data-index="5"
+         style="--panel-bg: url('images/workpanels/markus-winkler-IrRbSND5EUc-unsplash.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Resources</div>
+        <div class="mywork-panel-title">Stata</div>
+        <div class="mywork-panel-desc">Books, tutorials, and notes on Stata for data management and econometric estimation.</div>
+        <a class="mywork-panel-link" href="webpages/resources/stata.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Stata">
+        <span>Stata</span>
+      </button>
+    </div>
+
+    <!-- 6: Python -->
+    <div class="mywork-panel" data-index="6"
+         style="--panel-bg: url('images/workpanels/pexels-nemuel-6424590.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Resources</div>
+        <div class="mywork-panel-title">Python</div>
+        <div class="mywork-panel-desc">Books, tutorials, and notes on Python.</div>
+        <a class="mywork-panel-link" href="webpages/resources/python.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Python">
+        <span>Python</span>
+      </button>
+    </div>
+
+    <!-- 7: Macroeconomics -->
+    <div class="mywork-panel" data-index="7"
+         style="--panel-bg: url('images/workpanels/pexels-tomfisk-4884639.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Resources</div>
+        <div class="mywork-panel-title">Macroeconomics</div>
+        <div class="mywork-panel-desc">Books, tutorials, and notes on macroeconomics.</div>
+        <a class="mywork-panel-link" href="webpages/resources/macro.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Macroeconomics">
+        <span>Macro</span>
+      </button>
+    </div>
+
+    <!-- 8: Econometrics -->
+    <div class="mywork-panel" data-index="8"
+         style="--panel-bg: url('images/workpanels/pexels-leeloothefirst-7873554.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Resources</div>
+        <div class="mywork-panel-title">Econometrics</div>
+        <div class="mywork-panel-desc">Books, tutorials, and notes on applied econometrics and estimation methods.</div>
+        <a class="mywork-panel-link" href="webpages/resources/econometrics.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Econometrics">
+        <span>Econometrics</span>
+      </button>
+    </div>
+
+    <!-- 9: Causal Inference -->
+    <div class="mywork-panel" data-index="9"
+         style="--panel-bg: url('images/workpanels/hanna-morris-_XXNjSziZuA-unsplash.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Resources</div>
+        <div class="mywork-panel-title">Causal Inference</div>
+        <div class="mywork-panel-desc">Books, tutorials, and notes on causal inference and impact evaluation.</div>
+        <a class="mywork-panel-link" href="webpages/resources/causalinference.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Causal Inference">
+        <span>Causal Inference</span>
+      </button>
+    </div>
+
+    <!-- divider -->
+    <div class="mywork-divider"></div>
+
+    <!-- 10: Graphics -->
+    <div class="mywork-panel" data-index="10"
+         style="--panel-bg: url('images/workpanels/luke-chesser-JKUTrJ4vK00-unsplash-_1_.webp') center/cover no-repeat;">
+      <div class="mywork-panel-bg"></div>
+      <div class="mywork-panel-content">
+        <div class="mywork-panel-tag">Projects</div>
+        <div class="mywork-panel-title">Graphics</div>
+        <div class="mywork-panel-desc">Interactive charts, maps, and exploratory dashboards built with R.</div>
+        <a class="mywork-panel-link" href="webpages/graphics/graphics.qmd">Explore &rarr;</a>
+      </div>
+      <button class="mywork-panel-collapsed-label" aria-label="Graphics">
+        <span>Graphics</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+```
+
+```{=html}
+<!--
+  GRAPHICS FOR EXPLORATION — two-column layout
+  Left  : dark navy panel (full height)
+  Right : vertically scrolling white cards
+  Cards auto-populated from webpages/graphics/graphics/*.qmd
+  via the hidden #gc-listing-source Quarto listing below.
+
+  Scraper note: initGraphicSection() expects Quarto default
+  listing HTML. If cards break, check for changes to:
+    .list-group-item > .listing-title
+    .list-group-item > .listing-description
+    .listing-category
+-->
+<div class="gc-section">
+
+  <!-- Hidden Quarto listing; JS reads and converts to custom cards -->
+  <div id="gc-listing-source" style="display:none;">
+```
+
+::: {#graphics}
+:::
+
+```{=html}
+  </div>
+
+  <div class="gc-section-header">
+    <span class="gc-section-title">Graphics</span>
+    <div class="gc-arrows">
+      <button class="gc-arrow" id="gc-prev" aria-label="Scroll up">&#8593;</button>
+      <button class="gc-arrow" id="gc-next" aria-label="Scroll down">&#8595;</button>
+    </div>
+  </div>
+
+  <div class="gc-layout">
+    <div class="gc-left">
+      <span class="gc-left-kicker">Interactive · Exploratory</span>
+      <h2 class="gc-left-title">Graphics<br>for<br>Exploration</h2>
+      <p class="gc-left-desc">
+        Interactive charts, maps, and exploratory dashboards
+        built with R — Shiny, plotly, highcharter, and more.
+      </p>
+      <a class="gc-left-link" href="webpages/graphics/graphics.qmd">View all →</a>
+      <div class="gc-left-deco" aria-hidden="true">
+        <svg viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="20,160 80,110 130,130 190,60 240,80"
+            stroke="rgba(255,255,255,0.13)" stroke-width="2" fill="none"/>
+          <circle cx="80"  cy="110" r="5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+          <circle cx="130" cy="130" r="5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+          <circle cx="190" cy="60"  r="5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="gc-right">
+      <div class="gc-viewport" id="gc-viewport">
+        <div class="gc-track" id="gc-track">
+          <!-- cards injected by initGraphicSection() -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+```{=html}
+<div class="home-group-header">
+  <div class="home-group-header-inner">
+    <span class="home-group-header-title">Projects</span>
+  </div>
+</div>
+```
+
+```{=html}
+<div class="listing-header">
+  <h2>Analysis</h2>
+  <div class="listing-arrow-row">
+    <button class="listing-arrow" data-target="analysis" data-dir="-1" aria-label="Previous Analysis">&#8592;</button>
+    <button class="listing-arrow" data-target="analysis" data-dir="1"  aria-label="Next Analysis">&#8594;</button>
+  </div>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-analysis">
+```
+
+:::{#analysis}
+:::
+
+```{=html}
+  </div>
+</div>
+<a href="webpages/projects/analysis.qmd" class="listing-more">More →</a>
+```
+
+---
+
+```{=html}
+<div class="listing-header">
+  <h2>Research</h2>
+  <div class="listing-arrow-row">
+    <button class="listing-arrow" data-target="research" data-dir="-1" aria-label="Previous Research">&#8592;</button>
+    <button class="listing-arrow" data-target="research" data-dir="1"  aria-label="Next Research">&#8594;</button>
+  </div>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-research">
+```
+
+:::{#research}
+:::
+
+```{=html}
+  </div>
+</div>
+<a href="webpages/projects/research.qmd" class="listing-more">More →</a>
+```
+
+---
+
+```{=html}
+<div class="listing-header">
+  <h2>Blog</h2>
+  <div class="listing-arrow-row">
+    <button class="listing-arrow" data-target="blog" data-dir="-1" aria-label="Previous Blog">&#8592;</button>
+    <button class="listing-arrow" data-target="blog" data-dir="1"  aria-label="Next Blog">&#8594;</button>
+  </div>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-blog">
+```
+
+:::{#blog}
+:::
+
+```{=html}
+  </div>
+</div>
+<a href="webpages/projects/blog.qmd" class="listing-more">More →</a>
+```
+
+---
+
+```{=html}
+<div class="listing-header">
+  <h2>Playground</h2>
+  <div class="listing-arrow-row">
+    <button class="listing-arrow" data-target="playground" data-dir="-1" aria-label="Previous Playground">&#8592;</button>
+    <button class="listing-arrow" data-target="playground" data-dir="1"  aria-label="Next Playground">&#8594;</button>
+  </div>
+</div>
+<div class="listing-section">
+  <div class="listing-scroll-wrapper" id="wrapper-playground">
+```
+
+:::{#playground}
+:::
+
+```{=html}
+  </div>
+</div>
+<a href="webpages/projects/playground.qmd" class="listing-more">More →</a>
+```
+
+```{=html}
+<div class="resources-section">
+  <div class="resources-section-inner">
+    <div class="resources-header">
+      <span class="resources-header-title">Resources</span>
+    </div>
+    <div class="resources-grid">
+      <a class="resource-card" href="webpages/resources/rstudio.qmd">
+        <div class="resource-card-icon"><i class="fa-brands fa-r-project"></i></div>
+        <div class="resource-card-title">R &amp; RStudio</div>
+        <div class="resource-card-desc">Books, tutorials, and notes for learning R, ggplot2, tidyverse, and Quarto.</div>
+      </a>
+      <a class="resource-card" href="webpages/resources/stata.qmd">
+        <div class="resource-card-icon">
+          <img src="images/icons/stata.svg" alt="Stata" class="icon-white-on-blue"
+               style="width:1.75rem;height:1.75rem;">
+        </div>
+        <div class="resource-card-title">Stata</div>
+        <div class="resource-card-desc">Guides and do-file notes for data management, econometric estimation, and microdata analysis.</div>
+      </a>
+      <a class="resource-card" href="webpages/resources/python.qmd">
+        <div class="resource-card-icon"><i class="fa-brands fa-python"></i></div>
+        <div class="resource-card-title">Python</div>
+        <div class="resource-card-desc">Books, tutorials, and notes on Python.</div>
+      </a>
+      <a class="resource-card" href="webpages/resources/macro.qmd">
+        <div class="resource-card-icon"><i class="bi bi-graph-up-arrow"></i></div>
+        <div class="resource-card-title">Macroeconomics</div>
+        <div class="resource-card-desc">Notes and resources on macroeconomic theory, time-series modelling, and policy analysis.</div>
+      </a>
+      <a class="resource-card" href="webpages/resources/econometrics.qmd">
+        <div class="resource-card-icon"><i class="bi bi-calculator"></i></div>
+        <div class="resource-card-title">Econometrics</div>
+        <div class="resource-card-desc">Applied econometrics resources covering OLS, panel data, IV, ARDL, and structural estimation.</div>
+      </a>
+      <a class="resource-card" href="webpages/resources/causalinference.qmd">
+        <div class="resource-card-icon"><i class="bi bi-diagram-3"></i></div>
+        <div class="resource-card-title">Causal Inference</div>
+        <div class="resource-card-desc">Resources on DiD, RD, IV, matching, and impact evaluation methods.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     PAGE JAVASCRIPT
+     All index-page behaviour in one block:
+       1. mywork accordion
+       2. listing carousels (forceCarousel + MutationObserver init)
+       3. graphics section (initGraphicSection)
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ----------------------------------------------------------
+     1. MYWORK ACCORDION
+     ---------------------------------------------------------- */
+  var strip = document.getElementById('mywork-strip');
+  if (strip) {
+    var panels = Array.from(strip.querySelectorAll('.mywork-panel'));
+
+    function activatePanel(idx) {
+      panels.forEach(function (p, i) {
+        p.classList.toggle('active', i === idx);
+      });
+    }
+
+    panels.forEach(function (panel, i) {
+      panel.addEventListener('click', function () {
+        if (!panel.classList.contains('active')) activatePanel(i);
+      });
+
+      var btn = panel.querySelector('.mywork-panel-collapsed-label');
+      if (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          activatePanel(i);
+        });
+      }
+    });
+  }
+
+
+  /* ----------------------------------------------------------
+     2. LISTING CAROUSELS
+     ---------------------------------------------------------- */
+  var CAROUSEL_IDS = ['analysis', 'research', 'blog', 'playground'];
+  /* Per-carousel position stored on the wrapper DOM node
+     (wrapper._pos) — no shared mutable object. */
+
+  function forceCarousel(id) {
+    var wrapper = document.getElementById('wrapper-' + id);
+    if (!wrapper) return;
+    var grid = wrapper.querySelector('.list.grid');
+    if (!grid) return;
+
+    var availWidth = wrapper.parentElement.offsetWidth || wrapper.offsetWidth;
+    var gap = 24;
+    var cols = 3;
+
+    while (cols > 1 && cols * 340 + (cols - 1) * gap > availWidth) {
+      cols--;
+    }
+
+    var cardWidth = Math.floor((availWidth - 1 - (cols - 1) * gap) / cols);
+
+    wrapper.style.overflow  = 'hidden';
+    wrapper.style.paddingLeft = '1px';
+    wrapper.style.width     = availWidth + 'px';
+    wrapper.style.maxWidth  = availWidth + 'px';
+
+    grid.style.display       = 'flex';
+    grid.style.flexWrap      = 'nowrap';
+    grid.style.flexDirection = 'row';
+    grid.style.width         = 'max-content';
+    grid.style.transition    = 'transform 0.4s ease';
+    grid.style.gap           = gap + 'px';
+
+    wrapper.querySelectorAll('.g-col-1').forEach(function (col) {
+      col.style.width    = cardWidth + 'px';
+      col.style.minWidth = cardWidth + 'px';
+      col.style.maxWidth = cardWidth + 'px';
+      col.style.flexShrink = '0';
+    });
+
+    wrapper._visibleCols = cols;
+    wrapper._cardWidth   = cardWidth;
+    wrapper._gap         = gap;
+    wrapper._pos         = 0;
+    grid.style.transform = 'translateX(0)';
+  }
+
+  function scrollListing(id, dir) {
+    var wrapper = document.getElementById('wrapper-' + id);
+    if (!wrapper) return;
+    var grid = wrapper.querySelector('.list.grid');
+    if (!grid) return;
+
+    var gap        = wrapper._gap || 24;
+    var visible    = wrapper._visibleCols || 3;
+    var firstCard  = wrapper.querySelector('.g-col-1');
+    var cardWidth  = firstCard ? firstCard.getBoundingClientRect().width : (wrapper._cardWidth || 340);
+    var step       = cardWidth + gap;
+    var totalCards = wrapper.querySelectorAll('.g-col-1').length;
+    var max        = Math.max(0, totalCards - visible);
+
+    wrapper._pos = Math.min(max, Math.max(0, (wrapper._pos || 0) + dir));
+    grid.style.transform = 'translateX(-' + (wrapper._pos * step + 1) + 'px)';
+  }
+
+  /* Wire arrow buttons via data attributes — no inline onclick */
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.listing-arrow');
+    if (!btn) return;
+    var target = btn.dataset.target;
+    var dir    = parseInt(btn.dataset.dir, 10);
+    if (target && !isNaN(dir)) scrollListing(target, dir);
+  });
+
+  /* Use MutationObserver so each carousel initialises exactly
+     when Quarto injects its cards — no arbitrary timers. */
+  function initCarousels() {
+    CAROUSEL_IDS.forEach(function (id) {
+      var wrapper = document.getElementById('wrapper-' + id);
+      if (!wrapper) return;
+
+      function tryInit() {
+        var grid = wrapper.querySelector('.list.grid');
+        if (grid && grid.children.length > 0) {
+          forceCarousel(id);
+          return true;
+        }
+        return false;
+      }
+
+      if (tryInit()) return; /* already rendered synchronously */
+
+      var observer = new MutationObserver(function (_, obs) {
+        if (tryInit()) obs.disconnect();
+      });
+      observer.observe(wrapper, { childList: true, subtree: true });
+    });
+  }
+
+  /* Debounced resize — reset positions and re-measure */
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      CAROUSEL_IDS.forEach(function (id) {
+        var wrapper = document.getElementById('wrapper-' + id);
+        var grid = wrapper ? wrapper.querySelector('.list.grid') : null;
+        if (grid) {
+          grid.style.opacity   = '0';
+          grid.style.transform = 'translateX(0)';
+        }
+      });
+      setTimeout(function () {
+        CAROUSEL_IDS.forEach(function (id) {
+          forceCarousel(id);
+          var wrapper = document.getElementById('wrapper-' + id);
+          var grid = wrapper ? wrapper.querySelector('.list.grid') : null;
+          if (grid) grid.style.opacity = '1';
+        });
+      }, 200);
+    }, 150);
+  });
+
+
+  /* ----------------------------------------------------------
+     3. GRAPHICS FOR EXPLORATION
+     Scrapes Quarto default listing from #gc-listing-source
+     and renders custom cards into #gc-track.
+
+     Expected Quarto listing HTML structure:
+       .list-group-item
+         .listing-title   (or h3/h4/.title)
+         .listing-description (or .description / p)
+         .listing-category (zero or more)
+       a[href]            (ancestor or child)
+     If cards stop rendering, check Quarto listing output first.
+     ---------------------------------------------------------- */
+  function initGraphicSection() {
+    var source   = document.getElementById('gc-listing-source');
+    var track    = document.getElementById('gc-track');
+    var viewport = document.getElementById('gc-viewport');
+    var btnPrev  = document.getElementById('gc-prev');
+    var btnNext  = document.getElementById('gc-next');
+    if (!source || !track || !viewport) return;
+
+    var items = source.querySelectorAll('.list-group-item');
+    if (items.length === 0) {
+      items = source.querySelectorAll('[data-listing-date-sort], .listing-item');
+    }
+
+    var cards = [];
+    items.forEach(function (item) {
+      var titleEl = item.querySelector('.listing-title, h3, h4, .title');
+      var descEl  = item.querySelector('.listing-description, .description, p');
+      var catEls  = item.querySelectorAll('.listing-category, .badge, .category');
+      var linkEl  = item.querySelector('a') || item.closest('a');
+      var subEl   = item.querySelector('.listing-subtitle, .subtitle');
+
+      var title    = titleEl ? titleEl.textContent.trim() : '(Untitled)';
+      var desc     = descEl  ? descEl.textContent.trim()  : '';
+      var href     = linkEl  ? (linkEl.getAttribute('href') || '#') : '#';
+      var subtitle = subEl   ? subEl.textContent.trim()   : '';
+      var cats     = [];
+      catEls.forEach(function (el) {
+        var t = el.textContent.trim();
+        if (t) cats.push(t);
+      });
+      cards.push({ title: title, desc: desc, href: href, subtitle: subtitle, cats: cats });
+    });
+
+    if (cards.length === 0) {
+      cards = [{
+        title:    'No graphics yet',
+        desc:     'Add .qmd files to webpages/graphics/graphics/ to populate this section.',
+        href:     'webpages/graphics/graphics.qmd',
+        subtitle: '',
+        cats:     ['Interactive']
+      }];
+    }
+
+    track.innerHTML = '';
+    cards.forEach(function (c) {
+      var langCat  = c.cats.filter(function (t) { return t.toLowerCase().startsWith('lang:'); });
+      var nonLang  = c.cats.filter(function (t) { return !t.toLowerCase().startsWith('lang:'); });
+      var kicker   = nonLang.length > 0 ? nonLang[0].toUpperCase() : 'GRAPHIC';
+      var toolTags = nonLang.slice(1);
+      var langLabel = langCat.length > 0 ? langCat[0].replace(/^lang:/i, '') : '';
+
+      var tagsHtml = '';
+      if (toolTags.length > 0 || langLabel) {
+        tagsHtml = '<div class="gc-card-tags">';
+        if (toolTags.length > 0) {
+          tagsHtml += toolTags
+            .map(function (t) { return '<span class="gc-card-tag">' + t + '</span>'; })
+            .join('<span class="gc-card-tag-sep">·</span>');
+        }
+        if (langLabel) {
+          if (toolTags.length > 0) tagsHtml += '<span class="gc-card-tag-sep">·</span>';
+          tagsHtml += '<span class="gc-card-lang">' + langLabel + '</span>';
+        }
+        tagsHtml += '</div>';
+      } else if (c.subtitle) {
+        tagsHtml = '<div class="gc-card-tags"><span class="gc-card-tag">' + c.subtitle + '</span></div>';
+      }
+
+      var card = document.createElement('a');
+      card.className = 'gc-card';
+      card.href      = c.href;
+      card.innerHTML =
+        '<div class="gc-card-inner">' +
+          '<div class="gc-card-text">' +
+            '<div class="gc-card-kicker">' + kicker + '</div>' +
+            '<div class="gc-card-title">' + c.title + '</div>' +
+            '<div class="gc-card-desc">' + c.desc + '</div>' +
+            tagsHtml +
+          '</div>' +
+          '<div class="gc-card-btn" aria-hidden="true">&#8599;</div>' +
+        '</div>';
+      track.appendChild(card);
+    });
+
+    var VISIBLE = 4;
+    var pos = 0;
+
+    function cardStep() {
+      var kids = track.querySelectorAll('.gc-card');
+      if (kids.length < 2) return kids.length === 1 ? kids[0].offsetHeight : 160;
+      return Math.round(
+        kids[1].getBoundingClientRect().top - kids[0].getBoundingClientRect().top
+      );
+    }
+
+    function setHeight() {
+      pos = 0;
+      track.style.transform = 'translateY(0)';
+      function measure() {
+        var kids = track.querySelectorAll('.gc-card');
+        if (kids.length === 0) return;
+        var n = Math.min(VISIBLE, kids.length);
+        var h = Math.round(
+          kids[n - 1].getBoundingClientRect().bottom -
+          kids[0].getBoundingClientRect().top
+        );
+        if (h > 0) {
+          viewport.style.height    = h + 'px';
+          viewport.style.maxHeight = h + 'px';
+        }
+        updateArrows();
+      }
+      requestAnimationFrame(measure);
+      setTimeout(measure, 200);
+      setTimeout(measure, 600);
+    }
+
+    function updateArrows() {
+      btnPrev.disabled = (pos <= 0);
+      btnNext.disabled = (pos >= track.children.length - VISIBLE);
+    }
+
+    function slideGraphics(dir) {
+      pos = Math.min(Math.max(0, pos + dir), Math.max(0, track.children.length - VISIBLE));
+      track.style.transform = 'translateY(-' + (pos * cardStep()) + 'px)';
+      updateArrows();
+    }
+
+    btnPrev.addEventListener('click', function () { slideGraphics(-1); });
+    btnNext.addEventListener('click', function () { slideGraphics(1); });
+    window.addEventListener('resize', setHeight);
+
+    setHeight();
+  }
+
+
+  /* ----------------------------------------------------------
+     INIT — run after DOM is ready
+     ---------------------------------------------------------- */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      initCarousels();
+      initGraphicSection();
+    });
+  } else {
+    initCarousels();
+    initGraphicSection();
+  }
+
+  /* Fallback for graphics: Quarto may inject listing content late */
+  setTimeout(initGraphicSection, 400);
+  setTimeout(initGraphicSection, 1000);
+
+})();
+</script>
+```

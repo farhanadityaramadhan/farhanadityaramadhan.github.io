@@ -1,0 +1,12 @@
+---
+title: "Tax Reliance and Democracy"
+subtitle: "Cross-country scatter explorer, 1990–2020"
+date: 2025-08-01
+categories: [Political Economy, Historical Economics, lang:English]
+description: "An interactive scatter plot exploring the relationship between non-resource tax reliance and V-Dem democracy indices across 108 countries, 1990–2020."
+format:
+  html:
+    toc: false
+---
+
+Placeholder — replace with your Shiny or Observable embed.

@@ -1,0 +1,19 @@
+---
+title: "R & Rstudio"
+subtitle: "Books, tutorials, and notes on R, R Markdown, and Quarto."
+description: "{{< var section.analysis >}}"
+image: /images/analysis/test1.jpg
+page-layout: full
+toc: false
+listing: 
+  contents: "rstudio/*.qmd"
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, title, subtitle, description, date, categories]
+  grid-columns: 3
+  image-align: left
+  image-height: 200px
+---

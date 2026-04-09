@@ -1,0 +1,9 @@
+---
+title: "Python basic"
+subtitle: ""
+date: 2026-03-24
+image: /images/analysis/test1.webp
+categories: [Causality, book, python, lang:English]
+description: "Python basic"
+---
+saddsa
