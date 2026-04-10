@@ -973,20 +973,49 @@ Feb 1, 2025
     </div>
   </div>
 </div>
-<div class="home-group-header">
-  <div class="home-group-header-inner">
-    <span class="home-group-header-title">Projects</span>
+<!-- ============================================================
+     UNIFIED PROJECTS SECTION
+     Header matches Graphics/Contents style (serif title, no border).
+     Tab bar sits below the title: tabs LEFT, arrows RIGHT —
+     arrows are clearly for the card carousel, not for tab switching.
+     ============================================================ -->
+<div class="pu-section">
+
+  <!-- Section header: same pattern as gc-section-header -->
+  <div class="pu-section-header">
+    <span class="pu-section-title">Projects</span>
   </div>
-</div>
-<div class="listing-header">
-  <h2 class="anchored">Analysis</h2>
-  <div class="listing-arrow-row">
-    <button class="listing-arrow" data-target="analysis" data-dir="-1" aria-label="Previous Analysis">←</button>
-    <button class="listing-arrow" data-target="analysis" data-dir="1" aria-label="Next Analysis">→</button>
+
+  <!-- Tab bar: tabs LEFT · arrows RIGHT
+       Arrows sit here so they are spatially tied to the card row,
+       not to the tab buttons. -->
+  <div class="pu-tab-bar">
+    <div class="pu-tabs" id="pu-tabs" role="tablist">
+      <button class="pu-tab active" data-tab="analysis" role="tab" aria-selected="true">Analysis</button>
+      <button class="pu-tab" data-tab="research" role="tab">Research</button>
+      <button class="pu-tab" data-tab="blog" role="tab">Blog</button>
+      <button class="pu-tab" data-tab="playground" role="tab">Playground</button>
+    </div>
+    <div class="pu-arrows">
+      <button class="pu-arrow" id="pu-prev" aria-label="Previous">←</button>
+      <button class="pu-arrow" id="pu-next" aria-label="Next">→</button>
+    </div>
   </div>
+
+  <!-- Carousel viewport -->
+  <div class="pu-carousel-wrap">
+    <div class="pu-carousel-inner" id="pu-viewport"></div>
+  </div>
+
+  <!-- Tab-aware "View all" link -->
+  <a class="pu-view-all" id="pu-view-all" href="./webpages/projects/analysis.html">
+    View all Analysis →
+  </a>
+
 </div>
-<div class="listing-section">
-  <div class="listing-scroll-wrapper" id="wrapper-analysis">
+
+<!-- Hidden Quarto listing sources — JS reads cards from here -->
+<div id="pu-source-analysis" class="pu-source" style="display:none;">
 <div id="listing-analysis" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="SGlzdG9yaWNhbCUyMEVjb25vbWljcyUyQ1BvbGl0aWNhbCUyMEVjb25vbXklMkNDYXVzYWwlMjBJbmZlcmVuY2UlMkNQdWJsaWMlMjBGaW5hbmNlJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774458000000" data-listing-file-modified-sort="1775313250409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="939">
@@ -1116,19 +1145,8 @@ Mar 24, 2026
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-  </div>
 </div>
-<a href="./webpages/projects/analysis.html" class="listing-more">More →</a>
-<hr>
-<div class="listing-header">
-  <h2 class="anchored">Research</h2>
-  <div class="listing-arrow-row">
-    <button class="listing-arrow" data-target="research" data-dir="-1" aria-label="Previous Research">←</button>
-    <button class="listing-arrow" data-target="research" data-dir="1" aria-label="Next Research">→</button>
-  </div>
-</div>
-<div class="listing-section">
-  <div class="listing-scroll-wrapper" id="wrapper-research">
+<div id="pu-source-research" class="pu-source" style="display:none;">
 <div id="listing-research" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="VHJhZGUlMkNFY29ub21ldHJpY3MlMkNUaW1lLVNlcmllcyUyQ2xhbmclM0FJbmRvbmVzaWFu" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032315" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="869">
@@ -1166,19 +1184,8 @@ Mar 24, 2026
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-  </div>
 </div>
-<a href="./webpages/projects/research.html" class="listing-more">More →</a>
-<hr>
-<div class="listing-header">
-  <h2 class="anchored">Blog</h2>
-  <div class="listing-arrow-row">
-    <button class="listing-arrow" data-target="blog" data-dir="-1" aria-label="Previous Blog">←</button>
-    <button class="listing-arrow" data-target="blog" data-dir="1" aria-label="Next Blog">→</button>
-  </div>
-</div>
-<div class="listing-section">
-  <div class="listing-scroll-wrapper" id="wrapper-blog">
+<div id="pu-source-blog" class="pu-source" style="display:none;">
 <div id="listing-blog" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="dGVzdCUyQ2xhbmclM0FFbmdsaXNo" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032282" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
@@ -1212,19 +1219,8 @@ Mar 24, 2026
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-  </div>
 </div>
-<a href="./webpages/projects/blog.html" class="listing-more">More →</a>
-<hr>
-<div class="listing-header">
-  <h2 class="anchored">Playground</h2>
-  <div class="listing-arrow-row">
-    <button class="listing-arrow" data-target="playground" data-dir="-1" aria-label="Previous Playground">←</button>
-    <button class="listing-arrow" data-target="playground" data-dir="1" aria-label="Next Playground">→</button>
-  </div>
-</div>
-<div class="listing-section">
-  <div class="listing-scroll-wrapper" id="wrapper-playground">
+<div id="pu-source-playground" class="pu-source" style="display:none;">
 <div id="listing-playground" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="bGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774458000000" data-listing-file-modified-sort="1775313032297" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
@@ -1256,9 +1252,7 @@ Mar 26, 2026
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-  </div>
 </div>
-<a href="./webpages/projects/playground.html" class="listing-more">More →</a>
 <div class="resources-section">
   <div class="resources-section-inner">
     <div class="resources-header">
@@ -1306,7 +1300,7 @@ Mar 26, 2026
      PAGE JAVASCRIPT
      All index-page behaviour in one block:
        1. mywork accordion
-       2. listing carousels (forceCarousel + MutationObserver init)
+       2. unified projects carousel (initUnifiedProjects)
        3. graphics section (initGraphicSection)
      ============================================================ -->
 <script>
@@ -1343,129 +1337,243 @@ Mar 26, 2026
 
 
   /* ----------------------------------------------------------
-     2. LISTING CAROUSELS
+     2. UNIFIED PROJECTS CAROUSEL
+     Reads cards from hidden #pu-source-{tab} divs (Quarto
+     renders cards there), clones them into #pu-viewport,
+     and sizes them to fill the available width.
+
+     Tab map — href is the "View all" destination per tab.
      ---------------------------------------------------------- */
-  var CAROUSEL_IDS = ['analysis', 'research', 'blog', 'playground'];
-  /* Per-carousel position stored on the wrapper DOM node
-     (wrapper._pos) — no shared mutable object. */
+  var PU_TABS = {
+    analysis:   { href: 'webpages/projects/analysis.qmd',   label: 'Analysis'   },
+    research:   { href: 'webpages/projects/research.qmd',   label: 'Research'   },
+    blog:       { href: 'webpages/projects/blog.qmd',       label: 'Blog'       },
+    playground: { href: 'webpages/projects/playground.qmd', label: 'Playground' }
+  };
 
-  function forceCarousel(id) {
-    var wrapper = document.getElementById('wrapper-' + id);
-    if (!wrapper) return;
-    var grid = wrapper.querySelector('.list.grid');
-    if (!grid) return;
+  var puViewport  = document.getElementById('pu-viewport');
+  var puViewAll   = document.getElementById('pu-view-all');
+  var puPrev      = document.getElementById('pu-prev');
+  var puNext      = document.getElementById('pu-next');
+  var puActiveTab = 'analysis';
+  var puPos       = 0;           /* current card offset */
+  var puCardWidth = 240;         /* recalculated on layout */
+  var puGap       = 18;
+  var puVisible   = 4;
 
-    var availWidth = wrapper.parentElement.offsetWidth || wrapper.offsetWidth;
-    var gap = 24;
-    var cols = 3;
+  /* Clone cards from source div into viewport and initialise carousel */
+  function puLoadTab(tabId) {
+    if (!puViewport) return;
 
-    while (cols > 1 && cols * 340 + (cols - 1) * gap > availWidth) {
-      cols--;
+    var source = document.getElementById('pu-source-' + tabId);
+    if (!source) return;
+
+    /* Wait until Quarto has injected cards.
+       Quarto grid structure: .quarto-listing-container > .list.grid > .g-col-1
+       We grab .g-col-1 regardless of nesting depth. */
+    var cards = source.querySelectorAll('.g-col-1');
+    if (cards.length === 0) return false;   /* not ready yet */
+
+    /* Fade out, swap, fade in */
+    puViewport.classList.add('pu-fade-out');
+
+    setTimeout(function () {
+      puViewport.innerHTML = '';
+      puPos = 0;
+
+      cards.forEach(function (col) {
+        var clone = col.cloneNode(true);
+        puViewport.appendChild(clone);
+      });
+
+      puLayoutCards();
+      puViewport.classList.remove('pu-fade-out');
+      puViewport.classList.add('pu-fade-in');
+      setTimeout(function () { puViewport.classList.remove('pu-fade-in'); }, 250);
+    }, 150);
+
+    return true;
+  }
+
+  function puLayoutCards() {
+    if (!puViewport) return;
+    var cols = puViewport.querySelectorAll('.g-col-1');
+    if (cols.length === 0) return;
+
+    var wrap = puViewport.parentElement;
+    var availWidth = (wrap ? wrap.offsetWidth : puViewport.offsetWidth) || 800;
+
+    /* Target card width ~240px. Fit as many as possible, min 1.
+       On very narrow screens force 1 card so it fills the width. */
+    var targetCard = 240;
+    var numVisible = Math.max(1, Math.floor((availWidth + puGap) / (targetCard + puGap)));
+    numVisible = Math.min(numVisible, cols.length);
+    if (availWidth < 400) numVisible = 1;
+
+    puCardWidth = Math.floor((availWidth - (numVisible - 1) * puGap) / numVisible);
+    puVisible   = numVisible;
+
+    /* ALWAYS enforce height = width × 1.5 via inline style.
+       This overrides the CSS fixed heights and keeps the ratio
+       exact at every screen size and card count. */
+    var cardHeight = Math.round(puCardWidth * 1.5);
+
+    cols.forEach(function (col) {
+      col.style.width    = puCardWidth + 'px';
+      col.style.minWidth = puCardWidth + 'px';
+      col.style.maxWidth = puCardWidth + 'px';
+      col.style.height   = cardHeight + 'px';
+      col.style.flexShrink = '0';
+      var link = col.querySelector('a.quarto-grid-link');
+      var card = col.querySelector('.card');
+      if (link) link.style.height = cardHeight + 'px';
+      if (card) card.style.height = cardHeight + 'px';
+    });
+
+    /* #pu-viewport IS the flex row */
+    puViewport.style.display       = 'flex';
+    puViewport.style.flexWrap      = 'nowrap';
+    puViewport.style.flexDirection = 'row';
+    puViewport.style.gap           = puGap + 'px';
+    puViewport.style.width         = 'max-content';
+    puViewport.style.transition    = 'transform 0.4s ease';
+
+    /* Reset position */
+    puPos = 0;
+    puApplyTransform();
+    puUpdateArrows();
+  }
+
+  function puApplyTransform() {
+    if (!puViewport) return;
+    var step = puCardWidth + puGap;
+    puViewport.style.transform = 'translateX(-' + (puPos * step) + 'px)';
+  }
+
+  function puUpdateArrows() {
+    if (!puViewport) return;
+    var totalCards = puViewport.querySelectorAll('.g-col-1').length;
+    var max = Math.max(0, totalCards - puVisible);
+    if (puPrev) puPrev.disabled = (puPos <= 0);
+    if (puNext) puNext.disabled = (puPos >= max);
+  }
+
+  function puScroll(dir) {
+    if (!puViewport) return;
+    var totalCards = puViewport.querySelectorAll('.g-col-1').length;
+    var max = Math.max(0, totalCards - puVisible);
+    puPos = Math.min(max, Math.max(0, puPos + dir));
+    puApplyTransform();
+    puUpdateArrows();
+  }
+
+  /* Tab switching */
+  function puActivate(tabId) {
+    if (!PU_TABS[tabId]) return;
+    puActiveTab = tabId;
+
+    /* Update tab button states */
+    var tabBtns = document.querySelectorAll('.pu-tab');
+    tabBtns.forEach(function (btn) {
+      var active = btn.dataset.tab === tabId;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    /* Update "View all" link */
+    if (puViewAll) {
+      puViewAll.href        = PU_TABS[tabId].href;
+      puViewAll.textContent = 'View all ' + PU_TABS[tabId].label + ' \u2192';
     }
 
-    var cardWidth = Math.floor((availWidth - 1 - (cols - 1) * gap) / cols);
-
-    wrapper.style.overflow  = 'hidden';
-    wrapper.style.paddingLeft = '1px';
-    wrapper.style.width     = availWidth + 'px';
-    wrapper.style.maxWidth  = availWidth + 'px';
-
-    grid.style.display       = 'flex';
-    grid.style.flexWrap      = 'nowrap';
-    grid.style.flexDirection = 'row';
-    grid.style.width         = 'max-content';
-    grid.style.transition    = 'transform 0.4s ease';
-    grid.style.gap           = gap + 'px';
-
-    wrapper.querySelectorAll('.g-col-1').forEach(function (col) {
-      col.style.width    = cardWidth + 'px';
-      col.style.minWidth = cardWidth + 'px';
-      col.style.maxWidth = cardWidth + 'px';
-      col.style.flexShrink = '0';
-    });
-
-    wrapper._visibleCols = cols;
-    wrapper._cardWidth   = cardWidth;
-    wrapper._gap         = gap;
-    wrapper._pos         = 0;
-    grid.style.transform = 'translateX(0)';
-  }
-
-  function scrollListing(id, dir) {
-    var wrapper = document.getElementById('wrapper-' + id);
-    if (!wrapper) return;
-    var grid = wrapper.querySelector('.list.grid');
-    if (!grid) return;
-
-    var gap        = wrapper._gap || 24;
-    var visible    = wrapper._visibleCols || 3;
-    var firstCard  = wrapper.querySelector('.g-col-1');
-    var cardWidth  = firstCard ? firstCard.getBoundingClientRect().width : (wrapper._cardWidth || 340);
-    var step       = cardWidth + gap;
-    var totalCards = wrapper.querySelectorAll('.g-col-1').length;
-    var max        = Math.max(0, totalCards - visible);
-
-    wrapper._pos = Math.min(max, Math.max(0, (wrapper._pos || 0) + dir));
-    grid.style.transform = 'translateX(-' + (wrapper._pos * step + 1) + 'px)';
-  }
-
-  /* Wire arrow buttons via data attributes — no inline onclick */
-  document.addEventListener('click', function (e) {
-    var btn = e.target.closest('.listing-arrow');
-    if (!btn) return;
-    var target = btn.dataset.target;
-    var dir    = parseInt(btn.dataset.dir, 10);
-    if (target && !isNaN(dir)) scrollListing(target, dir);
-  });
-
-  /* Use MutationObserver so each carousel initialises exactly
-     when Quarto injects its cards — no arbitrary timers. */
-  function initCarousels() {
-    CAROUSEL_IDS.forEach(function (id) {
-      var wrapper = document.getElementById('wrapper-' + id);
-      if (!wrapper) return;
-
-      function tryInit() {
-        var grid = wrapper.querySelector('.list.grid');
-        if (grid && grid.children.length > 0) {
-          forceCarousel(id);
-          return true;
-        }
-        return false;
-      }
-
-      if (tryInit()) return; /* already rendered synchronously */
-
-      var observer = new MutationObserver(function (_, obs) {
-        if (tryInit()) obs.disconnect();
+    /* Load cards — if not ready yet, set up a MutationObserver */
+    if (!puLoadTab(tabId)) {
+      var source = document.getElementById('pu-source-' + tabId);
+      if (!source) return;
+      var obs = new MutationObserver(function (_, ob) {
+        if (puLoadTab(tabId)) ob.disconnect();
       });
-      observer.observe(wrapper, { childList: true, subtree: true });
+      obs.observe(source, { childList: true, subtree: true });
+    }
+  }
+
+  /* Wire tab buttons */
+  var puTabsEl = document.getElementById('pu-tabs');
+  if (puTabsEl) {
+    puTabsEl.addEventListener('click', function (e) {
+      var btn = e.target.closest('.pu-tab');
+      if (!btn) return;
+      puActivate(btn.dataset.tab);
     });
   }
 
-  /* Debounced resize — reset positions and re-measure */
-  var resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function () {
-      CAROUSEL_IDS.forEach(function (id) {
-        var wrapper = document.getElementById('wrapper-' + id);
-        var grid = wrapper ? wrapper.querySelector('.list.grid') : null;
-        if (grid) {
-          grid.style.opacity   = '0';
-          grid.style.transform = 'translateX(0)';
-        }
-      });
-      setTimeout(function () {
-        CAROUSEL_IDS.forEach(function (id) {
-          forceCarousel(id);
-          var wrapper = document.getElementById('wrapper-' + id);
-          var grid = wrapper ? wrapper.querySelector('.list.grid') : null;
-          if (grid) grid.style.opacity = '1';
+  /* Wire arrow buttons */
+  if (puPrev) puPrev.addEventListener('click', function () { puScroll(-1); });
+  if (puNext) puNext.addEventListener('click', function () { puScroll( 1); });
+
+  /* ----------------------------------------------------------
+     MOBILE TAP-TO-REVEAL
+     On touch devices, the first tap on a card reveals the
+     hover content (subtitle, categories, lang/date) by adding
+     .pu-touched to the link. A second tap on the same already-
+     revealed card follows the link normally.
+     Tapping anywhere else clears all revealed cards.
+     Only active on touch-capable devices (pointer: coarse).
+     ---------------------------------------------------------- */
+  var puViewportEl = document.getElementById('pu-viewport');
+  if (puViewportEl && window.matchMedia('(pointer: coarse)').matches) {
+
+    puViewportEl.addEventListener('click', function (e) {
+      var link = e.target.closest('a.quarto-grid-link');
+      if (!link) return;
+
+      if (!link.classList.contains('pu-touched')) {
+        /* First tap — reveal content, block navigation */
+        e.preventDefault();
+
+        /* Clear any other revealed cards in this viewport */
+        puViewportEl.querySelectorAll('a.quarto-grid-link.pu-touched').forEach(function (el) {
+          el.classList.remove('pu-touched');
         });
-      }, 200);
+
+        link.classList.add('pu-touched');
+      }
+      /* Second tap — link.classList already has pu-touched,
+         so we do nothing and let the browser follow href normally */
+    });
+
+    /* Tapping outside the carousel clears all revealed cards */
+    document.addEventListener('click', function (e) {
+      if (!puViewportEl.contains(e.target)) {
+        puViewportEl.querySelectorAll('a.quarto-grid-link.pu-touched').forEach(function (el) {
+          el.classList.remove('pu-touched');
+        });
+      }
+    });
+
+    /* Also clear when switching tabs */
+    var _origActivate = puActivate;
+    puActivate = function (tabId) {
+      puViewportEl.querySelectorAll('a.quarto-grid-link.pu-touched').forEach(function (el) {
+        el.classList.remove('pu-touched');
+      });
+      _origActivate(tabId);
+    };
+  }
+
+  /* Debounced resize */
+  var puResizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(puResizeTimer);
+    puResizeTimer = setTimeout(function () {
+      puLayoutCards();
     }, 150);
   });
+
+  function initUnifiedProjects() {
+    /* Load first tab; fallback via MutationObserver is inside puActivate */
+    puActivate('analysis');
+  }
 
 
   /* ----------------------------------------------------------
@@ -1622,17 +1730,21 @@ Mar 26, 2026
      ---------------------------------------------------------- */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
-      initCarousels();
+      initUnifiedProjects();
       initGraphicSection();
     });
   } else {
-    initCarousels();
+    initUnifiedProjects();
     initGraphicSection();
   }
 
   /* Fallback for graphics: Quarto may inject listing content late */
   setTimeout(initGraphicSection, 400);
   setTimeout(initGraphicSection, 1000);
+
+  /* Fallback for projects: retry active tab in case Quarto injected late */
+  setTimeout(function () { puLoadTab(puActiveTab) || puActivate(puActiveTab); }, 400);
+  setTimeout(function () { puLoadTab(puActiveTab) || puActivate(puActiveTab); }, 1000);
 
 })();
 </script>
