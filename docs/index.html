@@ -1511,55 +1511,7 @@ Mar 26, 2026
   if (puPrev) puPrev.addEventListener('click', function () { puScroll(-1); });
   if (puNext) puNext.addEventListener('click', function () { puScroll( 1); });
 
-  /* ----------------------------------------------------------
-     MOBILE TAP-TO-REVEAL
-     On touch devices, the first tap on a card reveals the
-     hover content (subtitle, categories, lang/date) by adding
-     .pu-touched to the link. A second tap on the same already-
-     revealed card follows the link normally.
-     Tapping anywhere else clears all revealed cards.
-     Only active on touch-capable devices (pointer: coarse).
-     ---------------------------------------------------------- */
-  var puViewportEl = document.getElementById('pu-viewport');
-  if (puViewportEl && window.matchMedia('(pointer: coarse)').matches) {
 
-    puViewportEl.addEventListener('click', function (e) {
-      var link = e.target.closest('a.quarto-grid-link');
-      if (!link) return;
-
-      if (!link.classList.contains('pu-touched')) {
-        /* First tap — reveal content, block navigation */
-        e.preventDefault();
-
-        /* Clear any other revealed cards in this viewport */
-        puViewportEl.querySelectorAll('a.quarto-grid-link.pu-touched').forEach(function (el) {
-          el.classList.remove('pu-touched');
-        });
-
-        link.classList.add('pu-touched');
-      }
-      /* Second tap — link.classList already has pu-touched,
-         so we do nothing and let the browser follow href normally */
-    });
-
-    /* Tapping outside the carousel clears all revealed cards */
-    document.addEventListener('click', function (e) {
-      if (!puViewportEl.contains(e.target)) {
-        puViewportEl.querySelectorAll('a.quarto-grid-link.pu-touched').forEach(function (el) {
-          el.classList.remove('pu-touched');
-        });
-      }
-    });
-
-    /* Also clear when switching tabs */
-    var _origActivate = puActivate;
-    puActivate = function (tabId) {
-      puViewportEl.querySelectorAll('a.quarto-grid-link.pu-touched').forEach(function (el) {
-        el.classList.remove('pu-touched');
-      });
-      _origActivate(tabId);
-    };
-  }
 
   /* Debounced resize */
   var puResizeTimer;
@@ -1745,6 +1697,57 @@ Mar 26, 2026
   /* Fallback for projects: retry active tab in case Quarto injected late */
   setTimeout(function () { puLoadTab(puActiveTab) || puActivate(puActiveTab); }, 400);
   setTimeout(function () { puLoadTab(puActiveTab) || puActivate(puActiveTab); }, 1000);
+
+
+  /* ----------------------------------------------------------
+     MOBILE TAP-TO-REVEAL — touch devices only (hover: none)
+     CSS class: .pu-card-revealed on .g-col-1  (matches styles.css)
+
+     Behaviour:
+       First tap  → adds .pu-card-revealed, shows card content
+       Second tap → class already present, browser navigates normally
+       Tap outside carousel → clears all revealed cards
+       Tab switch → clears all revealed cards
+     ---------------------------------------------------------- */
+  if (window.matchMedia('(hover: none)').matches) {
+
+    /* First/second tap logic */
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('#pu-viewport a.quarto-grid-link');
+      if (!link) return;
+
+      var col = link.closest('.g-col-1');
+      if (!col) return;
+
+      /* Second tap on already-revealed card — let navigation happen */
+      if (col.classList.contains('pu-card-revealed')) return;
+
+      /* First tap — reveal this card, close any others */
+      e.preventDefault();
+      document.querySelectorAll('#pu-viewport .g-col-1').forEach(function (c) {
+        c.classList.remove('pu-card-revealed');
+      });
+      col.classList.add('pu-card-revealed');
+    });
+
+    /* Tap outside carousel — clear all revealed cards */
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('#pu-viewport')) {
+        document.querySelectorAll('#pu-viewport .g-col-1').forEach(function (c) {
+          c.classList.remove('pu-card-revealed');
+        });
+      }
+    });
+
+    /* Tab switch — clear revealed state so new tab starts fresh */
+    var _origActivate = puActivate;
+    puActivate = function (tabId) {
+      document.querySelectorAll('#pu-viewport .g-col-1').forEach(function (c) {
+        c.classList.remove('pu-card-revealed');
+      });
+      _origActivate(tabId);
+    };
+  }
 
 })();
 </script>

@@ -23,7 +23,7 @@
   --color-border:         #e0e0e0;
   --color-border-mid:     #d0d0d0;
   --color-border-dark:    #dde3ea;
-  --color-bg:             #ffffff;
+  --color-bg:             #fff;
   --color-bg-soft:        #fafafa;
   --color-bg-muted:       #f2f2f2;
   --color-bg-tinted:      #f5f7f9;
@@ -32,7 +32,6 @@
   --overlay-deep:         rgba(0, 20, 50, 0.92);
   --overlay-mid:          rgba(0, 20, 50, 0.60);
   --overlay-light:        rgba(0, 20, 50, 0.35);
-  --overlay-card:         rgba(0, 20, 50, 0.82);
 
   /* Typography */
   --font-sans:   "Source Sans Pro", "Segoe UI", Arial, sans-serif;
@@ -251,316 +250,6 @@ body.page-article #title-block-header {
   display: none !important;
 }
 
-/* -- Listing carousel rows — override Quarto grid with flex --
-   Combined with forceCarousel() in JS; CSS sets the intent,
-   JS applies exact widths after cards are injected. */
-body.page-index .listing-scroll-wrapper .quarto-listing-grid,
-body.page-index .listing-scroll-wrapper [class*="quarto-listing-grid"] {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  flex-direction: row !important;
-  gap: 1.5rem !important;
-  transition: transform 0.4s ease;
-  width: max-content !important;
-  grid-template-columns: none !important;
-  grid-template-rows: none !important;
-}
-
-/* ── Index listing cards: glassmorphism + CSS grid stacking ──
-   Quarto HTML structure (verified from rendered output):
-     .g-col-1 > a.quarto-grid-link > .card.quarto-grid-item
-       p.card-img-top > img.thumbnail-image
-       .card-body.post-contents
-         h5.card-title · .card-subtitle · .listing-categories
-         .listing-lang-wrapper · .card-attribution > .listing-date
-   ─────────────────────────────────────────────────────────── */
-
-body.page-index .listing-scroll-wrapper a.quarto-grid-link {
-  display: block !important;
-  height: 480px !important;
-  text-decoration: none !important;
-}
-
-/* .g-col-1 is the flex child in the carousel — must also be fixed height */
-body.page-index .listing-scroll-wrapper .g-col-1 {
-  height: 480px !important;
-  flex-shrink: 0 !important;
-}
-
-/* .card — grid stacking container; image and body share one "stack" cell */
-body.page-index .listing-scroll-wrapper .card {
-  flex-shrink: 0 !important;
-  flex-grow: 0 !important;
-  height: 480px !important;
-  display: grid !important;
-  grid-template-areas: "stack" !important;
-  grid-template-rows: 1fr !important;
-  grid-template-columns: 1fr !important;
-  border-radius: var(--radius-sm) !important;
-  overflow: hidden !important;
-  border: none !important;
-  background: var(--card-dark-bg) !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10) !important;
-  position: relative !important;
-  transition: transform 0.25s ease !important;
-}
-
-body.page-index .listing-scroll-wrapper a.quarto-grid-link:hover .card {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
-}
-
-/* p.card-img-top — direct grid child, fills the full stack area */
-body.page-index .listing-scroll-wrapper .card .card-img-top {
-  grid-area: stack !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  overflow: hidden !important;
-  align-self: stretch !important;
-  position: relative !important;
-}
-
-body.page-index .listing-scroll-wrapper .card .card-img-top img,
-body.page-index .listing-scroll-wrapper .card img.thumbnail-image {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  display: block !important;
-  border: none !important;
-}
-
-/* Permanent dark gradient on the image — ensures title always has contrast
-   and creates the shadow/vignette effect behind the title area */
-body.page-index .listing-scroll-wrapper .card .card-img-top::after {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background: linear-gradient(
-    to bottom,
-    transparent 50%,
-    rgba(0, 10, 20, 0.35) 78%,
-    rgba(0, 10, 20, 0.58) 100%
-  ) !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-}
-
-/* .card-body — large padding-top so glass panel covers more of the card */
-body.page-index .listing-scroll-wrapper .card .card-body {
-  grid-area: stack !important;
-  align-self: end !important;
-  height: auto !important;
-  position: relative !important;
-  z-index: 2 !important;
-  padding: 5rem 1.4rem 1.1rem !important;
-  margin: 0 !important;
-  width: 100% !important;
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0 !important;
-}
-
-/* ::before — glass covers the full card-body height.
-   Mask: fully transparent at very top, then fades to solid quickly.
-   The large padding-top above means the glass bleeds well above the title. */
-body.page-index .listing-scroll-wrapper .card .card-body::before {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: -1 !important;
-  background: var(--card-dark-glass) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-  opacity: 1 !important;
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.4) 15%,
-    black 40%
-  ) !important;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.4) 15%,
-    black 40%
-  ) !important;
-}
-
-/* Title — ALWAYS fully visible at rest, no clamp, strong text-shadow for legibility */
-body.page-index .listing-scroll-wrapper .card .card-title,
-body.page-index .listing-scroll-wrapper .card .listing-title {
-  font-family: var(--font-serif) !important;
-  font-size: 0.975rem !important;
-  font-weight: normal !important;
-  color: #ffffff !important;
-  line-height: 1.35 !important;
-  margin-bottom: 0 !important;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9), 0 2px 20px rgba(0, 0, 0, 0.6) !important;
-  display: block !important; /* no line-clamp — always show full title */
-}
-
-body.page-index .listing-scroll-wrapper .card .card-title a,
-body.page-index .listing-scroll-wrapper .card .listing-title a {
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
-
-body.page-index .listing-scroll-wrapper .card .card-title a:hover,
-body.page-index .listing-scroll-wrapper .card .listing-title a:hover {
-  text-decoration: underline !important;
-  text-decoration-color: rgba(255, 255, 255, 0.5) !important;
-}
-
-/* Everything below title: hidden by default via max-height + opacity.
-   Animates open on hover. */
-body.page-index .listing-scroll-wrapper .card .card-subtitle,
-body.page-index .listing-scroll-wrapper .card .listing-subtitle {
-  font-family: var(--font-sans) !important;
-  font-size: 0.8rem !important;
-  font-weight: 500 !important;
-  color: var(--card-text-secondary) !important;
-  line-height: 1.4 !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
-  max-height: 0 !important;
-  overflow: hidden !important;
-  opacity: 0 !important;
-  margin: 0 !important;
-  transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.35s ease !important;
-}
-
-body.page-index .listing-scroll-wrapper .card .listing-categories {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.28rem !important;
-  max-height: 0 !important;
-  overflow: hidden !important;
-  opacity: 0 !important;
-  margin: 0 !important;
-  transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.35s ease !important;
-}
-
-body.page-index .listing-scroll-wrapper .card .listing-lang-wrapper {
-  padding-top: 0 !important;
-  padding-right: 0 !important;
-  border-top: 1px solid var(--card-divider) !important;
-  order: unset !important;
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-  max-height: 0 !important;
-  overflow: hidden !important;
-  opacity: 0 !important;
-  margin: 0 !important;
-  transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.35s ease, padding 0.35s ease !important;
-}
-
-/* On hover: reveal all content */
-body.page-index .listing-scroll-wrapper a.quarto-grid-link:hover .card .card-subtitle,
-body.page-index .listing-scroll-wrapper a.quarto-grid-link:hover .card .listing-subtitle {
-  max-height: 4rem !important;
-  opacity: 1 !important;
-  margin-top: 0.25rem !important;
-  margin-bottom: 0.4rem !important;
-}
-
-body.page-index .listing-scroll-wrapper a.quarto-grid-link:hover .card .listing-categories {
-  max-height: 6rem !important;
-  opacity: 1 !important;
-  margin-top: 0.35rem !important;
-}
-
-/* Lang wrapper — flex row with lang left, date right.
-   Hidden by default, revealed on hover. */
-body.page-index .listing-scroll-wrapper .card .listing-lang-wrapper {
-  padding-right: 0 !important;
-  border-top: 1px solid var(--card-divider) !important;
-  order: unset !important;
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-  max-height: 0 !important;
-  overflow: hidden !important;
-  opacity: 0 !important;
-  margin: 0 !important;
-  padding-top: 0 !important;
-  transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.35s ease, padding 0.35s ease !important;
-}
-
-body.page-index .listing-scroll-wrapper a.quarto-grid-link:hover .card .listing-lang-wrapper {
-  max-height: 3rem !important;
-  opacity: 1 !important;
-  margin-top: 0.5rem !important;
-  padding-top: 0.45rem !important;
-}
-
-/* Date — sits inside lang-wrapper on the right */
-body.page-index .listing-scroll-wrapper .card .listing-date {
-  font-family: var(--font-sans) !important;
-  font-size: 0.72rem !important;
-  font-weight: 500 !important;
-  color: var(--card-text-primary) !important;
-  position: static !important;
-  bottom: unset !important;
-  right: unset !important;
-  white-space: nowrap !important;
-  margin: 0 !important;
-}
-
-/* card-attribution — contains the date, sits absolutely on the right of the lang-wrapper row */
-body.page-index .listing-scroll-wrapper .card .card-attribution {
-  display: flex !important;
-  align-items: center !important;
-  position: absolute !important;
-  bottom: 1.1rem !important;
-  right: 1.4rem !important;
-  height: 1.6rem !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  opacity: 0 !important;
-  transition: opacity 0.3s ease !important;
-}
-
-body.page-index .listing-scroll-wrapper a.quarto-grid-link:hover .card .card-attribution {
-  opacity: 1 !important;
-}
-
-/* Category chips */
-body.page-index .listing-scroll-wrapper .card .listing-category {
-  font-family: var(--font-sans) !important;
-  font-size: 0.68rem !important;
-  font-weight: 500 !important;
-  color: var(--card-text-primary) !important;
-  background: var(--card-pill-bg) !important;
-  border: 1px solid var(--card-pill-border) !important;
-  border-radius: 5rem !important;
-  padding: 0.1rem 0.55rem !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
-}
-
-/* No-image fallback */
-body.page-index .listing-scroll-wrapper .card:not(:has(img)) {
-  background: var(--card-dark-fallback) !important;
-}
-
-/* Suppress global quarto-listing hover shadow on index cards */
-body.page-index .listing-scroll-wrapper .card:hover {
-  box-shadow: none !important;
-}
-
-
 /* ============================================================
    SHARED COMPONENTS
    Reusable across pages: listing cards, category pills,
@@ -683,7 +372,7 @@ body.page-index .listing-scroll-wrapper .card:hover {
   border: 1px solid var(--color-border-mid);
   border-radius: var(--radius-md);
   background: var(--color-bg);
-  color: #333;
+  color: var(--color-text);
   cursor: pointer;
   font-family: var(--font-sans);
 }
@@ -696,7 +385,7 @@ body.page-index .listing-scroll-wrapper .card:hover {
   border: 1px solid var(--color-border-mid);
   border-radius: var(--radius-md);
   background: var(--color-bg);
-  color: #333;
+  color: var(--color-text);
   width: 220px;
   font-family: var(--font-sans);
 }
@@ -756,7 +445,7 @@ body.page-index .listing-scroll-wrapper .card:hover {
 }
 
 .quarto-listing-category-language-title {
-  font-size: 17px;
+  font-size: 1.0625rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.09em;
@@ -800,9 +489,6 @@ body.page-index hr {
   margin: 1rem 0;
 }
 
-body.page-index .home-group-header {
-  margin-bottom: 1rem;
-}
 
 /* ── Search bar ── */
 .search-bar-section {
@@ -1256,104 +942,7 @@ body.page-index .home-group-header {
   color: #fff;
 }
 
-/* ── Projects section header ── */
-.home-group-header {
-  margin-top: 0;
-  padding-top: 2rem;
-}
 
-.home-group-header-inner {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.home-group-header-title {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: normal;
-  color: var(--color-primary);
-}
-
-.home-group-header-inner a {
-  font-size: 0.85rem;
-  color: var(--color-accent);
-  text-decoration: none;
-  font-family: var(--font-sans);
-}
-
-.home-group-header-inner a:hover {
-  text-decoration: underline;
-  color: var(--color-accent-dark);
-}
-
-/* ── Listing carousel ── */
-.listing-section { position: relative; margin-bottom: 0.5rem; }
-
-body.page-index .listing-scroll-wrapper {
-  overflow: hidden;
-  width: 100%;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-body.page-index .listing-scroll-wrapper::-webkit-scrollbar { display: none; }
-
-.listing-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-  border-left: 4px solid var(--color-accent);
-  border-bottom: 1px solid var(--color-border);
-  padding-left: 0.75rem;
-  padding-bottom: 0.6rem;
-  gap: 1rem;
-}
-
-.listing-header h2 {
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  color: var(--color-primary);
-  font-size: 1.6rem;
-  line-height: 1.25;
-}
-
-.listing-arrow-row { display: flex; align-items: center; gap: 0.5rem; }
-
-.listing-arrow {
-  background: var(--color-bg);
-  color: var(--color-primary);
-  border: 1px solid var(--color-accent-pale);
-  border-radius: var(--radius-md);
-  width: 32px;
-  height: 32px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.15s, color 0.15s;
-}
-
-.listing-arrow:hover {
-  background: var(--color-primary);
-  color: var(--color-bg);
-  border-color: var(--color-primary);
-}
-
-body.page-index .listing-more {
-  display: block;
-  margin-top: -0.5rem;
-  margin-bottom: 0;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  text-decoration: none;
-}
-
-body.page-index .listing-more:hover { text-decoration: underline; }
 
 /* ── Graphics for Exploration section ── */
 .gc-section { margin: 0; padding-bottom: 0; }
@@ -2039,19 +1628,13 @@ body.page-index .listing-more:hover { text-decoration: underline; }
 
 .qf-contact i { color: var(--color-accent-light); font-size: 0.85rem; }
 
-.qf-socials {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 0.75rem !important;
-  margin-top: 0.85rem;
-  margin-bottom: 0;
-}
-
+.qf-socials,
 .nav-footer .qf-socials {
   display: flex !important;
   flex-direction: row !important;
   gap: 0.75rem !important;
   margin-top: 0.85rem !important;
+  margin-bottom: 0;
 }
 
 .qf-social-btn {
@@ -2111,9 +1694,6 @@ body.page-index .listing-more:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
   body.page-index #quarto-content { padding: 0 1.25rem; }
-  body.page-index .listing-scroll-wrapper a.quarto-grid-link { height: 420px !important; }
-  body.page-index .listing-scroll-wrapper .g-col-1           { height: 420px !important; }
-  body.page-index .listing-scroll-wrapper .card              { height: 420px !important; }
 
   .search-bar-inner   { padding: 0 1.25rem; }
   .search-bar-input   { max-width: 100%; }
@@ -2124,7 +1704,6 @@ body.page-index .listing-more:hover { text-decoration: underline; }
   body.page-index h2  { font-size: 1.35rem; }
 
   .tools-strip-inner  { padding: 0 1.25rem; }
-  .home-group-header  { padding-top: 1.5rem; }
 
   .nav-footer.nav-footer {
     flex-direction: column;
@@ -2170,9 +1749,6 @@ body.page-index .listing-more:hover { text-decoration: underline; }
 }
 
 @media (max-width: 480px) {
-  body.page-index .listing-scroll-wrapper a.quarto-grid-link { height: 380px !important; }
-  body.page-index .listing-scroll-wrapper .g-col-1           { height: 380px !important; }
-  body.page-index .listing-scroll-wrapper .card              { height: 380px !important; }
 
   .about-header-meta  { flex-wrap: wrap; gap: 1.25rem; }
   .hero-cta           { flex-direction: column; align-items: flex-start; }
@@ -2257,16 +1833,6 @@ body:not(.page-index) .quarto-listing .card-body {
   margin-bottom: 0.15rem;
 }
 
-.pu-section-kicker {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text-faint);
-  font-family: var(--font-sans);
-  display: block;
-  margin-bottom: 0.75rem;
-}
 
 .pu-tab-bar {
   display: flex;
@@ -2322,8 +1888,8 @@ body:not(.page-index) .quarto-listing .card-body {
 
 .pu-arrow {
   background: var(--color-bg);
-  color: var(--color-primary);
-  border: 1px solid var(--color-border-mid);
+  color: var(--color-primary) !important;
+  border: 1px solid var(--color-accent-pale);
   border-radius: var(--radius-md);
   width: 30px;
   height: 30px;
@@ -2338,7 +1904,7 @@ body:not(.page-index) .quarto-listing .card-body {
 
 .pu-arrow:hover:not(:disabled) {
   background: var(--color-primary);
-  color: var(--color-bg);
+  color: var(--color-bg) !important;
   border-color: var(--color-primary);
 }
 
@@ -2367,9 +1933,6 @@ body:not(.page-index) .quarto-listing .card-body {
 .pu-carousel-inner.pu-fade-in {
   opacity: 1;
   transition: opacity 0.2s ease;
-}
-.pu-carousel-inner:not(.pu-fade-out):not(.pu-fade-in) {
-  transition: transform 0.4s ease;
 }
 
 .pu-view-all {
@@ -2482,7 +2045,7 @@ body.page-index .pu-carousel-inner .card .listing-title {
   font-family: var(--font-serif) !important;
   font-size: 0.85rem !important;
   font-weight: normal !important;
-  color: #ffffff !important; line-height: 1.35 !important;
+  color: #fff !important; line-height: 1.35 !important;
   margin-bottom: 0 !important;
   text-shadow: 0 1px 8px rgba(0,0,0,0.9), 0 2px 20px rgba(0,0,0,0.6) !important;
   display: block !important;
@@ -2490,7 +2053,7 @@ body.page-index .pu-carousel-inner .card .listing-title {
 
 body.page-index .pu-carousel-inner .card .card-title a,
 body.page-index .pu-carousel-inner .card .listing-title a {
-  color: #ffffff !important; text-decoration: none !important;
+  color: #fff !important; text-decoration: none !important;
 }
 
 body.page-index .pu-carousel-inner .card .card-title a:hover,
@@ -2598,4 +2161,38 @@ body.page-index .pu-carousel-inner .card:hover {
 @media (max-width: 768px) {
   .pu-tab-bar { flex-wrap: wrap; gap: 0.5rem; }
   /* Card heights are set by JS as width × 1.5 — no CSS overrides needed */
+}
+/* ============================================================
+   MOBILE CARD REVEAL — touch devices only  (.pu-card-revealed)
+   JS adds this class on first tap. CSS transitions are disabled
+   on touch so the reveal is instant. Second tap navigates.
+   ============================================================ */
+@media (hover: none) {
+
+  /* Revealed state — mirrors the desktop hover reveals */
+  body.page-index .pu-carousel-inner .g-col-1.pu-card-revealed .card .card-subtitle,
+  body.page-index .pu-carousel-inner .g-col-1.pu-card-revealed .card .listing-subtitle {
+    max-height: 3.5rem !important;
+    opacity: 1 !important;
+    margin-top: 0.15rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  body.page-index .pu-carousel-inner .g-col-1.pu-card-revealed .card .listing-categories {
+    max-height: 5rem !important;
+    opacity: 1 !important;
+    margin-top: 0.2rem !important;
+  }
+
+  body.page-index .pu-carousel-inner .g-col-1.pu-card-revealed .card .listing-lang-wrapper {
+    max-height: 2rem !important;
+    opacity: 1 !important;
+    margin-top: 0.3rem !important;
+    padding-top: 0.3rem !important;
+    align-items: center !important;
+  }
+
+  body.page-index .pu-carousel-inner .g-col-1.pu-card-revealed .card .card-attribution {
+    opacity: 1 !important;
+  }
 }
