@@ -7,14 +7,12 @@ toc: false
 listing: 
   contents: "graphics/*.qmd"
   sort: "date desc"
-  type: grid
+  type: default
   categories: true
   sort-ui: true
   filter-ui: true
   fields: [image, title, subtitle, description, date, categories]
-  grid-columns: 3
   page-size: 9
-  image-height: 200px
 ---
 
 

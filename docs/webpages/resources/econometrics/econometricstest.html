@@ -270,6 +270,57 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+
+<script>
+
+/* Fix description mid-ellipsis: flatten <a><p> blocks to inline text */
+
+(function () {
+
+  function fixDescriptions() {
+
+    document.querySelectorAll(
+
+      ".quarto-listing-default .quarto-post .listing-description"
+
+    ).forEach(function (desc) {
+
+      var text = (desc.textContent || desc.innerText || "").trim().replace(/\s+/g, " ");
+
+      desc.textContent = text;
+
+    });
+
+  }
+
+  if (document.readyState === "loading") {
+
+    document.addEventListener("DOMContentLoaded", fixDescriptions);
+
+  } else {
+
+    fixDescriptions();
+
+  }
+
+  /* re-run after quarto listing renders/filters */
+
+  var orig = window["quarto-listing-loaded"];
+
+  window["quarto-listing-loaded"] = function () {
+
+    if (orig) orig();
+
+    setTimeout(fixDescriptions, 50);
+
+  };
+
+})();
+
+</script>
+
+
+
 <link rel="stylesheet" href="../../../styles.css">
 </head>
 

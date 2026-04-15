@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-subtitle','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -299,6 +299,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+
+
+<script>
+
+/* Fix description mid-ellipsis: flatten <a><p> blocks to inline text */
+
+(function () {
+
+  function fixDescriptions() {
+
+    document.querySelectorAll(
+
+      ".quarto-listing-default .quarto-post .listing-description"
+
+    ).forEach(function (desc) {
+
+      var text = (desc.textContent || desc.innerText || "").trim().replace(/\s+/g, " ");
+
+      desc.textContent = text;
+
+    });
+
+  }
+
+  if (document.readyState === "loading") {
+
+    document.addEventListener("DOMContentLoaded", fixDescriptions);
+
+  } else {
+
+    fixDescriptions();
+
+  }
+
+  /* re-run after quarto listing renders/filters */
+
+  var orig = window["quarto-listing-loaded"];
+
+  window["quarto-listing-loaded"] = function () {
+
+    if (orig) orig();
+
+    setTimeout(fixDescriptions, 50);
+
+  };
+
+})();
+
+</script>
+
+
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -479,7 +530,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
@@ -502,17 +553,19 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RWR1Y2F0aW9uJTJDSW50ZXJhY3RpdmUlMkNsYW5nJTNBSW5kb25lc2lhbg==" data-listing-date-sort="1756659600000" data-listing-file-modified-sort="1775313250401" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../../webpages/graphics/graphics/education-outcomes.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 200px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Education Outcomes Dashboard
-</h5>
-<div class="card-subtitle listing-subtitle">
-Enrollment, attainment, and spending across Indonesian provinces
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="RWR1Y2F0aW9uJTJDSW50ZXJhY3RpdmUlMkNsYW5nJTNBSW5kb25lc2lhbg==" data-listing-date-sort="1756659600000" data-listing-file-modified-sort="1775313250401" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="thumbnail"><a href="../../webpages/graphics/graphics/education-outcomes.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/graphics/graphics/education-outcomes.html" class="no-external">Education Outcomes Dashboard</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/graphics/graphics/education-outcomes.html" class="no-external">Enrollment, attainment, and spending across Indonesian provinces</a>
 </div>
 <div class="listing-categories">
 
@@ -523,27 +576,30 @@ Enrollment, attainment, and spending across Indonesian provinces
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUluZG9uZXNpYW4='); return false;">lang:Indonesian</div>
 
 </div>
-<div class="card-text listing-description delink">
-<p>An interactive dashboard of education outcomes — gross enrollment rates, mean years of schooling, and per-student spending — across Indonesian provinces using BPS and…</p>
+<div class="delink listing-description"><a href="../../webpages/graphics/graphics/education-outcomes.html" class="no-external">
+<p>An interactive dashboard of education outcomes — gross enrollment rates, mean years of schooling, and per-student spending — across Indonesian provinces using BPS and Kemendikbud data.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/graphics/graphics/education-outcomes.html" class="no-external">
 <div class="listing-date">
 Sep 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="UG9saXRpY2FsJTIwRWNvbm9teSUyQ0hpc3RvcmljYWwlMjBFY29ub21pY3MlMkNsYW5nJTNBRW5nbGlzaA==" data-listing-date-sort="1753981200000" data-listing-file-modified-sort="1775313250399" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../../webpages/graphics/graphics/democracy-fiscal.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 200px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Tax Reliance and Democracy
-</h5>
-<div class="card-subtitle listing-subtitle">
-Cross-country scatter explorer, 1990–2020
+<div class="quarto-post image-right" data-index="1" data-categories="UG9saXRpY2FsJTIwRWNvbm9teSUyQ0hpc3RvcmljYWwlMjBFY29ub21pY3MlMkNsYW5nJTNBRW5nbGlzaA==" data-listing-date-sort="1753981200000" data-listing-file-modified-sort="1775313250399" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="thumbnail"><a href="../../webpages/graphics/graphics/democracy-fiscal.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/graphics/graphics/democracy-fiscal.html" class="no-external">Tax Reliance and Democracy</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/graphics/graphics/democracy-fiscal.html" class="no-external">Cross-country scatter explorer, 1990–2020</a>
 </div>
 <div class="listing-categories">
 
@@ -554,27 +610,30 @@ Cross-country scatter explorer, 1990–2020
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="../../webpages/graphics/graphics/democracy-fiscal.html" class="no-external">
 <p>An interactive scatter plot exploring the relationship between non-resource tax reliance and V-Dem democracy indices across 108 countries, 1990–2020.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/graphics/graphics/democracy-fiscal.html" class="no-external">
 <div class="listing-date">
 Aug 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="RGV2ZWxvcG1lbnQlMjBFY29ub21pY3MlMkNTVVNFTkFTJTJDSW50ZXJhY3RpdmUlMkNsYW5nJTNBRW5nbGlzaA==" data-listing-date-sort="1749920400000" data-listing-file-modified-sort="1775313250407" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../../webpages/graphics/graphics/poverty-map.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 200px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Poverty Rate Map
-</h5>
-<div class="card-subtitle listing-subtitle">
-Provincial and district poverty rates from SUSENAS 2023
+<div class="quarto-post image-right" data-index="2" data-categories="RGV2ZWxvcG1lbnQlMjBFY29ub21pY3MlMkNTVVNFTkFTJTJDSW50ZXJhY3RpdmUlMkNsYW5nJTNBRW5nbGlzaA==" data-listing-date-sort="1749920400000" data-listing-file-modified-sort="1775313250407" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="thumbnail"><a href="../../webpages/graphics/graphics/poverty-map.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/graphics/graphics/poverty-map.html" class="no-external">Poverty Rate Map</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/graphics/graphics/poverty-map.html" class="no-external">Provincial and district poverty rates from SUSENAS 2023</a>
 </div>
 <div class="listing-categories">
 
@@ -587,27 +646,30 @@ Provincial and district poverty rates from SUSENAS 2023
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="../../webpages/graphics/graphics/poverty-map.html" class="no-external">
 <p>An interactive choropleth map of poverty headcount rates at province and district level, disaggregated by urban and rural areas using SUSENAS 2023.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/graphics/graphics/poverty-map.html" class="no-external">
 <div class="listing-date">
 Jun 15, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="UHVibGljJTIwRmluYW5jZSUyQ0ludGVyYWN0aXZlJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1746032400000" data-listing-file-modified-sort="1775313250402" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../../webpages/graphics/graphics/fiscal-space.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 200px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Fiscal Space Explorer
-</h5>
-<div class="card-subtitle listing-subtitle">
-Government revenue, spending, and deficit across Indonesian provinces
+<div class="quarto-post image-right" data-index="3" data-categories="UHVibGljJTIwRmluYW5jZSUyQ0ludGVyYWN0aXZlJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1746032400000" data-listing-file-modified-sort="1775313250402" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="thumbnail"><a href="../../webpages/graphics/graphics/fiscal-space.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/graphics/graphics/fiscal-space.html" class="no-external">Fiscal Space Explorer</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/graphics/graphics/fiscal-space.html" class="no-external">Government revenue, spending, and deficit across Indonesian provinces</a>
 </div>
 <div class="listing-categories">
 
@@ -618,29 +680,30 @@ Government revenue, spending, and deficit across Indonesian provinces
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUluZG9uZXNpYW4='); return false;">lang:Indonesian</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="../../webpages/graphics/graphics/fiscal-space.html" class="no-external">
 <p>An interactive comparison of provincial fiscal capacity — own-source revenue, transfer dependence, and fiscal deficit — using DJPK data.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/graphics/graphics/fiscal-space.html" class="no-external">
 <div class="listing-date">
 May 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="TGFib3IlMjBFY29ub21pY3MlMkNTQUtFUk5BUyUyQ0ludGVyYWN0aXZlJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1744650000000" data-listing-file-modified-sort="1775313250405" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="115">
-<a href="../../webpages/graphics/graphics/labor-market-dashboard.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../../webpages/graphics/graphics/images/labor-dashboard-thumb.webp" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Labor Market Dashboard
-</h5>
-<div class="card-subtitle listing-subtitle">
-Wages, employment, and industry composition from SAKERNAS 2022
+<div class="quarto-post image-right" data-index="4" data-categories="TGFib3IlMjBFY29ub21pY3MlMkNTQUtFUk5BUyUyQ0ludGVyYWN0aXZlJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1744650000000" data-listing-file-modified-sort="1775313250405" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="115">
+<div class="thumbnail"><a href="../../webpages/graphics/graphics/labor-market-dashboard.html" class="no-external">
+
+<img loading="lazy" src="../../webpages/graphics/graphics/images/labor-dashboard-thumb.webp" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/graphics/graphics/labor-market-dashboard.html" class="no-external">Labor Market Dashboard</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/graphics/graphics/labor-market-dashboard.html" class="no-external">Wages, employment, and industry composition from SAKERNAS 2022</a>
 </div>
 <div class="listing-categories">
 
@@ -653,27 +716,30 @@ Wages, employment, and industry composition from SAKERNAS 2022
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
 
 </div>
-<div class="card-text listing-description delink">
-<p>An interactive dashboard visualizing labor market outcomes — wages, employment rates, hours worked, and industry composition — by gender, education, region, and disability…</p>
+<div class="delink listing-description"><a href="../../webpages/graphics/graphics/labor-market-dashboard.html" class="no-external">
+<p>An interactive dashboard visualizing labor market outcomes — wages, employment rates, hours worked, and industry composition — by gender, education, region, and disability status using SAKERNAS 2022 microdata.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/graphics/graphics/labor-market-dashboard.html" class="no-external">
 <div class="listing-date">
 Apr 15, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="TWFjcm9lY29ub21pY3MlMkNJbnRlcmFjdGl2ZSUyQ2xhbmclM0FFbmdsaXNo" data-listing-date-sort="1740762000000" data-listing-file-modified-sort="1775313250404" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../../webpages/graphics/graphics/inflation-tracker.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 200px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Indonesian Inflation Tracker
-</h5>
-<div class="card-subtitle listing-subtitle">
-Monthly CPI and component breakdown, 2015–2024
+<div class="quarto-post image-right" data-index="5" data-categories="TWFjcm9lY29ub21pY3MlMkNJbnRlcmFjdGl2ZSUyQ2xhbmclM0FFbmdsaXNo" data-listing-date-sort="1740762000000" data-listing-file-modified-sort="1775313250404" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="thumbnail"><a href="../../webpages/graphics/graphics/inflation-tracker.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/graphics/graphics/inflation-tracker.html" class="no-external">Indonesian Inflation Tracker</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/graphics/graphics/inflation-tracker.html" class="no-external">Monthly CPI and component breakdown, 2015–2024</a>
 </div>
 <div class="listing-categories">
 
@@ -684,27 +750,30 @@ Monthly CPI and component breakdown, 2015–2024
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="../../webpages/graphics/graphics/inflation-tracker.html" class="no-external">
 <p>An interactive tracker of Indonesian consumer price inflation by component — food, energy, core — using BPS CPI data from 2015 to 2024.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/graphics/graphics/inflation-tracker.html" class="no-external">
 <div class="listing-date">
 Mar 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="VHJhZGUlMkNJbnRlcmFjdGl2ZSUyQ2xhbmclM0FFbmdsaXNo" data-listing-date-sort="1738342800000" data-listing-file-modified-sort="1775313250408" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../../webpages/graphics/graphics/trade-flows.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 200px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Indonesia Trade Flow Map
-</h5>
-<div class="card-subtitle listing-subtitle">
-Export and import flows by commodity and partner country
+<div class="quarto-post image-right" data-index="6" data-categories="VHJhZGUlMkNJbnRlcmFjdGl2ZSUyQ2xhbmclM0FFbmdsaXNo" data-listing-date-sort="1738342800000" data-listing-file-modified-sort="1775313250408" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="thumbnail"><a href="../../webpages/graphics/graphics/trade-flows.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/graphics/graphics/trade-flows.html" class="no-external">Indonesia Trade Flow Map</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/graphics/graphics/trade-flows.html" class="no-external">Export and import flows by commodity and partner country</a>
 </div>
 <div class="listing-categories">
 
@@ -715,16 +784,17 @@ Export and import flows by commodity and partner country
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="../../webpages/graphics/graphics/trade-flows.html" class="no-external">
 <p>An interactive map and chord diagram of Indonesian trade flows by major commodity groups and trading partners using BPS trade statistics.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/graphics/graphics/trade-flows.html" class="no-external">
 <div class="listing-date">
 Feb 1, 2025
 </div>
+</a>
 </div>
-</div>
-</div></a>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>

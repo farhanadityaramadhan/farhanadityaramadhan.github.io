@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-subtitle','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -299,6 +299,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+
+
+<script>
+
+/* Fix description mid-ellipsis: flatten <a><p> blocks to inline text */
+
+(function () {
+
+  function fixDescriptions() {
+
+    document.querySelectorAll(
+
+      ".quarto-listing-default .quarto-post .listing-description"
+
+    ).forEach(function (desc) {
+
+      var text = (desc.textContent || desc.innerText || "").trim().replace(/\s+/g, " ");
+
+      desc.textContent = text;
+
+    });
+
+  }
+
+  if (document.readyState === "loading") {
+
+    document.addEventListener("DOMContentLoaded", fixDescriptions);
+
+  } else {
+
+    fixDescriptions();
+
+  }
+
+  /* re-run after quarto listing renders/filters */
+
+  var orig = window["quarto-listing-loaded"];
+
+  window["quarto-listing-loaded"] = function () {
+
+    if (orig) orig();
+
+    setTimeout(fixDescriptions, 50);
+
+  };
+
+})();
+
+</script>
+
+
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -446,7 +497,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Ym9vaw==">book <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Q2F1c2FsJTIwSW5mZXJlbmNl">Causal Inference <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGlzdG9yaWNhbCUyMEVjb25vbWljcw==">Historical Economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGFuZyUzQUVuZ2xpc2g=">lang:English <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGFuZyUzQUluZG9uZXNpYW4=">lang:Indonesian <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UG9saXRpY2FsJTIwRWNvbm9teQ==">Political Economy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHVibGljJTIwRmluYW5jZQ==">Public Finance <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGE=">Stata <span class="quarto-category-count">(3)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Ym9vaw==">book <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Q2F1c2FsJTIwSW5mZXJlbmNl">Causal Inference <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGlzdG9yaWNhbCUyMEVjb25vbWljcw==">Historical Economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGFuZyUzQUVuZ2xpc2g=">lang:English <span class="quarto-category-count">(3)</span></div><div class="category" data-category="bGFuZyUzQUluZG9uZXNpYW4=">lang:Indonesian <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UG9saXRpY2FsJTIwRWNvbm9teQ==">Political Economy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHVibGljJTIwRmluYW5jZQ==">Public Finance <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGE=">Stata <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -479,7 +530,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
@@ -502,19 +553,19 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="SGlzdG9yaWNhbCUyMEVjb25vbWljcyUyQ1BvbGl0aWNhbCUyMEVjb25vbXklMkNDYXVzYWwlMjBJbmZlcmVuY2UlMkNQdWJsaWMlMjBGaW5hbmNlJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774458000000" data-listing-file-modified-sort="1775313250409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="939">
-<a href="../../webpages/projects/analysis/test.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability
-</h5>
-<div class="card-subtitle listing-subtitle">
-Mockup article 2
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="SGlzdG9yaWNhbCUyMEVjb25vbWljcyUyQ1BvbGl0aWNhbCUyMEVjb25vbXklMkNDYXVzYWwlMjBJbmZlcmVuY2UlMkNQdWJsaWMlMjBGaW5hbmNlJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774458000000" data-listing-file-modified-sort="1775313250409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="939">
+<div class="thumbnail"><a href="../../webpages/projects/analysis/test.html" class="no-external">
+
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/projects/analysis/test.html" class="no-external">Does Tax Reliance Cause Democracy? Evidence from Historical Crop Appropriability</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/projects/analysis/test.html" class="no-external">Mockup article 2</a>
 </div>
 <div class="listing-categories">
 
@@ -529,29 +580,30 @@ Mockup article 2
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUluZG9uZXNpYW4='); return false;">lang:Indonesian</div>
 
 </div>
-<div class="card-text listing-description delink">
-<p>Using historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries. Using historical crop appropriability as…</p>
+<div class="delink listing-description"><a href="../../webpages/projects/analysis/test.html" class="no-external">
+<p>Using historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries. Using historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries Using historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries Using historical crop appropriability as an instrument for tax reliance to identify its causal effect on democracy across countries</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/projects/analysis/test.html" class="no-external">
 <div class="listing-date">
 Mar 26, 2026
 </div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<a href="../../webpages/projects/analysis/test3.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-test3
-</h5>
-<div class="card-subtitle listing-subtitle">
+<div class="quarto-post image-right" data-index="1" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail"><a href="../../webpages/projects/analysis/test3.html" class="no-external">
 
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/projects/analysis/test3.html" class="no-external">test3</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/projects/analysis/test3.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 
@@ -562,29 +614,30 @@ test3
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="../../webpages/projects/analysis/test3.html" class="no-external">
 <p>Estimating Indonesia’s export elasticity…</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/projects/analysis/test3.html" class="no-external">
 <div class="listing-date">
 Mar 24, 2026
 </div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032245" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<a href="../../webpages/projects/analysis/test4.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-test4
-</h5>
-<div class="card-subtitle listing-subtitle">
+<div class="quarto-post image-right" data-index="2" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032245" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail"><a href="../../webpages/projects/analysis/test4.html" class="no-external">
 
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/projects/analysis/test4.html" class="no-external">test4</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/projects/analysis/test4.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 
@@ -595,29 +648,30 @@ test4
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUluZG9uZXNpYW4='); return false;">lang:Indonesian</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="../../webpages/projects/analysis/test4.html" class="no-external">
 <p>Estimating Indonesia’s export elasticity…</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/projects/analysis/test4.html" class="no-external">
 <div class="listing-date">
 Mar 24, 2026
 </div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<a href="../../webpages/projects/analysis/test5.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-test5
-</h5>
-<div class="card-subtitle listing-subtitle">
+<div class="quarto-post image-right" data-index="3" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail"><a href="../../webpages/projects/analysis/test5.html" class="no-external">
 
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/projects/analysis/test5.html" class="no-external">test5</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/projects/analysis/test5.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 
@@ -628,16 +682,51 @@ test5
 <div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="../../webpages/projects/analysis/test5.html" class="no-external">
 <p>Estimating Indonesia’s export elasticity…</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="metadata">
+<a href="../../webpages/projects/analysis/test5.html" class="no-external">
 <div class="listing-date">
 Mar 24, 2026
 </div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-right" data-index="4" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775850676961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail"><a href="../../webpages/projects/analysis/test6.html" class="no-external">
+
+<img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../webpages/projects/analysis/test6.html" class="no-external">test5</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../webpages/projects/analysis/test6.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGE='); return false;">Stata</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ym9vaw=='); return false;">book</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
+
+</div>
+<div class="delink listing-description"><a href="../../webpages/projects/analysis/test6.html" class="no-external">
+<p>Estimating Indonesia’s export elasticity…</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../../webpages/projects/analysis/test6.html" class="no-external">
+<div class="listing-date">
+Mar 24, 2026
+</div>
+</a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>

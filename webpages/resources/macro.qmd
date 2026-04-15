@@ -7,11 +7,9 @@ toc: false
 listing: 
   contents: "macro/*.qmd"
   sort: "date desc"
-  type: grid
+  type: default
   categories: true
   sort-ui: true
   filter-ui: true
   fields: [image, title, subtitle, description, date, categories]
-  grid-columns: 3
-  image-align: left
 ---

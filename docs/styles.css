@@ -252,78 +252,9 @@ body.page-article #title-block-header {
 
 /* ============================================================
    SHARED COMPONENTS
-   Reusable across pages: listing cards, category pills,
-   listing filters, buttons, tags.
+   Category filter pills, listing filters, buttons, tags.
    ============================================================ */
 
-/* -- Listing cards (all pages) -- */
-.quarto-listing .card {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  transition: box-shadow 0.2s, transform 0.2s;
-  background: var(--color-bg);
-}
-
-.quarto-listing .card:hover {
-  box-shadow: 0 4px 16px rgba(0,51,102,0.12);
-  transform: translateY(-2px);
-}
-
-.quarto-listing .card img,
-.quarto-listing .listing-image {
-  width: 100%;
-  object-fit: cover;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.quarto-listing .card-body { padding: 1rem 1.1rem 1.25rem; }
-
-.quarto-listing .card-title,
-.quarto-listing .listing-title {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: normal;
-  color: var(--color-primary);
-  line-height: 1.35;
-  margin-bottom: 0.4rem;
-}
-
-.quarto-listing .card-title a,
-.quarto-listing .listing-title a { color: var(--color-primary) !important; }
-
-.quarto-listing .card-title a:hover,
-.quarto-listing .listing-title a:hover {
-  color: var(--color-accent) !important;
-  text-decoration: none;
-}
-
-.quarto-listing .card-subtitle,
-.quarto-listing .listing-subtitle {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-}
-
-.quarto-listing .listing-date,
-.quarto-listing .card .metadata {
-  font-size: 0.78rem;
-  color: var(--color-text-faint);
-  margin-bottom: 0;
-}
-
-.quarto-listing .listing-categories .listing-category {
-  font-size: 0.72rem;
-  background: var(--color-accent-tint);
-  color: var(--color-accent);
-  border: 1px solid var(--color-accent-pale);
-  border-radius: var(--radius-sm);
-  padding: 0.15rem 0.5rem;
-  display: inline-block;
-  margin-right: 0.3rem;
-  margin-bottom: 0.3rem;
-}
 
 /* -- Category filter sidebar (listing pages) -- */
 .quarto-listing-category-title {
@@ -392,7 +323,6 @@ body.page-article #title-block-header {
 
 #quarto-listing-filter:focus { border-color: var(--color-accent); outline: none; }
 
-.quarto-listing-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
 
 /* -- CTA buttons -- */
 .btn-primary {
@@ -432,17 +362,6 @@ body.page-article #title-block-header {
   text-decoration: none !important;
 }
 
-/* -- Language category pills
-   lang: prefixed categories get a subdued style on listing cards. -- */
-.listing-categories .listing-category[data-value^="lang:"] {
-  display: block;
-  margin-top: 0.4rem;
-  background: var(--color-bg-muted);
-  color: var(--color-text-subtle);
-  border-color: var(--color-border-mid);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-}
 
 .quarto-listing-category-language-title {
   font-size: 1.0625rem;
@@ -452,23 +371,6 @@ body.page-article #title-block-header {
   color: var(--color-text-faint);
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
-}
-
-.listing-lang-wrapper {
-  margin-top: 0.35rem;
-  padding-top: 0.35rem;
-  border-top: 1px solid var(--color-border);
-}
-
-.listing-lang-wrapper .listing-category {
-  font-size: 0.72rem;
-  background: transparent;
-  color: var(--color-text-subtle);
-  border: none;
-  padding: 0;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-weight: 600;
 }
 
 
@@ -943,7 +845,6 @@ body.page-index hr {
 }
 
 
-
 /* ── Graphics for Exploration section ── */
 .gc-section { margin: 0; padding-bottom: 0; }
 
@@ -1334,10 +1235,8 @@ body.page-index hr {
 
 
 /* ============================================================
-   LISTING PAGES — analysis.qmd, research.qmd, blog.qmd
+   LISTING PAGES — default layout rules below
    ============================================================ */
-
-/* (listing cards, filters already in Shared Components above) */
 
 
 /* ============================================================
@@ -1744,7 +1643,6 @@ body.page-index hr {
 }
 
 @media (max-width: 600px) {
-  .quarto-listing-cols-3 { grid-template-columns: 1fr !important; }
   #quarto-listing-filter { width: 100%; }
 }
 
@@ -1768,47 +1666,369 @@ body.page-index hr {
 
 
 /* ============================================================
-   CARD BODY ORDERING — lang label + date pinned to bottom
-   Applies to listing pages (analysis, research, blog, playground).
-   Index carousel is excluded via body:not(.page-index).
+   DEFAULT LISTING LAYOUT
+   Confirmed Quarto HTML structure:
+     div.quarto-post.image-right
+       div.thumbnail > a > img.thumbnail-image
+       div.body
+         h3.listing-title
+         div.listing-subtitle
+         div.listing-categories  (regular pills)
+         div.listing-lang-wrapper (created by head.html JS, contains lang pill)
+         div.delink.listing-description > a > p
+       div.metadata > a > div.listing-date
+
+   Target layout:
+     [image 160x240] | TITLE (wrap 2 lines)
+                     | subtitle (italic, muted)
+                     | [cat pills]
+                     | description text... (3 lines, clamp at end)
+                     | ──────────────────────────────────────
+                     | LANG                         Mar 26, 2026
    ============================================================ */
 
-.quarto-listing .card-body {
-  position: relative;
+/* Nuke Quarto default padding on list containers.
+   Also override .image-right flex ordering so thumbnail always stays left. */
+body:not(.page-index) div.quarto-listing-default,
+body:not(.page-index) .quarto-listing-default div.quarto-post,
+body:not(.page-index) .quarto-listing div.quarto-post.image-right,
+body:not(.page-index) .quarto-listing div.list {
+  padding: 0 !important;
+  margin-top: 0 !important;
+}
+
+body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail {
+  order: 0 !important;
+}
+
+body:not(.page-index) .quarto-listing div.quarto-post div.body {
+  order: 1 !important;
+}
+
+body:not(.page-index) .quarto-listing div.quarto-post div.metadata {
+  order: 2 !important;
+}
+
+/* Row */
+body:not(.page-index) .quarto-listing div.quarto-post {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  height: 240px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 0.5rem !important;
+  margin-bottom: 1rem !important;
+  padding: 0 !important;
+  background: var(--color-bg) !important;
+  position: relative !important;
+}
+
+/* Thumbnail — 160x240, flush, no gap */
+body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail {
+  flex: 0 0 160px !important;
+  width: 160px !important;
+  height: 240px !important;
+  overflow: hidden !important;
+  border-right: 1px solid var(--color-border) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail a {
+  display: block !important;
+  width: 160px !important;
+  height: 240px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail img.thumbnail-image {
+  width: 160px !important;
+  height: 240px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Body — flex column */
+body:not(.page-index) .quarto-listing div.quarto-post div.body {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  height: 240px !important;
+  padding: 0.85rem 1.1rem 0.6rem 1.1rem !important;
   display: flex !important;
   flex-direction: column !important;
-  flex-wrap: nowrap !important;
+  overflow: hidden !important;
+  position: static !important;
+  box-sizing: border-box !important;
 }
 
-/* height:100% only for non-index listing pages */
-body:not(.page-index) .quarto-listing .card-body {
-  height: 100%;
+/* Title: 2-line wrap with ellipsis */
+body:not(.page-index) .quarto-listing div.quarto-post div.body h3.listing-title {
+  order: 1 !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  font-family: var(--font-serif) !important;
+  color: var(--color-primary) !important;
+  line-height: 1.35 !important;
+  margin: 0 0 0.2rem 0 !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
 }
 
-.quarto-listing .card {
+body:not(.page-index) .quarto-listing div.quarto-post div.body h3.listing-title a {
+  color: var(--color-primary) !important;
+  text-decoration: none !important;
+}
+
+body:not(.page-index) .quarto-listing div.quarto-post div.body h3.listing-title a:hover {
+  color: var(--color-accent) !important;
+  text-decoration: none !important;
+}
+
+/* Subtitle */
+body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-subtitle {
+  order: 2 !important;
+  font-size: 0.8rem !important;
+  font-style: italic !important;
+  color: var(--color-text-subtle) !important;
+  line-height: 1.3 !important;
+  margin: 0 0 0.35rem 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Categories */
+body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-categories {
+  order: 3 !important;
   display: flex !important;
-  flex-direction: column !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+  margin: 0 0 0.35rem 0 !important;
+  padding: 0 !important;
+  border: none !important;
 }
 
-.quarto-listing .listing-lang-wrapper {
+/* Category pills inside each listing row */
+body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-categories .listing-category {
+  font-size: 0.7rem !important;
+  font-weight: 500 !important;
+  padding: 0.15rem 0.55rem !important;
+  border-radius: var(--radius-pill) !important;
+  border: 1px solid var(--color-accent-pale) !important;
+  background: var(--color-accent-tint) !important;
+  color: var(--color-accent) !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: background 0.15s, color 0.15s !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+}
+
+body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-categories .listing-category:hover {
+  background: var(--color-accent) !important;
+  color: var(--color-bg) !important;
+  border-color: var(--color-accent) !important;
+}
+
+/* Description — fixed height so webkit-line-clamp works correctly */
+body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-description {
+  order: 4 !important;
+  font-size: 0.82rem !important;
+  color: var(--color-text-subtle) !important;
+  line-height: 1.5 !important;
+  margin: 0 0 0.35rem 0 !important;
+  flex: 0 0 auto !important;
+  max-height: calc(1.5em * 3) !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+}
+
+/* Lang wrapper — divider + auto margin pushes to bottom */
+body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-lang-wrapper {
   order: 5 !important;
-  margin-top: auto;
-  padding-top: 0.5rem;
-  padding-right: 6rem;
-  border-top: 1px solid var(--color-border);
-  width: 100%;
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  margin-top: auto !important;
+  padding-top: 0.4rem !important;
+  border-top: 1px solid var(--color-border) !important;
+  width: 100% !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+}
+body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-lang-wrapper .listing-category {
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: var(--color-text-subtle) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.quarto-listing .listing-date {
-  position: absolute;
-  bottom: 1.25rem;
-  right: 1.1rem;
-  white-space: nowrap;
-  font-size: 0.78rem;
-  color: var(--color-text-faint);
-  margin: 0;
+/* Date — absolute bottom-right, vertically aligned with lang row */
+body:not(.page-index) .quarto-listing div.quarto-post div.metadata {
+  display: block !important;
+  position: absolute !important;
+  bottom: 0.6rem !important;
+  right: 1.1rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+body:not(.page-index) .quarto-listing div.quarto-post div.metadata a {
+  text-decoration: none !important;
+  pointer-events: none !important;
+}
+body:not(.page-index) .quarto-listing div.quarto-post div.metadata .listing-date {
+  font-size: 0.73rem !important;
+  color: var(--color-text-faint) !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+}
+
+
+/* ============================================================
+   DEFAULT LISTING — RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Alias for brevity */
+/* ≤900px: shrink image slightly, tighten padding */
+@media (max-width: 900px) {
+  body:not(.page-index) .quarto-listing div.quarto-post {
+    height: 210px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail,
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail a {
+    width: 140px !important;
+    height: 210px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail {
+    flex: 0 0 140px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail img.thumbnail-image {
+    width: 140px !important;
+    height: 210px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.body {
+    height: 210px !important;
+    padding: 0.7rem 0.9rem 0.55rem 0.9rem !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.metadata {
+    right: 0.9rem !important;
+    bottom: 0.55rem !important;
+  }
+}
+
+/* ≤680px: shrink image more, drop description to 2 lines */
+@media (max-width: 680px) {
+  body:not(.page-index) .quarto-listing div.quarto-post {
+    height: 190px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail,
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail a {
+    width: 110px !important;
+    height: 190px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail {
+    flex: 0 0 110px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail img.thumbnail-image {
+    width: 110px !important;
+    height: 190px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.body {
+    height: 190px !important;
+    padding: 0.65rem 0.8rem 0.5rem 0.8rem !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.body h3.listing-title {
+    font-size: 0.92rem !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-description {
+    max-height: calc(1.5em * 2) !important;
+    -webkit-line-clamp: 2 !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-categories .listing-category {
+    font-size: 0.65rem !important;
+    padding: 0.1rem 0.4rem !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.metadata {
+    right: 0.8rem !important;
+    bottom: 0.5rem !important;
+  }
+}
+
+/* ≤480px: stack vertically — image banner on top, content below */
+@media (max-width: 480px) {
+  /* Row becomes a column, height is fully auto */
+  body:not(.page-index) .quarto-listing div.quarto-post {
+    flex-direction: column !important;
+    height: auto !important;
+    position: relative !important;
+  }
+  /* Image: full-width banner */
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: 180px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    order: 0 !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail a,
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail img.thumbnail-image {
+    width: 100% !important;
+    height: 180px !important;
+  }
+  /* Body: fully auto height, no clip */
+  body:not(.page-index) .quarto-listing div.quarto-post div.body {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0.75rem 0.9rem 0.6rem 0.9rem !important;
+    order: 1 !important;
+  }
+  /* Title: show fully, no clamp */
+  body:not(.page-index) .quarto-listing div.quarto-post div.body h3.listing-title {
+    font-size: 0.95rem !important;
+    display: block !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    -webkit-line-clamp: unset !important;
+    max-height: none !important;
+  }
+  /* Description: 3-line clamp */
+  body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-description {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    max-height: calc(1.5em * 3) !important;
+    flex: 0 0 auto !important;
+  }
+  /* Lang wrapper: stays at bottom with divider, no right padding needed */
+  body:not(.page-index) .quarto-listing div.quarto-post div.body div.listing-lang-wrapper {
+    padding-right: 5.5rem !important;
+  }
+  /* Date: stays absolute bottom-right of the whole card (position:relative on row) */
+  body:not(.page-index) .quarto-listing div.quarto-post div.metadata {
+    position: absolute !important;
+    bottom: 0.6rem !important;
+    right: 0.9rem !important;
+  }
 }
 
 /* ============================================================

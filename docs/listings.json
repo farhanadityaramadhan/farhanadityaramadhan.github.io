@@ -59,19 +59,13 @@
       "/webpages/projects/analysis/test.html",
       "/webpages/projects/analysis/test3.html",
       "/webpages/projects/analysis/test4.html",
-      "/webpages/projects/analysis/test5.html"
+      "/webpages/projects/analysis/test5.html",
+      "/webpages/projects/analysis/test6.html"
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/webpages/graphics/graphics.html",
     "items": [
-      "/webpages/projects/research/test2.html",
-      "/webpages/projects/analysis/test.html",
-      "/webpages/projects/analysis/test3.html",
-      "/webpages/projects/analysis/test4.html",
-      "/webpages/projects/analysis/test5.html",
-      "/webpages/projects/blog/blog 1.html",
-      "/webpages/projects/playground/test2.html",
       "/webpages/graphics/graphics/education-outcomes.html",
       "/webpages/graphics/graphics/democracy-fiscal.html",
       "/webpages/graphics/graphics/poverty-map.html",
@@ -82,8 +76,16 @@
     ]
   },
   {
-    "listing": "/webpages/graphics/graphics.html",
+    "listing": "/index.html",
     "items": [
+      "/webpages/projects/research/test2.html",
+      "/webpages/projects/analysis/test.html",
+      "/webpages/projects/analysis/test3.html",
+      "/webpages/projects/analysis/test4.html",
+      "/webpages/projects/analysis/test5.html",
+      "/webpages/projects/analysis/test6.html",
+      "/webpages/projects/blog/blog 1.html",
+      "/webpages/projects/playground/test2.html",
       "/webpages/graphics/graphics/education-outcomes.html",
       "/webpages/graphics/graphics/democracy-fiscal.html",
       "/webpages/graphics/graphics/poverty-map.html",
