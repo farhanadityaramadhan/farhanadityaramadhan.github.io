@@ -12,5 +12,5 @@ listing:
   sort-ui: true
   filter-ui: true
   fields: [image, title, subtitle, description, date, categories]
-  page-size: 9
+  page-size: 10
 ---

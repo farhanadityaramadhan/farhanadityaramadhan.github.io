@@ -1907,25 +1907,52 @@ body:not(.page-index) .quarto-listing div.quarto-post div.metadata .listing-date
    ============================================================ */
 
 /* Alias for brevity */
-/* ≤900px: shrink image slightly, tighten padding */
-@media (max-width: 900px) {
+/* ≤1084px: slightly taller card to prevent long titles from clipping subtitle */
+@media (max-width: 1084px) {
   body:not(.page-index) .quarto-listing div.quarto-post {
-    height: 210px !important;
+    height: 255px !important;
   }
   body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail,
   body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail a {
-    width: 140px !important;
-    height: 210px !important;
+    width: 170px !important;
+    height: 255px !important;
   }
   body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail {
-    flex: 0 0 140px !important;
+    flex: 0 0 170px !important;
   }
   body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail img.thumbnail-image {
-    width: 140px !important;
-    height: 210px !important;
+    width: 170px !important;
+    height: 255px !important;
   }
   body:not(.page-index) .quarto-listing div.quarto-post div.body {
-    height: 210px !important;
+    height: 255px !important;
+    padding: 0.7rem 0.9rem 0.55rem 0.9rem !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.metadata {
+    right: 0.9rem !important;
+    bottom: 0.55rem !important;
+  }
+}
+
+/* ≤900px: shrink image slightly, tighten padding */
+@media (max-width: 900px) {
+  body:not(.page-index) .quarto-listing div.quarto-post {
+    height: 270px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail,
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail a {
+    width: 180px !important;
+    height: 270px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail {
+    flex: 0 0 180px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail img.thumbnail-image {
+    width: 180px !important;
+    height: 270px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.body {
+    height: 270px !important;
     padding: 0.7rem 0.9rem 0.55rem 0.9rem !important;
   }
   body:not(.page-index) .quarto-listing div.quarto-post div.metadata {
@@ -1969,6 +1996,32 @@ body:not(.page-index) .quarto-listing div.quarto-post div.metadata .listing-date
   body:not(.page-index) .quarto-listing div.quarto-post div.metadata {
     right: 0.8rem !important;
     bottom: 0.5rem !important;
+  }
+}
+
+/* 481–767px: wider thumbnail for 1:1.5 ratio at more content-heavy widths */
+@media (min-width: 481px) and (max-width: 767px) {
+  body:not(.page-index) .quarto-listing div.quarto-post {
+    height: 270px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail,
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail a {
+    width: 180px !important;
+    height: 270px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail {
+    flex: 0 0 180px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.thumbnail img.thumbnail-image {
+    width: 180px !important;
+    height: 270px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.body {
+    height: 270px !important;
+  }
+  body:not(.page-index) .quarto-listing div.quarto-post div.metadata {
+    right: 0.9rem !important;
+    bottom: 0.55rem !important;
   }
 }
 
@@ -2054,55 +2107,60 @@ body:not(.page-index) .quarto-listing div.quarto-post div.metadata .listing-date
 }
 
 
+/* Tab bar — tabs align to the bottom border, arrows float above it */
 .pu-tab-bar {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 1rem;
-  padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--color-border);
   margin-bottom: 1rem;
 }
 
 .pu-tabs {
   display: flex;
-  align-items: center;
-  gap: 0.3rem;
+  align-items: flex-end;
+  gap: 0;
   flex-wrap: wrap;
 }
 
+/* Underline tab — no box, no uppercase, just a bottom border accent */
 .pu-tab {
   font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border-mid);
-  border-radius: var(--radius-md);
-  padding: 0.28rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text-faint);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 0 1rem 0.65rem;
+  margin-bottom: -1px; /* overlaps the bar's border-bottom */
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  transition: color 0.15s, border-color 0.15s;
   line-height: 1.5;
 }
 
+.pu-tab:first-child { padding-left: 0; }
+
 .pu-tab:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background: var(--color-accent-tint);
+  color: var(--color-text-mid);
+  background: transparent;
+  border-color: var(--color-border-mid);
 }
 
 .pu-tab.active {
-  background: var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 600;
+  background: transparent;
   border-color: var(--color-primary);
-  color: var(--color-bg);
 }
 
 .pu-arrows {
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  padding-bottom: 0.5rem; /* sits above the border line */
   flex-shrink: 0;
 }
 
@@ -2379,7 +2437,8 @@ body.page-index .pu-carousel-inner .card:hover {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .pu-tab-bar { flex-wrap: wrap; gap: 0.5rem; }
+  .pu-tab-bar { gap: 0.5rem; }
+  .pu-tabs { flex-wrap: wrap; }
   /* Card heights are set by JS as width × 1.5 — no CSS overrides needed */
 }
 /* ============================================================
