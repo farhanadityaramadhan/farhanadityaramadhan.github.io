@@ -2475,3 +2475,82 @@ body.page-index .pu-carousel-inner .card:hover {
     opacity: 1 !important;
   }
 }
+
+/* ============================================================
+   ARTICLE PAGES 
+   ============================================================ */
+
+/* Right-side "On this page" TOC */
+body:not(.page-index) #quarto-margin-sidebar,
+body:not(.page-index) .margin-sidebar {
+  padding-top: 1.5rem !important;
+}
+
+/* ============================================================
+   EXTERNAL POSTS — Substack badge + corner icon
+   Applied to listing cards whose underlying .qmd has
+   `external-source: substack` (handled by JS in head.html).
+   ============================================================ */
+
+/* Make sure cards can host an absolutely positioned icon */
+.quarto-post.post-external,
+.pu-carousel-inner .g-col-1.post-external,
+.quarto-grid-item.post-external {
+  position: relative;
+}
+
+/* Corner ↗ icon — top-right of every external card */
+.post-external-icon {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #1f2937;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 5;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* On dark/image cards (index carousel) the icon needs to stay visible */
+.pu-carousel-inner .g-col-1.post-external .post-external-icon {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1f2937;
+}
+
+/* SUBSTACK badge — sits inline with category pills */
+.post-source-badge {
+  /* Inherits .listing-category sizing from your existing pill styles,
+     but we override colors so SUBSTACK stands out. */
+  background: #ff6719 !important;        /* Substack orange */
+  border-color: #ff6719 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* On the index carousel, the badge needs to look right against
+   the dark glassmorphism cards too — Substack orange already does. */
+.pu-carousel-inner .card .post-source-badge {
+  background: #ff6719 !important;
+  border-color: #ff6719 !important;
+  color: #ffffff !important;
+}
+
+/* Hover: slightly lift the icon to reinforce the "link out" affordance */
+.quarto-post.post-external:hover .post-external-icon,
+.pu-carousel-inner .g-col-1.post-external:hover .post-external-icon,
+a.quarto-grid-link:hover .post-external-icon {
+  transform: translate(1px, -1px);
+  transition: transform 0.18s ease;
+}
