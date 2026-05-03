@@ -5,7 +5,9 @@ description: "{{< var section.analysis >}}"
 page-layout: full
 toc: false
 listing: 
-  contents: "blog/*.qmd"
+  contents: 
+    - "blog/*.qmd"
+    - "blog.yml"
   sort: "date desc"
   type: default
   categories: true

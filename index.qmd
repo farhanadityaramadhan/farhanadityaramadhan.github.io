@@ -58,7 +58,9 @@ listing:
   sort-ui: false
   filter-ui: false
 - id: blog
-  contents: webpages/projects/blog/
+  contents: 
+    - webpages/projects/blog/
+    - webpages/projects/blog.yml
   sort: "date desc"
   type: grid
   grid-columns: 3

@@ -1,0 +1,7 @@
+- path: "https://farhanadityar.substack.com/"
+  title: "Substack External"
+  subtitle: "Short-run vs long-run dynamics"
+  date: 2026-03-24
+  categories: [test, lang:English]
+  image: /images/analysis/test1.webp
+  description: "Testing a new feature on this site. Linking to an external Substack post."

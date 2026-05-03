@@ -466,6 +466,88 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+<!-- patchExternalLinks -->
+
+
+
+<script>
+
+function patchExternalLinks() {
+
+  document.querySelectorAll(
+
+    ".quarto-post a, .quarto-listing a, .list-group-item a"
+
+  ).forEach(function (a) {
+
+    var href = a.getAttribute("href") || "";
+
+    if (href.startsWith("http://") || href.startsWith("https://")) {
+
+      a.setAttribute("target", "_blank");
+
+      a.setAttribute("rel", "noopener noreferrer");
+
+    }
+
+  });
+
+}
+
+document.addEventListener("DOMContentLoaded", patchExternalLinks);
+
+setTimeout(patchExternalLinks, 500);
+
+setTimeout(patchExternalLinks, 1500);
+
+</script>
+
+
+
+<script>
+
+function addSubstackBadges() {
+
+  document.querySelectorAll(".quarto-post, .g-col-1").forEach(function (card) {
+
+    var link = card.querySelector("a[href]");
+
+    if (!link) return;
+
+    var href = link.getAttribute("href") || "";
+
+    if (!href.includes("substack.com")) return;
+
+    if (card.querySelector(".substack-badge")) return;
+
+
+
+    var badge = document.createElement("div");
+
+    badge.className = "substack-badge";
+
+    badge.innerHTML = '<img src="/images/icons/substack.svg" alt="Substack">';
+
+    card.style.position = "relative";
+
+    card.appendChild(badge);
+
+  });
+
+}
+
+document.addEventListener("DOMContentLoaded", addSubstackBadges);
+
+setTimeout(addSubstackBadges, 500);
+
+setTimeout(addSubstackBadges, 1500);
+
+</script>
+
+
+
+
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -1378,6 +1460,34 @@ Mar 24, 2026
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 blog 1
+</h5>
+<div class="card-subtitle listing-subtitle">
+Short-run vs long-run dynamics
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVzdA=='); return false;">test</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGFuZyUzQUVuZ2xpc2g='); return false;">lang:English</div>
+
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 24, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="dGVzdCUyQ2xhbmclM0FFbmdsaXNo" data-listing-date-sort="1774285200000">
+<a href="https://farhanadityar.substack.com/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/analysis/test1.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Substack External
 </h5>
 <div class="card-subtitle listing-subtitle">
 Short-run vs long-run dynamics
