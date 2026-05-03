@@ -436,7 +436,7 @@ body.page-index hr {
 
 /* ── Hero section ── */
 .hero-section {
-  background-image: linear-gradient(rgba(0,20,50,0.62), rgba(0,20,50,0.62)),
+  background-image: linear-gradient(var(--overlay-mid), var(--overlay-mid)),
                     url("images/hero-line-unsplash.webp");
   background-size: cover;
   background-position: center;
@@ -1235,11 +1235,6 @@ body.page-index hr {
 
 
 /* ============================================================
-   LISTING PAGES — default layout rules below
-   ============================================================ */
-
-
-/* ============================================================
    ARTICLE PAGES — body.page-article
    ============================================================ */
 .article-banner {
@@ -1527,8 +1522,8 @@ body.page-index hr {
 
 .qf-contact i { color: var(--color-accent-light); font-size: 0.85rem; }
 
-.qf-socials,
-.nav-footer .qf-socials {
+/* !important needed to override Bootstrap's nav-footer flex column */
+.qf-socials {
   display: flex !important;
   flex-direction: row !important;
   gap: 0.75rem !important;
@@ -1647,15 +1642,12 @@ body.page-index hr {
 }
 
 @media (max-width: 480px) {
-
   .about-header-meta  { flex-wrap: wrap; gap: 1.25rem; }
   .hero-cta           { flex-direction: column; align-items: flex-start; }
 
   .article-banner     { height: 200px; }
   .article-banner-overlay { padding: 1.25rem; }
   .article-banner h1  { font-size: 1.4rem; }
-
-  #quarto-listing-filter { width: 100%; }
 
   .resources-section-inner,
   .tools-strip-inner,
@@ -1685,6 +1677,10 @@ body.page-index hr {
                      | description text... (3 lines, clamp at end)
                      | ──────────────────────────────────────
                      | LANG                         Mar 26, 2026
+
+   NOTE: !important is used throughout this block because Quarto and
+   Bootstrap ship inline styles and high-specificity defaults that
+   cannot be overridden any other way without restructuring the HTML.
    ============================================================ */
 
 /* Nuke Quarto default padding on list containers.
@@ -1906,7 +1902,6 @@ body:not(.page-index) .quarto-listing div.quarto-post div.metadata .listing-date
    DEFAULT LISTING — RESPONSIVE BREAKPOINTS
    ============================================================ */
 
-/* Alias for brevity */
 /* ≤1084px: slightly taller card to prevent long titles from clipping subtitle */
 @media (max-width: 1084px) {
   body:not(.page-index) .quarto-listing div.quarto-post {
