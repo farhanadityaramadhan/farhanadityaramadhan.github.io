@@ -2,15 +2,21 @@
 <link rel="preload" as="image" href="/images/hero-line-unsplash.webp">
 
 <!-- FontAwesome (self-hosted) -->
-<link rel="stylesheet" href="/fontawesome/css/all.min.css">
+<link rel="preload" href="/fontawesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/fontawesome/css/all.min.css"></noscript>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-117GLZLM44"></script>
+<!-- Google Analytics — deferred until after page load -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-117GLZLM44');
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-117GLZLM44';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-117GLZLM44');
+  });
 </script>
 
 <!--

@@ -74,208 +74,423 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <!-- Preload hero image to avoid LCP penalty -->
+
 <link rel="preload" as="image" href="../../../images/hero-line-unsplash.webp">
 
-<!-- FontAwesome (self-hosted) -->
-<link rel="stylesheet" href="../../../fontawesome/css/all.min.css">
 
-<!-- Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-117GLZLM44"></script>
+
+<!-- FontAwesome (self-hosted) -->
+
+<link rel="preload" href="../../../fontawesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript><link rel="stylesheet" href="../../../fontawesome/css/all.min.css"></noscript>
+
+
+
+<!-- Google Analytics — deferred until after page load -->
+
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-117GLZLM44');
+
+  window.addEventListener('load', function () {
+
+    var s = document.createElement('script');
+
+    s.async = true;
+
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-117GLZLM44';
+
+    document.head.appendChild(s);
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-117GLZLM44');
+
+  });
+
 </script>
 
+
+
 <!--
+
   Listing sidebar: rebuild category sections.
 
+
+
   Quarto renders all category pills flat. This script splits them into
+
   two headed groups — "Language" (pills prefixed "lang:") and "Categories"
+
   (everything else) — and relabels the lang pills by stripping the prefix.
 
+
+
   Runs twice with a gap because Quarto hydrates the listing asynchronously.
+
 -->
+
 <script>
+
 document.addEventListener('DOMContentLoaded', function () {
+
   function rebuildCategorySidebar() {
+
     var sidebar = document.querySelector('.quarto-listing-category');
+
     if (!sidebar) return;
 
+
+
     var allPills = sidebar.querySelectorAll('.category');
+
     var langPills = [];
+
     var regularPills = [];
 
+
+
     allPills.forEach(function (pill) {
+
       var label = decodeURIComponent(atob(pill.getAttribute('data-category')));
+
       if (label.startsWith('lang:')) {
+
         pill.textContent = label.replace('lang:', '');
+
         langPills.push(pill);
+
       } else {
+
         regularPills.push(pill);
+
       }
+
     });
+
+
 
     if (langPills.length === 0) return;
 
+
+
     sidebar.innerHTML = '';
 
+
+
     function makeHeading(text) {
+
       var el = document.createElement('div');
+
       el.className = 'quarto-listing-category-language-title';
+
       el.textContent = text;
+
       return el;
+
     }
 
+
+
     sidebar.appendChild(makeHeading('Language'));
+
     langPills.forEach(function (pill) { sidebar.appendChild(pill); });
 
+
+
     sidebar.appendChild(makeHeading('Categories'));
+
     regularPills.forEach(function (pill) { sidebar.appendChild(pill); });
+
   }
 
+
+
   rebuildCategorySidebar();
+
   setTimeout(rebuildCategorySidebar, 500);
+
 });
+
 </script>
 
+
+
 <!--
+
   Listing cards: move "lang:" pills out of the category row.
 
+
+
   Quarto renders lang pills inline with content categories. This script
+
   wraps each lang pill in a .listing-lang-wrapper div placed after the
+
   category row, so CSS can style and position them separately.
 
+
+
   Runs twice because Quarto may inject card HTML after DOMContentLoaded.
+
 -->
+
 <script>
+
 document.addEventListener('DOMContentLoaded', function () {
+
   function moveLangPills() {
+
     document.querySelectorAll('.listing-category').forEach(function (pill) {
+
       var text = pill.textContent.trim();
+
       if (!text.toUpperCase().startsWith('LANG:')) return;
+
+
 
       pill.textContent = text.replace(/^lang:/i, '');
 
+
+
       var wrapper = document.createElement('div');
+
       wrapper.className = 'listing-lang-wrapper';
+
       pill.parentElement.parentElement.insertBefore(wrapper, pill.parentElement.nextSibling);
+
       wrapper.appendChild(pill);
+
     });
+
   }
+
+
 
   moveLangPills();
+
   setTimeout(moveLangPills, 600);
+
 });
+
 </script>
+
+
 
 <!-- Restore Quarto's search input placeholder (Quarto clears it) -->
+
 <script>
+
 document.addEventListener('DOMContentLoaded', function () {
+
   document.querySelectorAll('input.search.form-control').forEach(function (input) {
+
     input.placeholder = 'Search...';
+
   });
+
 });
+
 </script>
+
+
 
 <!-- Ensure the navbar brand has an accessible label -->
+
 <script>
+
 document.addEventListener('DOMContentLoaded', function () {
+
   var brand = document.querySelector('a.navbar-brand');
+
   if (brand && !brand.getAttribute('aria-label')) {
+
     brand.setAttribute('aria-label', 'Farhan Aditya Ramadhan - Home');
+
   }
+
 });
+
 </script>
 
+
+
 <!--
+
   Listing description fix: flatten nested <a><p> blocks to plain text.
 
+
+
   Quarto wraps listing descriptions in anchor + paragraph tags, which
+
   causes mid-word ellipsis truncation. Extracting textContent fixes it.
 
+
+
   Hooked into window["quarto-listing-loaded"] to also catch re-renders
+
   triggered by category filter clicks.
+
 -->
+
 <script>
+
 (function () {
+
   function flattenListingDescriptions() {
+
     document.querySelectorAll(
+
       '.quarto-listing-default .quarto-post .listing-description'
+
     ).forEach(function (el) {
+
       el.textContent = (el.textContent || '').trim().replace(/\s+/g, ' ');
+
     });
+
   }
+
+
 
   if (document.readyState === 'loading') {
+
     document.addEventListener('DOMContentLoaded', flattenListingDescriptions);
+
   } else {
+
     flattenListingDescriptions();
+
   }
+
+
 
   var _quartoListingLoaded = window['quarto-listing-loaded'];
+
   window['quarto-listing-loaded'] = function () {
+
     if (_quartoListingLoaded) _quartoListingLoaded();
+
     setTimeout(flattenListingDescriptions, 50);
+
   };
+
 })();
+
 </script>
 
+
+
 <!--
+
   External link fix: open external URLs in listing cards in a new tab.
 
+
+
   Quarto does not set target="_blank" on external links inside listing
+
   cards. Runs at DOMContentLoaded and again after 1.5 s to catch cards
+
   rendered by Quarto's lazy listing hydration.
+
 -->
+
 <script>
+
 (function () {
+
   function patchExternalLinks() {
+
     document.querySelectorAll(
+
       '.quarto-post a, .quarto-listing a, .list-group-item a'
+
     ).forEach(function (a) {
+
       var href = a.getAttribute('href') || '';
+
       if (href.startsWith('http://') || href.startsWith('https://')) {
+
         a.setAttribute('target', '_blank');
+
         a.setAttribute('rel', 'noopener noreferrer');
+
       }
+
     });
+
   }
+
+
 
   document.addEventListener('DOMContentLoaded', patchExternalLinks);
+
   setTimeout(patchExternalLinks, 1500);
+
 })();
+
 </script>
+
+
 
 <!--
+
   Substack badge: add an orange Substack logo to any listing card whose
+
   primary link points to substack.com. The badge is purely decorative
+
   (pointer-events: none in CSS).
 
+
+
   Runs at DOMContentLoaded and again after 1.5 s (lazy hydration).
+
 -->
+
 <script>
+
 (function () {
+
   function addSubstackBadges() {
+
     document.querySelectorAll('.quarto-post, .g-col-1').forEach(function (card) {
+
       var link = card.querySelector('a[href]');
+
       if (!link) return;
+
       if (!link.getAttribute('href').includes('substack.com')) return;
+
       if (card.querySelector('.substack-badge')) return;
 
+
+
       var badge = document.createElement('div');
+
       badge.className = 'substack-badge';
+
       badge.innerHTML = '<img src="/images/icons/substack.svg" alt="Substack">';
+
       card.style.position = 'relative';
+
       card.appendChild(badge);
+
     });
+
   }
 
+
+
   document.addEventListener('DOMContentLoaded', addSubstackBadges);
+
   setTimeout(addSubstackBadges, 1500);
+
 })();
+
 </script>
+
 
 
 <link rel="stylesheet" href="../../../styles.css">
@@ -852,13 +1067,11 @@ Economics · Policy · Data
 Economics graduate from Universitas Indonesia. Research interests in historical economics, macroeconomics, political economy, and applied econometrics. Currently residing in Jakarta.
 </div>
 </div>
-<div class="qf-license">
-<p>© 2026 Farhan Aditya Ramadhan · Code: <a href="https://github.com/farhanadityaramadhan/farhanadityaramadhan.github.io/blob/main/LICENSE" target="_blank">MIT</a> · Content: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></p>
-</div>
 </div>   
     <div class="nav-footer-center">
-<div class="qf-links-title">
-Quick Links
+<div class="qf-links-grid">
+<div class="qf-links-title-row">
+Links
 </div>
 <ul class="qf-links">
 <li>
@@ -876,7 +1089,34 @@ Quick Links
 <li>
 <a href="../../../webpages/projects/blog.html">Blog</a>
 </li>
+<li>
+<a href="../../../webpages/projects/playground.html">Playground</a>
+</li>
+<li>
+<a href="../../../webpages/graphics/graphics.html">Graphics</a>
+</li>
 </ul>
+<ul class="qf-links">
+<li>
+<a href="../../../webpages/resources/rstudio.html">R &amp; RStudio</a>
+</li>
+<li>
+<a href="../../../webpages/resources/stata.html">Stata</a>
+</li>
+<li>
+<a href="../../../webpages/resources/python.html">Python</a>
+</li>
+<li>
+<a href="../../../webpages/resources/macro.html">Macroeconomics</a>
+</li>
+<li>
+<a href="../../../webpages/resources/econometrics.html">Econometrics</a>
+</li>
+<li>
+<a href="../../../webpages/resources/causalinference.html">Causal Inference</a>
+</li>
+</ul>
+</div>
 </div>
     <div class="nav-footer-right">
 <div class="qf-links-title">
@@ -890,6 +1130,9 @@ Contact
 </div>
 <div class="qf-socials">
 <p><a class="qf-social-btn" href="https://www.linkedin.com/in/adinramaadin/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a> <a class="qf-social-btn" href="https://github.com/farhanadityaramadhan" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a> <a class="qf-social-btn" href="mailto:adin.ramaadin@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a></p>
+</div>
+<div class="qf-license">
+<p>© 2026 Farhan Aditya Ramadhan · Code: <a href="https://github.com/farhanadityaramadhan/farhanadityaramadhan.github.io/blob/main/LICENSE" target="_blank">MIT</a> · Content: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></p>
 </div>
 </div>
   </div>

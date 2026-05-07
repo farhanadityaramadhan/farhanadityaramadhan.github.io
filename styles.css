@@ -81,6 +81,15 @@
   src: url("fonts/SourceSansPro-Bold.ttf.woff2") format("woff2");
 }
 
+/* Override Bootstrap Icons font-display to prevent render blocking */
+@font-face {
+  font-family: "bootstrap-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("bootstrap/bootstrap-icons.woff2?e3488f1") format("woff2"),
+       url("bootstrap/bootstrap-icons.woff?e3488f1") format("woff");
+}
 
 /* ============================================================
    GLOBAL
@@ -171,6 +180,84 @@ a:hover { text-decoration: underline; color: var(--color-accent-dark); }
 }
 
 .navbar .bi { font-size: 1rem; }
+
+/* -- Navbar mobile (collapsed burger menu) -- */
+@media (max-width: 991px) {
+
+  /* Tighten the collapsed navbar container */
+  .navbar-collapse {
+    padding: 0.5rem 0 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 0.5rem;
+  }
+
+  /* Each nav link row: smaller, tighter, with a subtle bottom rule */
+  .navbar-nav .nav-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .navbar-nav .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.55rem 0.25rem !important;
+    font-size: 0.88rem !important;
+  }
+
+  /* Dropdown items: indent slightly so they read as children */
+  .navbar .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.18) !important;
+    border: none !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    padding: 0.15rem 0 0.35rem 1rem !important;
+    margin: 0 !important;
+  }
+
+  .navbar .dropdown-item {
+    color: var(--color-accent-wash) !important;
+    font-size: 0.82rem !important;
+    padding: 0.4rem 0.5rem !important;
+    background: transparent !important;
+  }
+
+  .navbar .dropdown-item:hover {
+    color: var(--color-bg) !important;
+    background: transparent !important;
+  }
+
+  /* Separate the icon links (home, LinkedIn, GitHub) from the text links
+     by pushing them into their own row with a divider above */
+  .navbar-nav.ms-auto,
+  .navbar-nav.navbar-nav-right {
+    flex-direction: row !important;
+    gap: 0.25rem;
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  /* Icon links: smaller, horizontal pill buttons */
+  .navbar-nav.ms-auto .nav-link,
+  .navbar-nav.navbar-nav-right .nav-link {
+    padding: 0.4rem 0.6rem !important;
+    font-size: 0.85rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-md);
+  }
+
+  .navbar-nav.ms-auto .nav-link:hover,
+  .navbar-nav.navbar-nav-right .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  /* Slightly tighter navbar padding on mobile */
+  .navbar {
+    padding: 0.4rem 1.25rem !important;
+  }
+}
 
 /* -- Footer --
    .nav-footer doubled for specificity to beat Bootstrap flex rules
@@ -1464,9 +1551,37 @@ body.page-index hr {
 /* ============================================================
    FOOTER
    ============================================================ */
-.nav-footer-left   { flex: 1.6; text-align: left !important; padding-top: 1rem; }
-.nav-footer-center { flex: 1;   text-align: left !important; padding-top: 1rem; }
-.nav-footer-right  { flex: 1;   text-align: left !important; padding-top: 1rem; }
+
+/* Three equal columns — left no longer needs extra flex */
+.nav-footer-left   { flex: 1; text-align: left !important; padding-top: 0; }
+.nav-footer-center { flex: 1; text-align: left !important; padding-top: 0; }
+.nav-footer-right  { flex: 1; text-align: left !important; padding-top: 0; }
+
+/* Override Quarto's nav-footer to use a clean grid */
+.nav-footer.nav-footer {
+  background-color: var(--color-primary);
+  border-top: none;
+  padding: 2.5rem 3rem !important;
+  align-items: flex-start;
+  display: flex;
+  gap: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Vertical dividers between columns */
+.nav-footer-center {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+}
+
+.nav-footer-left  { padding-right: 2.5rem !important; }
+.nav-footer-right { padding-left: 2.5rem !important; }
+
+/* Bio block */
+.qf-bio { margin-bottom: 0; }
 
 .qf-name {
   font-family: var(--font-serif);
@@ -1491,7 +1606,28 @@ body.page-index hr {
   margin-bottom: 0;
 }
 
+/* Column headings */
 .qf-links-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-light);
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+/* Quick links */
+.qf-links { list-style: none; padding: 0; margin: 0; }
+.qf-links li { margin-bottom: 0.4rem; }
+.qf-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.5rem;
+}
+
+.qf-links-title-row {
+  grid-column: 1 / -1;
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1499,9 +1635,6 @@ body.page-index hr {
   color: var(--color-accent-light);
   margin-bottom: 0.75rem;
 }
-
-.qf-links { list-style: none; padding: 0; margin: 0; }
-.qf-links li { margin-bottom: 0.4rem; }
 
 .qf-links a {
   font-size: 0.83rem;
@@ -1511,6 +1644,7 @@ body.page-index hr {
 
 .qf-links a:hover { color: var(--color-bg) !important; }
 
+/* Contact rows */
 .qf-contact {
   font-size: 0.8rem;
   color: var(--color-accent-wash);
@@ -1522,28 +1656,28 @@ body.page-index hr {
 
 .qf-contact i { color: var(--color-accent-light); font-size: 0.85rem; }
 
-/* !important needed to override Bootstrap's nav-footer flex column */
+/* Social buttons */
 .qf-socials {
   display: flex !important;
   flex-direction: row !important;
   gap: 0.75rem !important;
   margin-top: 0.85rem !important;
-  margin-bottom: 0;
+  margin-bottom: 0.75rem !important;
 }
 
 .qf-social-btn {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.07);
   color: var(--color-accent-light) !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .qf-social-btn:hover {
@@ -1552,17 +1686,42 @@ body.page-index hr {
   color: var(--color-bg) !important;
 }
 
+/* License */
 .qf-license {
-  margin-top: 1rem;
-  font-size: 0.72rem;
-  color: var(--color-accent-wash);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
   line-height: 1.5;
+  margin-top: 0;
 }
 
-.qf-license a { color: var(--color-accent-light); text-decoration: none; }
+.qf-license a { color: rgba(255, 255, 255, 0.5); text-decoration: none; }
 .qf-license a:hover { color: var(--color-bg); text-decoration: underline; }
 
+/* Mobile — stack columns vertically */
+@media (max-width: 768px) {
+  .nav-footer.nav-footer {
+    flex-direction: column;
+    gap: 0;
+    padding: 2rem 1.5rem 1.5rem !important;
+  }
 
+  .nav-footer-left,
+  .nav-footer-center,
+  .nav-footer-right {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 1.5rem !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    width: 100%;
+  }
+
+  .nav-footer-left   { order: 1; }
+  .nav-footer-center { order: 2; }
+  .nav-footer-right  { order: 3; border-bottom: none !important; padding-bottom: 0.5rem !important; }
+
+  .qf-text { max-width: 100%; }
+}
 /* ============================================================
    TOC
    ============================================================ */
@@ -1598,14 +1757,6 @@ body.page-index hr {
   body.page-index h2  { font-size: 1.35rem; }
 
   .tools-strip-inner  { padding: 0 1.25rem; }
-
-  .nav-footer.nav-footer {
-    flex-direction: column;
-    gap: 1.75rem;
-    padding: 1.5rem 1.25rem 0;
-  }
-
-  .qf-text            { max-width: 100%; }
 
   .resources-section-inner { padding: 0 1.25rem; }
   .resources-grid     { grid-template-columns: 1fr; }
