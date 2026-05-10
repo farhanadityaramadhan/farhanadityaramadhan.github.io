@@ -87,8 +87,7 @@
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url("bootstrap/bootstrap-icons.woff2?e3488f1") format("woff2"),
-       url("bootstrap/bootstrap-icons.woff?e3488f1") format("woff");
+  src: url("site_libs/bootstrap/bootstrap-icons.woff?e3488f1") format("woff");
 }
 
 /* ============================================================
@@ -3175,4 +3174,72 @@ body.page-about .ab-prose-block p {
   .ab-closing-btns { flex-direction: column; width: 100%; }
   .ab-btn-dark,
   .ab-btn-outline  { justify-content: center; width: 100%; }
+}
+
+/* -- Expandable nav card (Resources) ------------------------- */
+.ab-nav-card--expandable {
+  cursor: pointer;
+}
+
+.ab-nav-chevron {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+  transition: transform 0.2s ease;
+}
+
+.ab-nav-card--expandable.is-open .ab-nav-chevron {
+  transform: rotate(180deg);
+}
+
+.ab-nav-sub {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+  border-top: 0px solid var(--color-border);
+}
+
+.ab-nav-card--expandable.is-open .ab-nav-sub {
+  max-height: 300px;
+  border-top: 1px solid var(--color-border);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+.ab-nav-sub-link {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-text-mid);
+  padding: 0.3rem 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ab-nav-sub-link:last-child { border-bottom: none; }
+
+.ab-nav-sub-link:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.ab-nav-link--toggle {
+  pointer-events: none;
+}
+
+.ab-nav-card--expandable.is-open .ab-nav-link--toggle {
+  display: none;
+}
+
+.ab-nav-link--collapse {
+  display: none;
+  pointer-events: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+}
+
+.ab-nav-card--expandable.is-open .ab-nav-link--collapse {
+  display: block;
+  margin-top: auto;
 }

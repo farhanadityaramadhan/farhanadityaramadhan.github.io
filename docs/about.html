@@ -744,14 +744,35 @@ document.addEventListener('DOMContentLoaded', function () {
         <span class="ab-nav-link">Explore →</span>
       </a>
 
-      <a href="./webpages/resources/rstudio.html" class="ab-nav-card">
-        <div class="ab-nav-card-head">
-          <i class="bi bi-book-fill ab-nav-icon" aria-hidden="true"></i>
-          <span class="ab-nav-name">Resources</span>
-        </div>
-        <p class="ab-nav-desc">Books, tutorials, and notes on R, Stata, econometrics, and causal inference.</p>
-        <span class="ab-nav-link">Explore →</span>
-      </a>
+      <div class="ab-nav-card ab-nav-card--expandable" id="ab-nav-resources">
+  <div class="ab-nav-card-head">
+    <i class="bi bi-book-fill ab-nav-icon" aria-hidden="true"></i>
+    <span class="ab-nav-name">Resources</span>
+    <i class="bi bi-chevron-down ab-nav-chevron" aria-hidden="true"></i>
+  </div>
+  <p class="ab-nav-desc">Books, tutorials, and notes on R, Stata, econometrics, and causal inference.</p>
+  <span class="ab-nav-link ab-nav-link--toggle">Expand ↓</span>
+<span class="ab-nav-link ab-nav-link--collapse">Collapse ↑</span>
+  <div class="ab-nav-sub" aria-hidden="true">
+    <a href="./webpages/resources/rstudio.html" class="ab-nav-sub-link">R &amp; RStudio</a>
+    <a href="./webpages/resources/stata.html" class="ab-nav-sub-link">Stata</a>
+    <a href="./webpages/resources/python.html" class="ab-nav-sub-link">Python</a>
+    <a href="./webpages/resources/macro.html" class="ab-nav-sub-link">Macroeconomics</a>
+    <a href="./webpages/resources/econometrics.html" class="ab-nav-sub-link">Econometrics</a>
+    <a href="./webpages/resources/causalinference.html" class="ab-nav-sub-link">Causal Inference</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var card = document.getElementById('ab-nav-resources');
+  if (!card) return;
+  card.addEventListener('click', function (e) {
+    if (e.target.closest('.ab-nav-sub-link')) return;
+    card.classList.toggle('is-open');
+  });
+})();
+</script>
 
       <a href="./webpages/graphics/graphics.html" class="ab-nav-card">
         <div class="ab-nav-card-head">
@@ -839,7 +860,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="ab-tl-body">
         <div class="ab-tl-role">Research Assistant</div>
         <div class="ab-tl-org">Bank Indonesia Institute</div>
-        <p class="ab-tl-desc">Spatial econometrics on interregional growth across Indonesia's 34 provinces using a Spatial Durbin Error Model framework. Working with Prof. Iwan Jaya Azis on constructing spatial weight matrices in R and Stata.</p>
+        <p class="ab-tl-desc">Spatial econometrics on interregional growth across Indonesia's 34 provinces using a Spatial Durbin Model framework. Working with Prof. Iwan Jaya Azis on constructing spatial weight matrices in R and Stata.</p>
       </div>
     </div>
 

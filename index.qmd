@@ -28,7 +28,7 @@ params:
 
   featured_3_title: "Third Featured Post"
   featured_3_tag: "Blog"
-  featured_3_href: "webpages/projects/blog/blog 1.qmd"
+  featured_3_href: "webpages/projects/blog/blog1.qmd"
   featured_3_image: "images/workpanels/pexels-pixabay-159497.webp"
 
   featured_4_title: "Fourth Featured Post"
