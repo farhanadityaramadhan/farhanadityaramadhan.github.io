@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed page-about quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -511,10 +511,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Overview</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
@@ -602,14 +598,12 @@ document.addEventListener('DOMContentLoaded', function () {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -618,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -630,8 +624,307 @@ document.addEventListener('DOMContentLoaded', function () {
 </header>
 
 
-<p>This site has three main areas. Projects is where I put my empirical work — data analysis, research writing, blog posts, and experiments. Resources is a collection of books, tutorials, and notes on the tools and methods I use most: R, Stata, econometrics, macroeconomics, and causal inference. Think of it as a curated reading list and reference shelf.</p>
-<p>I built this site with Quarto and host it on GitHub Pages. Most of the analysis here is done in Stata, R, or Python. Where possible I try to make the code available alongside the work.</p>
+<!-- ============================================================
+     ABOUT PAGE
+     ============================================================ -->
+
+<!-- 1. HERO --------------------------------------------------- -->
+<section class="ab-hero">
+  <div class="ab-hero-inner">
+    <div class="hero-label">About this site &amp; me</div>
+    <h1 class="hero-title">Farhan (Adin)<br>Aditya Ramadhan</h1>
+    <p class="hero-sub">Economics graduate from Universitas Indonesia. Interested in causal inference and applied econometrics, with research experience in macroeconomics, historical economics, and political economy.</p>
+    <div class="hero-tags">
+      <span class="tag">Historical Economics</span>
+      <span class="tag">Applied Econometrics</span>
+      <span class="tag">Macroeconomics</span>
+      <span class="tag">Political Economy</span>
+      <span class="tag">Development Economics</span>
+      <span class="tag">Public Finance</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. BIO + QUICK FACTS -------------------------------------- -->
+<div class="ab-contained">
+  <div class="ab-two-col">
+
+    <div class="ab-prose-block">
+      <div class="ab-label">About me</div>
+      <p>I wanted to do science. I ended up in economics, which is close enough. I still get to form hypotheses, collect data, and find out whether the idea survives. The questions asked in economics happen to be about people and history, which I would have been interested in anyway.</p>
+      <p>I use R and Stata for most of the work here. Python when necessary. I try to make the code available alongside the output. Most of what I publish is not finished. That is fine.</p>
+      <p>I am still early and I do not always know what I am doing. I am fairly honest about that. But I think that is a better starting point than pretending otherwise.</p>
+      <p class="ab-site-note">This site is an experiment in having one place for everything: outputs, notes, things I made, things I thought about. I am forcing myself to have a friendly interface for people interested in what I do, rather than sending them to a GitHub repos. I built it with Quarto. Claude did most of the heavy lifting, not going to lie, which you can probably tell if you look at the source code. Or the design, for that matter. But it works. I might redo it eventually in something simpler, Hugo maybe, or just plain HTML. But for now this is what exists.</p>
+    </div>
+
+    <div class="ab-sidebar-col">
+      <div class="ab-label">Quick facts</div>
+      <div class="ab-sidebar">
+        <div class="ab-fact-row">
+          <i class="bi bi-mortarboard-fill ab-fact-icon" aria-hidden="true"></i>
+          <div class="ab-fact-text">
+            <span class="ab-fact-label">Education</span>
+            <span class="ab-fact-val">B.Econ., Universitas Indonesia</span>
+          </div>
+        </div>
+        <div class="ab-fact-row">
+          <i class="bi bi-geo-alt-fill ab-fact-icon" aria-hidden="true"></i>
+          <div class="ab-fact-text">
+            <span class="ab-fact-label">Location</span>
+            <span class="ab-fact-val">Grogol, DKI Jakarta</span>
+          </div>
+        </div>
+        <div class="ab-fact-row">
+          <i class="bi bi-briefcase-fill ab-fact-icon" aria-hidden="true"></i>
+          <div class="ab-fact-text">
+            <span class="ab-fact-label">Current role</span>
+            <span class="ab-fact-val">Research Assistant, Bank Indonesia Institute</span>
+          </div>
+        </div>
+        <div class="ab-fact-row">
+          <i class="bi bi-terminal-fill ab-fact-icon" aria-hidden="true"></i>
+          <div class="ab-fact-text">
+            <span class="ab-fact-label">Primary tools</span>
+            <span class="ab-fact-val">R, Stata, Python</span>
+          </div>
+        </div>
+        <div class="ab-fact-row">
+          <i class="bi bi-lightbulb-fill ab-fact-icon" aria-hidden="true"></i>
+          <div class="ab-fact-text">
+            <span class="ab-fact-label">Working toward</span>
+            <span class="ab-fact-val">Building something worth building</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 3. SITE NAVIGATION GUIDE ---------------------------------- -->
+<div class="ab-bleed-grey">
+  <div class="ab-bleed-inner">
+    <h2 class="ab-bleed-title anchored">Navigating this site</h2>
+    <p class="ab-bleed-sub">Two main areas: Projects and Resources. Plus a standalone Graphics section.</p>
+    <div class="ab-nav-grid">
+
+      <a href="./webpages/projects/analysis.html" class="ab-nav-card">
+        <div class="ab-nav-card-head">
+          <i class="bi bi-bar-chart-line-fill ab-nav-icon" aria-hidden="true"></i>
+          <span class="ab-nav-name">Analysis</span>
+        </div>
+        <p class="ab-nav-desc">Empirical data analysis, econometric modelling, and policy evaluation.</p>
+        <span class="ab-nav-link">Explore →</span>
+      </a>
+
+      <a href="./webpages/projects/research.html" class="ab-nav-card">
+        <div class="ab-nav-card-head">
+          <i class="bi bi-file-earmark-text-fill ab-nav-icon" aria-hidden="true"></i>
+          <span class="ab-nav-name">Research</span>
+        </div>
+        <p class="ab-nav-desc">Academic-style writings and working papers.</p>
+        <span class="ab-nav-link">Explore →</span>
+      </a>
+
+      <a href="./webpages/projects/blog.html" class="ab-nav-card">
+        <div class="ab-nav-card-head">
+          <i class="bi bi-pencil-fill ab-nav-icon" aria-hidden="true"></i>
+          <span class="ab-nav-name">Blog</span>
+        </div>
+        <p class="ab-nav-desc">Short-form writing on economics, methodology, data, and ideas.</p>
+        <span class="ab-nav-link">Explore →</span>
+      </a>
+
+      <a href="./webpages/projects/playground.html" class="ab-nav-card">
+        <div class="ab-nav-card-head">
+          <i class="bi bi-flask-fill ab-nav-icon" aria-hidden="true"></i>
+          <span class="ab-nav-name">Playground</span>
+        </div>
+        <p class="ab-nav-desc">Experiments, interactive tools, and exploratory work in progress.</p>
+        <span class="ab-nav-link">Explore →</span>
+      </a>
+
+      <a href="./webpages/resources/rstudio.html" class="ab-nav-card">
+        <div class="ab-nav-card-head">
+          <i class="bi bi-book-fill ab-nav-icon" aria-hidden="true"></i>
+          <span class="ab-nav-name">Resources</span>
+        </div>
+        <p class="ab-nav-desc">Books, tutorials, and notes on R, Stata, econometrics, and causal inference.</p>
+        <span class="ab-nav-link">Explore →</span>
+      </a>
+
+      <a href="./webpages/graphics/graphics.html" class="ab-nav-card">
+        <div class="ab-nav-card-head">
+          <i class="bi bi-graph-up ab-nav-icon" aria-hidden="true"></i>
+          <span class="ab-nav-name">Graphics</span>
+        </div>
+        <p class="ab-nav-desc">Interactive charts, maps, and exploratory dashboards built in R.</p>
+        <span class="ab-nav-link">Explore →</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- 4. SKILLS & TOOLS ----------------------------------------- -->
+<div class="ab-contained">
+  <div class="ab-label">Skills &amp; tools</div>
+  <div class="ab-skills-grid">
+
+    <div class="ab-skill-group">
+      <div class="ab-skill-label">Econometrics &amp; statistics</div>
+      <div class="ab-skill-tags">
+        <span class="ab-skill-tag">Causal Inference</span>
+        <span class="ab-skill-tag">IV / 2SLS</span>
+        <span class="ab-skill-tag">Time-Series</span>
+        <span class="ab-skill-tag">Spatial Econometrics</span>
+        <span class="ab-skill-tag">Panel Data</span>
+        <span class="ab-skill-tag">Bootstrap ARDL</span>
+      </div>
+    </div>
+
+    <div class="ab-skill-group">
+      <div class="ab-skill-label">Programming &amp; tools</div>
+      <div class="ab-skill-tags">
+        <span class="ab-skill-tag">R</span>
+        <span class="ab-skill-tag">Stata</span>
+        <span class="ab-skill-tag">Python</span>
+        <span class="ab-skill-tag">EViews</span>
+        <span class="ab-skill-tag">SQL</span>
+        <span class="ab-skill-tag">LaTeX</span>
+        <span class="ab-skill-tag">Quarto</span>
+        <span class="ab-skill-tag">Git</span>
+      </div>
+    </div>
+
+    <div class="ab-skill-group">
+      <div class="ab-skill-label">Research domains</div>
+      <div class="ab-skill-tags">
+        <span class="ab-skill-tag">Historical Economics</span>
+        <span class="ab-skill-tag">Political Economy</span>
+        <span class="ab-skill-tag">Development Economics</span>
+        <span class="ab-skill-tag">Public Finance</span>
+        <span class="ab-skill-tag">Macroeconomics</span>
+      </div>
+      <p class="ab-domain-note">Honestly, I just want to do "science". Not in a grand way, but more in the sense of: form a question, state your hypothesis, collect the data, find out. Econometrics is the closest thing available to someone like me that lets you actually do that. The fields listed above are just what people kept asking me to name, so I named the ones I spent the most time in. But they are secondary to the method.</p>
+    </div>
+
+    <div class="ab-skill-group">
+      <div class="ab-skill-label">Data &amp; communication</div>
+      <div class="ab-skill-tags">
+        <span class="ab-skill-tag">Data Visualization</span>
+        <span class="ab-skill-tag">Policy Analysis</span>
+        <span class="ab-skill-tag">Quantitative Analysis</span>
+        <span class="ab-skill-tag">Report Writing</span>
+        <span class="ab-skill-tag">Policy Briefs</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="ab-hr"></div>
+
+<!-- 5. EXPERIENCE TIMELINE ------------------------------------ -->
+<div class="ab-contained">
+  <div class="ab-label">Experience</div>
+
+  <div class="ab-timeline">
+
+    <div class="ab-tl-item">
+      <div class="ab-tl-date">
+        <span class="ab-tl-date-start">May 2026</span>
+        <span class="ab-tl-date-end">Present</span>
+      </div>
+      <div class="ab-tl-body">
+        <div class="ab-tl-role">Research Assistant</div>
+        <div class="ab-tl-org">Bank Indonesia Institute</div>
+        <p class="ab-tl-desc">Spatial econometrics on interregional growth across Indonesia's 34 provinces using a Spatial Durbin Error Model framework. Working with Prof. Iwan Jaya Azis on constructing spatial weight matrices in R and Stata.</p>
+      </div>
+    </div>
+
+    <div class="ab-tl-item">
+      <div class="ab-tl-date">
+        <span class="ab-tl-date-start">Sep 2025</span>
+        <span class="ab-tl-date-end">Dec 2025</span>
+      </div>
+      <div class="ab-tl-body">
+        <div class="ab-tl-role">Research Intern</div>
+        <div class="ab-tl-org">SMERU Research Institute</div>
+        <p class="ab-tl-desc">Quantitative analysis on SUSENAS 2024 microdata examining child development indicators across multiple provinces. Part of a joint SMERU-Bappenas-UNICEF study.</p>
+      </div>
+    </div>
+
+    <div class="ab-tl-item">
+      <div class="ab-tl-date">
+        <span class="ab-tl-date-start">Apr 2025</span>
+        <span class="ab-tl-date-end">Aug 2025</span>
+      </div>
+      <div class="ab-tl-body">
+        <div class="ab-tl-role">Research Assistant</div>
+        <div class="ab-tl-org">Laboratorium Indonesia 2045</div>
+        <p class="ab-tl-desc">Bootstrap ARDL with Fourier terms in EViews and Python for long-run cointegration analysis. Co-authored a research monograph on Indonesia's growth, democracy, and environmental trajectory to 2045.</p>
+      </div>
+    </div>
+
+    <div class="ab-tl-item">
+      <div class="ab-tl-date">
+        <span class="ab-tl-date-start">Jan 2025</span>
+        <span class="ab-tl-date-end">Apr 2025</span>
+      </div>
+      <div class="ab-tl-body">
+        <div class="ab-tl-role">Economic Intern</div>
+        <div class="ab-tl-org">Kementerian Energi dan Sumber Daya Mineral</div>
+        <p class="ab-tl-desc">Macro policy analysis on fuel subsidy reform and export proceeds retention using Input-Output Tables and SUSENAS data.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Timeline positioning script:
+     Reads the actual rendered right-edge of .ab-tl-date relative
+     to .ab-timeline and sets --tl-x so the line and dot land
+     exactly at the end of the date column regardless of container
+     offset, Quarto padding, or screen width. -->
+<script>
+(function () {
+  function positionTimeline() {
+    var timeline = document.querySelector('.ab-timeline');
+    if (!timeline) return;
+    var firstDate = timeline.querySelector('.ab-tl-date');
+    if (!firstDate) return;
+    var tlLeft  = timeline.getBoundingClientRect().left;
+    var dateRight = firstDate.getBoundingClientRect().right;
+    var x = Math.round(dateRight - tlLeft + 10); /* 10px gap into the whitespace */
+    timeline.style.setProperty('--tl-x', x + 'px');
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', positionTimeline);
+  } else {
+    positionTimeline();
+  }
+  window.addEventListener('resize', positionTimeline);
+})();
+</script>
+
+<!-- 6. CLOSING CTA ------------------------------------------- -->
+<div class="ab-closing">
+  <div class="ab-closing-inner">
+    <p class="ab-closing-copy">
+      If any of this sounds interesting, the CV has the details.<br>
+      If you want to talk, the email is <strong>adin.ramaadin@gmail.com</strong>.
+    </p>
+    <div class="ab-closing-btns">
+      <a href="./files/CV/Farhan-Aditya-Ramadhan_CV.pdf" class="ab-btn-dark" target="_blank">
+        <i class="bi bi-download" aria-hidden="true"></i> Download CV
+      </a>
+      <a href="mailto:adin.ramaadin@gmail.com" class="ab-btn-outline">
+        <i class="bi bi-envelope-fill" aria-hidden="true"></i> Contact
+      </a>
+    </div>
+  </div>
+</div>
 
 
 
@@ -1045,7 +1338,7 @@ document.addEventListener('DOMContentLoaded', function () {
 Farhan Aditya Ramadhan
 </div>
 <div class="qf-sub">
-Economics · Policy · Data
+Economics · Data · Research
 </div>
 <div class="qf-text">
 Economics graduate from Universitas Indonesia. Research interests in historical economics, macroeconomics, political economy, and applied econometrics. Currently residing in Jakarta.

@@ -21,7 +21,7 @@ website:
     left: |
       <div class="qf-bio">
         <div class="qf-name">Farhan Aditya Ramadhan</div>
-        <div class="qf-sub">Economics · Policy · Data</div>
+        <div class="qf-sub">Economics · Data · Research</div>
         <div class="qf-text">Economics graduate from Universitas Indonesia. Research interests in historical economics, macroeconomics, political economy, and applied econometrics. Currently residing in Jakarta.</div>
       </div>
     center: |
@@ -65,8 +65,6 @@ website:
     title: "Farhan (Adin) Aditya R."
     search: true
     left:
-      - href: index.qmd
-        text: "Overview"
       - about.qmd
       - text: "Projects"
         menu:

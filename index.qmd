@@ -1,6 +1,6 @@
 ---
 title: "Farhan (Adin) Aditya R."
-subtitle: "Economics · Policy · Data"
+subtitle: "Economics · Data · Research"
 page-layout: full
 toc: false
 title-block-banner: false
@@ -131,9 +131,9 @@ listing:
 ```{=html}
 <section class="hero-section">
   <div class="content-block">
-    <div class="hero-label">Economics · Policy · Data</div>
+    <div class="hero-label">Economics · Data · Research</div>
     <h1 class="hero-title">Farhan Aditya<br>Ramadhan</h1>
-    <p class="hero-sub">Economics graduate from Universitas Indonesia specializing in macroeconomics and historical economics, using causal inference and applied econometrics, with Stata, R, and Python.</p>
+    <p class="hero-sub">Economics graduate from Universitas Indonesia. Interested in causal inference and applied econometrics, with research experience in macroeconomics, historical economics, and political economy.</p>
     <div class="hero-tags">
       <span class="tag">Historical Economics</span>
       <span class="tag">Applied Econometrics</span>
