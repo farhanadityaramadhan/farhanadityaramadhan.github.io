@@ -210,7 +210,7 @@ body-classes: "page-about"
         <span class="ab-skill-tag">Public Finance</span>
         <span class="ab-skill-tag">Macroeconomics</span>
       </div>
-      <p class="ab-domain-note">Honestly, I just want to do "science". Not in a grand way, but more in the sense of "forming a question, stating the hypothesis, collecting the data, and finding out" stuff. Econometrics is the closest thing available to someone like me that lets you actually do that. The fields listed above are just what people kept asking me to name, so I named the ones I spent the most time in. But they are secondary to the method.</p>
+      <p class="ab-domain-note">Honestly, I just want to do "science" (In the sense of "forming a question, stating the hypothesis, collecting the data, and finding out" stuff). Econometrics is the closest thing available to someone like me that lets you actually do that. The fields listed above are just what people kept asking me to name, so I named the ones I spent the most time in. But they are secondary to the method.</p>
     </div>
 
     <div class="ab-skill-group">
