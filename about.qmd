@@ -35,9 +35,9 @@ body-classes: "page-about"
     <div class="ab-prose-block">
       <div class="ab-label">About me</div>
       <p>I wanted to do science. And I ended up in economics, which is close enough. I still get to form hypotheses, collect data, and find out whether the idea survives. The questions asked in economics happen to be about people and history, which I would have been interested in anyway.</p>
-      <p>I use R and Stata for most of the work here. Python when necessary. I try to make the code available alongside the output. Most of what I publish is not finished. That is fine.</p>
-      <p>I am still early and I do not always know what I am doing. I am fairly honest about that. But I think that is a better starting point than pretending otherwise.</p>
-      <p class="ab-site-note">This site is my attempt at having one place for everything: outputs, notes, things I made, things I do, things I thought about. I want to have a centralized and user-friendly platform for people interested in those things, rather than sending them to a GitHub repos. I built this site with Quarto. But Claude did most of the heavy lifting, which you can probably tell if you look at the source code (or the design, for that matter). Fortunately, it works. Although, I might redo it eventually in something simpler, Hugo (maybe) or just plain HTML. But for now this is what exists.</p>
+      <p>I use R and Stata for most of the work here, Python when necessary. I try to make the code available alongside the output. Most of what I publish is not finished, and that is fine.</p>
+      <p>I am still early and do not always know what I am doing. I am fairly honest about that, which I think is a better starting point than pretending otherwise.</p>
+      <p class="ab-site-note">This site is my attempt at having one place for everything: outputs, notes, things I made, things I do, things I thought about. I want to have a centralized and user-friendly platform for people interested in those things, rather than sending them to a GitHub repos. I built this site with Quarto, though Claude did most of the heavy lifting, which you can probably tell if you look at the source code (or the design, for that matter). Fortunately, it works. Although, I might redo it eventually in something simpler, Hugo (maybe) or just plain HTML, but for now this is what exists.</p>
     </div>
 
     <div class="ab-sidebar-col">
