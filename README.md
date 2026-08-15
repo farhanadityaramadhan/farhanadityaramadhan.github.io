@@ -28,12 +28,13 @@ The site also hosts a resources section with curated reading lists and notes cov
 ## Project Structure
 ```
 .
-├── index.qmd                             # Homepage with carousels
-├── about.qmd                             # About page
-├── head.html                             # Custom scripts injected into every page
-├── styles.css                            # Site-wide custom CSS
-├── _quarto.yml                           # Quarto project configuration
-├── LICENSE                               # MIT License (source code)
+├── index.qmd                            # Homepage with carousels
+├── about.qmd                            # About page
+├── head.html                            # Custom scripts injected into every page
+├── styles.css                           # Site-wide custom CSS
+├── _quarto.yml                          # Quarto project configuration
+├── _variables.yml                       # Section descriptions, used as {{< var section.X >}}
+├── LICENSE                              # MIT License (source code)
 ├── src/
 │   └── quarto-listing-multiselect.js    # Custom listing JS (multi-select categories)
 ├── tools/
@@ -47,24 +48,26 @@ The site also hosts a resources section with curated reading lists and notes cov
 │   │   ├── analysis.qmd                 # Analysis listing page
 │   │   ├── research.qmd                 # Research listing page
 │   │   ├── blog.qmd                     # Blog listing page
-│   │   ├── playground.qmd               # Playground listing page
-│   │   └── projects.qmd                 # All projects combined listing page
+│   │   ├── blog.yml                     # External blog posts (Substack) for the blog listing
+│   │   └── playground.qmd               # Playground listing page
 │   ├── resources/
 │   │   ├── rstudio/                     # Individual R & RStudio resource .qmd files
 │   │   ├── stata/                       # Individual Stata resource .qmd files
+│   │   ├── python/                      # Individual Python resource .qmd files
 │   │   ├── macro/                       # Individual macroeconomics resource .qmd files
 │   │   ├── econometrics/                # Individual econometrics resource .qmd files
 │   │   ├── causalinference/             # Individual causal inference resource .qmd files
 │   │   ├── rstudio.qmd                  # R & RStudio listing page
 │   │   ├── stata.qmd                    # Stata listing page
+│   │   ├── python.qmd                   # Python listing page
 │   │   ├── macro.qmd                    # Macroeconomics listing page
 │   │   ├── econometrics.qmd             # Econometrics listing page
-│   │   ├── causalinference.qmd          # Causal inference listing page
-│   │   └── resources.qmd                # All resources combined listing page
+│   │   └── causalinference.qmd          # Causal inference listing page
 │   └── graphics/
 │       ├── graphics.qmd                 # Graphics listing page
-│       └── ...                          # Individual graphic .qmd files
+│       └── graphics/                    # Individual graphic .qmd files
 ├── docs/                                # Rendered output (deployed to GitHub Pages)
+├── data/                                # Source data for the R-based analyses
 ├── files/                               # Static files (CV, PDFs)
 ├── fonts/                               # Self-hosted fonts
 ├── images/                              # Site images
@@ -89,7 +92,7 @@ quarto preview
 quarto render
 ```
 
-After rendering, the `fix-listing.bat` post-render script runs automatically and replaces Quarto's default `quarto-listing.js` with the custom multi-select version in `src/`.
+After rendering, the `fix-listing.bat` post-render script runs automatically and replaces Quarto's default `quarto-listing.js` with the custom multi-select version in `src/`. That script is a Windows batch file, so rendering on macOS, Linux, or CI needs a shell equivalent.
 
 ---
 
@@ -126,7 +129,7 @@ title: "Your Title"
 subtitle: "A short subtitle"
 description: "A one-sentence description for the listing card."
 date: 2026-01-01
-image: /images/your-image.jpg
+image: /images/your-image.webp
 categories: [Econometrics, Policy, lang:Indonesian]
 ---
 ```

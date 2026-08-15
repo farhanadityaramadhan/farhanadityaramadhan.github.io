@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -43,10 +46,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ff38ca5759cea8d2b4e40dc1c167d4da.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-221fb94c3ec07aa7e68c2d5abc4fc18e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,426 +107,217 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 <!-- Preload hero image to avoid LCP penalty -->
-
 <link rel="preload" as="image" href="../../images/hero-line-unsplash.webp" fetchpriority="high">
 
-
-
 <!-- FontAwesome (self-hosted) -->
-
 <link rel="preload" href="../../fontawesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
 <noscript><link rel="stylesheet" href="../../fontawesome/css/all.min.css"></noscript>
 
-
-
 <!-- Google Analytics — deferred until after page load -->
-
 <script>
-
   window.addEventListener('load', function () {
-
     var s = document.createElement('script');
-
     s.async = true;
-
     s.src = 'https://www.googletagmanager.com/gtag/js?id=G-117GLZLM44';
-
     document.head.appendChild(s);
-
     window.dataLayer = window.dataLayer || [];
-
     function gtag() { dataLayer.push(arguments); }
-
     gtag('js', new Date());
-
     gtag('config', 'G-117GLZLM44');
-
   });
-
 </script>
 
-
-
 <!--
-
   Listing sidebar: rebuild category sections.
 
-
-
   Quarto renders all category pills flat. This script splits them into
-
   two headed groups — "Language" (pills prefixed "lang:") and "Categories"
-
   (everything else) — and relabels the lang pills by stripping the prefix.
 
-
-
   Runs twice with a gap because Quarto hydrates the listing asynchronously.
-
 -->
-
 <script>
-
 document.addEventListener('DOMContentLoaded', function () {
-
   function rebuildCategorySidebar() {
-
     var sidebar = document.querySelector('.quarto-listing-category');
-
     if (!sidebar) return;
 
-
-
     var allPills = sidebar.querySelectorAll('.category');
-
     var langPills = [];
-
     var regularPills = [];
 
-
-
     allPills.forEach(function (pill) {
-
       var label = decodeURIComponent(atob(pill.getAttribute('data-category')));
-
       if (label.startsWith('lang:')) {
-
         pill.textContent = label.replace('lang:', '');
-
         langPills.push(pill);
-
       } else {
-
         regularPills.push(pill);
-
       }
-
     });
-
-
 
     if (langPills.length === 0) return;
 
-
-
     sidebar.innerHTML = '';
 
-
-
     function makeHeading(text) {
-
       var el = document.createElement('div');
-
       el.className = 'quarto-listing-category-language-title';
-
       el.textContent = text;
-
       return el;
-
     }
 
-
-
     sidebar.appendChild(makeHeading('Language'));
-
     langPills.forEach(function (pill) { sidebar.appendChild(pill); });
 
-
-
     sidebar.appendChild(makeHeading('Categories'));
-
     regularPills.forEach(function (pill) { sidebar.appendChild(pill); });
-
   }
 
-
-
   rebuildCategorySidebar();
-
   setTimeout(rebuildCategorySidebar, 500);
-
 });
-
 </script>
 
-
-
 <!--
-
   Listing cards: move "lang:" pills out of the category row.
 
-
-
   Quarto renders lang pills inline with content categories. This script
-
   wraps each lang pill in a .listing-lang-wrapper div placed after the
-
   category row, so CSS can style and position them separately.
 
-
-
   Runs twice because Quarto may inject card HTML after DOMContentLoaded.
-
 -->
-
 <script>
-
 document.addEventListener('DOMContentLoaded', function () {
-
   function moveLangPills() {
-
     document.querySelectorAll('.listing-category').forEach(function (pill) {
-
       var text = pill.textContent.trim();
-
       if (!text.toUpperCase().startsWith('LANG:')) return;
-
-
 
       pill.textContent = text.replace(/^lang:/i, '');
 
-
-
       var wrapper = document.createElement('div');
-
       wrapper.className = 'listing-lang-wrapper';
-
       pill.parentElement.parentElement.insertBefore(wrapper, pill.parentElement.nextSibling);
-
       wrapper.appendChild(pill);
-
     });
-
   }
-
-
 
   moveLangPills();
-
   setTimeout(moveLangPills, 600);
-
 });
-
 </script>
-
-
 
 <!-- Restore Quarto's search input placeholder (Quarto clears it) -->
-
 <script>
-
 document.addEventListener('DOMContentLoaded', function () {
-
   document.querySelectorAll('input.search.form-control').forEach(function (input) {
-
     input.placeholder = 'Search...';
-
   });
-
 });
-
 </script>
-
-
 
 <!-- Ensure the navbar brand has an accessible label -->
-
 <script>
-
 document.addEventListener('DOMContentLoaded', function () {
-
   var brand = document.querySelector('a.navbar-brand');
-
   if (brand && !brand.getAttribute('aria-label')) {
-
     brand.setAttribute('aria-label', 'Farhan Aditya Ramadhan - Home');
-
   }
-
 });
-
 </script>
 
-
-
 <!--
-
   Listing description fix: flatten nested <a><p> blocks to plain text.
 
-
-
   Quarto wraps listing descriptions in anchor + paragraph tags, which
-
   causes mid-word ellipsis truncation. Extracting textContent fixes it.
 
-
-
   Hooked into window["quarto-listing-loaded"] to also catch re-renders
-
   triggered by category filter clicks.
-
 -->
-
 <script>
-
 (function () {
-
   function flattenListingDescriptions() {
-
     document.querySelectorAll(
-
       '.quarto-listing-default .quarto-post .listing-description'
-
     ).forEach(function (el) {
-
       el.textContent = (el.textContent || '').trim().replace(/\s+/g, ' ');
-
     });
-
   }
-
-
 
   if (document.readyState === 'loading') {
-
     document.addEventListener('DOMContentLoaded', flattenListingDescriptions);
-
   } else {
-
     flattenListingDescriptions();
-
   }
-
-
 
   var _quartoListingLoaded = window['quarto-listing-loaded'];
-
   window['quarto-listing-loaded'] = function () {
-
     if (_quartoListingLoaded) _quartoListingLoaded();
-
     setTimeout(flattenListingDescriptions, 50);
-
   };
-
 })();
-
 </script>
 
-
-
 <!--
-
   External link fix: open external URLs in listing cards in a new tab.
 
-
-
   Quarto does not set target="_blank" on external links inside listing
-
   cards. Runs at DOMContentLoaded and again after 1.5 s to catch cards
-
   rendered by Quarto's lazy listing hydration.
-
 -->
-
 <script>
-
 (function () {
-
   function patchExternalLinks() {
-
     document.querySelectorAll(
-
       '.quarto-post a, .quarto-listing a, .list-group-item a'
-
     ).forEach(function (a) {
-
       var href = a.getAttribute('href') || '';
-
       if (href.startsWith('http://') || href.startsWith('https://')) {
-
         a.setAttribute('target', '_blank');
-
         a.setAttribute('rel', 'noopener noreferrer');
-
       }
-
     });
-
   }
-
-
 
   document.addEventListener('DOMContentLoaded', patchExternalLinks);
-
   setTimeout(patchExternalLinks, 1500);
-
 })();
-
 </script>
-
-
 
 <!--
-
   Substack badge: add an orange Substack logo to any listing card whose
-
   primary link points to substack.com. The badge is purely decorative
-
   (pointer-events: none in CSS).
 
-
-
   Runs at DOMContentLoaded and again after 1.5 s (lazy hydration).
-
 -->
-
 <script>
-
 (function () {
-
   function addSubstackBadges() {
-
     document.querySelectorAll('.quarto-post, .g-col-1').forEach(function (card) {
-
       var link = card.querySelector('a[href]');
-
       if (!link) return;
-
       if (!link.getAttribute('href').includes('substack.com')) return;
-
       if (card.querySelector('.substack-badge')) return;
 
-
-
       var badge = document.createElement('div');
-
       badge.className = 'substack-badge';
-
       badge.innerHTML = '<img src="/images/icons/substack.svg" alt="Substack">';
-
       card.style.position = 'relative';
-
       card.appendChild(badge);
-
     });
-
   }
 
-
-
   document.addEventListener('DOMContentLoaded', addSubstackBadges);
-
   setTimeout(addSubstackBadges, 1500);
-
 })();
-
 </script>
 
-
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -720,7 +514,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="SGlzdG9yaWNhbCUyMEVjb25vbWljcyUyQ1BvbGl0aWNhbCUyMEVjb25vbXklMkNDYXVzYWwlMjBJbmZlcmVuY2UlMkNQdWJsaWMlMjBGaW5hbmNlJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774458000000" data-listing-file-modified-sort="1775313250409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="939">
+<div class="quarto-post image-right" data-index="0" data-categories="SGlzdG9yaWNhbCUyMEVjb25vbWljcyUyQ1BvbGl0aWNhbCUyMEVjb25vbXklMkNDYXVzYWwlMjBJbmZlcmVuY2UlMkNQdWJsaWMlMjBGaW5hbmNlJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774458000000" data-listing-file-modified-sort="1786015022679" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="939">
 <div class="thumbnail"><a href="../../webpages/projects/analysis/test.html" class="no-external">
 
 <img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">
@@ -758,7 +552,7 @@ Mar 26, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="1" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1786015022696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="thumbnail"><a href="../../webpages/projects/analysis/test3.html" class="no-external">
 
 <img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">
@@ -792,7 +586,7 @@ Mar 24, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032245" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="2" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUluZG9uZXNpYW4=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1786015022718" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="thumbnail"><a href="../../webpages/projects/analysis/test4.html" class="no-external">
 
 <img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">
@@ -826,7 +620,7 @@ Mar 24, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775313032256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="3" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1786015022730" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="thumbnail"><a href="../../webpages/projects/analysis/test5.html" class="no-external">
 
 <img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">
@@ -860,7 +654,7 @@ Mar 24, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1775850676961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="4" data-categories="U3RhdGElMkNib29rJTJDbGFuZyUzQUVuZ2xpc2g=" data-listing-date-sort="1774285200000" data-listing-file-modified-sort="1786015022740" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="thumbnail"><a href="../../webpages/projects/analysis/test6.html" class="no-external">
 
 <img loading="lazy" src="../../images/analysis/test1.webp" class="thumbnail-image">

@@ -258,19 +258,7 @@ a:hover { text-decoration: underline; color: var(--color-accent-dark); }
   }
 }
 
-/* -- Footer --
-   .nav-footer doubled for specificity to beat Bootstrap flex rules
-   without scattering !important through every property. */
-.nav-footer.nav-footer {
-  background-color: var(--color-primary);
-  border-top: none;
-  padding: 2rem 2.5rem !important;
-  align-items: flex-start;
-  display: flex;
-  gap: 2.5rem;
-  width: 100%;
-  box-sizing: border-box;
-}
+/* Footer overrides live in the FOOTER section further down. */
 
 /* -- Listing sidebar -- */
 .margin-sidebar {
@@ -328,12 +316,6 @@ body.page-index #quarto-document-content,
 body.page-index main.content {
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
-}
-
-/* -- Article page -- */
-body.page-article .quarto-title-block,
-body.page-article #title-block-header {
-  display: none !important;
 }
 
 /* ============================================================
@@ -1181,51 +1163,6 @@ body.page-index hr {
   color: #fff;
 }
 
-/* ── Graphics listing page hero ── */
-.graphic-listing-hero {
-  background: var(--color-primary);
-  color: #fff;
-  padding: 2.5rem 0 2rem;
-  margin-bottom: 1.5rem;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  box-sizing: border-box;
-}
-
-.graphic-listing-hero-inner { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
-
-.graphic-listing-hero-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-accent-light);
-  margin-bottom: 0.35rem;
-  font-family: var(--font-sans);
-}
-
-.graphic-listing-hero-title {
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: normal;
-  color: #fff;
-  margin: 0 0 0.75rem;
-  border: none;
-  padding: 0;
-}
-
-.graphic-listing-hero-desc {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  color: rgba(255,255,255,0.82);
-  line-height: 1.6;
-  max-width: 680px;
-  margin: 0;
-}
-
 /* ── Resources section ── */
 .resources-section {
   width: 100vw;
@@ -1318,233 +1255,6 @@ body.page-index hr {
   line-height: 1.5;
   font-family: var(--font-sans);
 }
-
-
-/* ============================================================
-   ARTICLE PAGES — body.page-article
-   ============================================================ */
-.article-banner {
-  width: 100%;
-  height: 340px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-bottom: 2.5rem;
-  box-sizing: border-box;
-  position: relative;
-}
-
-.article-banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,20,50,0.3) 0%, rgba(0,20,50,0.75) 100%);
-  display: flex;
-  align-items: flex-end;
-  padding: 2rem;
-}
-
-.article-banner-text { max-width: 700px; }
-.article-banner-categories { display: flex; gap: 0.4rem; margin-bottom: 0.6rem; }
-
-.article-banner-cat {
-  font-size: 0.72rem;
-  padding: 0.2rem 0.65rem;
-  border: 1px solid rgba(255,255,255,0.5);
-  border-radius: var(--radius-pill);
-  background: rgba(255,255,255,0.15);
-  color: var(--color-bg);
-  letter-spacing: 0.04em;
-}
-
-.article-banner h1 {
-  color: var(--color-bg);
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: normal;
-  line-height: 1.2;
-  margin-bottom: 0.4rem;
-}
-
-.article-banner-sub {
-  color: var(--color-accent-wash);
-  font-style: italic;
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.article-banner-meta {
-  color: rgba(255,255,255,0.6);
-  font-size: 0.8rem;
-  margin-bottom: 0;
-}
-
-
-/* ============================================================
-   ABOUT PAGE — body.page-about
-   ============================================================ */
-.about-header {
-  background-color: var(--color-primary);
-  color: var(--color-bg);
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-bottom: 3rem;
-  box-sizing: border-box;
-  padding: 4rem 0;
-}
-
-.about-header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 3rem;
-}
-
-.about-header-main { flex: 1; }
-
-.about-eyebrow {
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-accent-light);
-  margin-bottom: 0.75rem;
-}
-
-.about-name {
-  font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: normal;
-  color: var(--color-bg);
-  line-height: 1.15;
-  margin-bottom: 1rem;
-}
-
-.about-bio {
-  font-size: 1rem;
-  color: var(--color-accent-wash);
-  line-height: 1.7;
-  max-width: 620px;
-  margin-bottom: 1.25rem;
-}
-
-.about-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  font-size: 0.88rem;
-}
-
-.about-link { color: var(--color-accent-light); text-decoration: none; }
-.about-link:hover { color: var(--color-bg); text-decoration: underline; }
-
-.about-header-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  flex-shrink: 0;
-  padding-top: 0.5rem;
-}
-
-.about-stat { text-align: right; }
-
-.about-stat-number {
-  font-family: var(--font-serif);
-  font-size: 2.25rem;
-  font-weight: normal;
-  color: var(--color-bg);
-  line-height: 1;
-}
-
-.about-stat-label {
-  font-size: 0.78rem;
-  color: var(--color-accent-light);
-  margin-top: 0.2rem;
-}
-
-.about-body { max-width: 860px; margin: 0 auto; padding: 0 2.5rem; }
-
-.about-section {
-  margin-bottom: 3rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.about-section:last-child { border-bottom: none; }
-
-.about-section-title {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: normal;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-left: 3px solid var(--color-accent);
-  padding-left: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.about-interests { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-
-.about-interest {
-  font-size: 0.85rem;
-  padding: 0.3rem 0.85rem;
-  background: var(--color-accent-tint);
-  border: 1px solid var(--color-accent-pale);
-  border-radius: var(--radius-pill);
-  color: var(--color-accent);
-}
-
-.about-entry { margin-bottom: 2rem; }
-.about-entry:last-child { margin-bottom: 0; }
-
-.about-entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 0.6rem;
-}
-
-.about-entry-title {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: normal;
-  color: var(--color-text-dark);
-}
-
-.about-entry-org {
-  font-size: 0.88rem;
-  color: var(--color-accent);
-  margin-top: 0.15rem;
-}
-
-.about-entry-date {
-  font-size: 0.8rem;
-  color: var(--color-text-faint);
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding-top: 0.15rem;
-}
-
-.about-entry-body {
-  font-size: 0.92rem;
-  color: var(--color-text-mid);
-  line-height: 1.7;
-}
-
-.about-entry-body ul { margin: 0; padding-left: 1.25rem; }
-.about-entry-body li { margin-bottom: 0.4rem; }
-.about-entry-body p  { margin-bottom: 0.5rem; }
-
-.about-skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem 2rem; }
-.about-skill-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-faint); margin-bottom: 0.3rem; }
-.about-skill-items { font-size: 0.92rem; color: var(--color-text); line-height: 1.5; }
 
 
 /* ============================================================
@@ -1760,15 +1470,6 @@ body.page-index hr {
   .resources-section-inner { padding: 0 1.25rem; }
   .resources-grid     { grid-template-columns: 1fr; }
 
-  .about-header-inner { flex-direction: column; gap: 2rem; padding: 0 1.25rem; }
-  .about-header-meta  { flex-direction: row; gap: 2rem; }
-  .about-stat         { text-align: left; }
-  .about-body         { padding: 0 1.25rem; }
-  .about-skills-grid  { grid-template-columns: 1fr; }
-  .about-entry-header { flex-direction: column; gap: 0.2rem; }
-
-  .article-banner     { height: 260px; }
-
   .featured-hero      { height: 300px; }
   .featured-row       { grid-template-columns: 1fr; }
   .featured-card      { height: 170px; }
@@ -1792,12 +1493,7 @@ body.page-index hr {
 }
 
 @media (max-width: 480px) {
-  .about-header-meta  { flex-wrap: wrap; gap: 1.25rem; }
   .hero-cta           { flex-direction: column; align-items: flex-start; }
-
-  .article-banner     { height: 200px; }
-  .article-banner-overlay { padding: 1.25rem; }
-  .article-banner h1  { font-size: 1.4rem; }
 
   .resources-section-inner,
   .tools-strip-inner,
@@ -2645,17 +2341,19 @@ body.page-index .pu-carousel-inner .card:hover {
 }
 
 /* ============================================================
-   ARTICLE PAGES 
+   ARTICLE PAGES
    ============================================================ */
 
-/* Right-side "On this page" TOC */
+/* Right-side "On this page" TOC.
+   Beats the margin-sidebar reset in QUARTO COMPONENT OVERRIDES,
+   which zeroes the padding for the index page's listing sidebar. */
 body:not(.page-index) #quarto-margin-sidebar,
 body:not(.page-index) .margin-sidebar {
   padding-top: 1.5rem !important;
 }
 
 /* ============================================================
-   ABOUT PAGE  —  append to bottom of styles.css
+   ABOUT PAGE  —  body.page-about
    ============================================================ */
 
 /* -- Layout reset -------------------------------------------- */

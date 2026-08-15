@@ -1,9 +1,49 @@
+/*
+  Fork of Quarto's bundled site_libs/quarto-listing/quarto-listing.js.
+  It is copied over the bundled file by tools/fix-listing.bat, which runs
+  as a post-render step (see _quarto.yml). Two behaviours are added on top
+  of the upstream file:
+
+    1. Multi-select category filtering — upstream allows one active category.
+    2. "lang:" categories filter as an independent second axis, so a language
+       pill and a topic pill can be active at the same time.
+
+  Keep the exported entry points (window.quartoListingCategory and
+  window["quarto-listing-loaded"]) matching upstream — Quarto's generated
+  page markup calls them directly.
+*/
+
 const kProgressiveAttr = "data-src";
 let categoriesLoaded = false;
 let selectedCategories = new Set(); // regular categories only
 let selectedLanguages = new Set();  // lang: categories only
 let previousCategories = new Set(); // saved state before "All" clicked
 const kDefaultCategory = "";
+
+/* Quarto base64-encodes category names into the data-category attribute. */
+function readPillCategory(pillEl) {
+  return decodeURIComponent(atob(pillEl.getAttribute("data-category")));
+}
+
+/* Seed the two selection sets from the URL hash, then repaint and refilter.
+   Falls back to "All" when the hash carries no category state. */
+function restoreSelectionFromHash(hash) {
+  if (hash && hash.categories) {
+    for (const cat of hash.categories.split(",")) {
+      if (!cat) continue;
+      const decoded = decodeURIComponent(cat);
+      if (decoded.startsWith("lang:")) {
+        selectedLanguages.add(decoded);
+      } else {
+        selectedCategories.add(decoded);
+      }
+    }
+  } else {
+    selectedCategories.add(kDefaultCategory);
+  }
+  updateCategoryUI();
+  filterListingCategories();
+}
 
 window.quartoListingCategory = (category) => {
   category = decodeURIComponent(atob(category));
@@ -19,35 +59,13 @@ window.quartoListingCategory = (category) => {
 
 window["quarto-listing-loaded"] = () => {
   const hash = getHash();
+  restoreSelectionFromHash(hash);
+
   if (hash) {
-    if (hash.categories) {
-      const cats = hash.categories.split(",");
-      for (const cat of cats) {
-        if (cat) {
-          const decoded = decodeURIComponent(cat);
-          if (decoded.startsWith("lang:")) {
-            selectedLanguages.add(decoded);
-          } else {
-            selectedCategories.add(decoded);
-          }
-        }
-      }
-      updateCategoryUI();
-      filterListingCategories();
-    } else {
-      selectedCategories.add(kDefaultCategory);
-      updateCategoryUI();
-      filterListingCategories();
-    }
-    const listingIds = Object.keys(window["quarto-listings"]);
-    for (const listingId of listingIds) {
+    for (const listingId of Object.keys(window["quarto-listings"])) {
       const page = hash[getListingPageKey(listingId)];
       if (page) showPage(listingId, page);
     }
-  } else {
-    selectedCategories.add(kDefaultCategory);
-    updateCategoryUI();
-    filterListingCategories();
   }
 
   const listingIds = Object.keys(window["quarto-listings"]);
@@ -69,9 +87,7 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
   );
 
   for (const categoryEl of categoryEls) {
-    const category = decodeURIComponent(
-      atob(categoryEl.getAttribute("data-category"))
-    );
+    const category = readPillCategory(categoryEl);
 
     if (category.startsWith("lang:")) {
       // ── LANGUAGE PILL — fully independent, never affected by All ──
@@ -115,26 +131,7 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
     }
   }
 
-  const hash = getHash();
-  if (hash && hash.categories) {
-    const cats = hash.categories.split(",");
-    for (const cat of cats) {
-      if (cat) {
-        const decoded = decodeURIComponent(cat);
-        if (decoded.startsWith("lang:")) {
-          selectedLanguages.add(decoded);
-        } else {
-          selectedCategories.add(decoded);
-        }
-      }
-    }
-    updateCategoryUI();
-    filterListingCategories();
-  } else {
-    selectedCategories.add(kDefaultCategory);
-    updateCategoryUI();
-    filterListingCategories();
-  }
+  restoreSelectionFromHash(getHash());
 
   categoriesLoaded = true;
 });
@@ -164,31 +161,15 @@ function updateCategoryUI() {
     ".quarto-listing-category .category"
   );
 
-  // Deactivate all first
-  for (const pill of allPills) {
-    pill.classList.remove("active");
-  }
+  // "All" highlights every topic pill but leaves language pills untouched.
+  const allTopicsActive = selectedCategories.has(kDefaultCategory);
 
-  // Activate regular + All pills
   for (const pill of allPills) {
-    const raw = decodeURIComponent(atob(pill.getAttribute("data-category")));
-    if (raw.startsWith("lang:")) continue; // handled separately
-
-    if (selectedCategories.has(kDefaultCategory)) {
-      // All is active — highlight all non-lang pills
-      pill.classList.add("active");
-    } else if (selectedCategories.has(raw)) {
-      pill.classList.add("active");
-    }
-  }
-
-  // Activate language pills independently
-  for (const pill of allPills) {
-    const raw = decodeURIComponent(atob(pill.getAttribute("data-category")));
-    if (!raw.startsWith("lang:")) continue;
-    if (selectedLanguages.has(raw)) {
-      pill.classList.add("active");
-    }
+    const category = readPillCategory(pill);
+    const isActive = category.startsWith("lang:")
+      ? selectedLanguages.has(category)
+      : allTopicsActive || selectedCategories.has(category);
+    pill.classList.toggle("active", isActive);
   }
 }
 
@@ -239,13 +220,7 @@ function toggleNoMatchingMessage(list) {
   const selector = `#${list.listContainer.id} .listing-no-matching`;
   const noMatchingEl = window.document.querySelector(selector);
   if (noMatchingEl) {
-    if (list.visibleItems.length === 0) {
-      noMatchingEl.classList.remove("d-none");
-    } else {
-      if (!noMatchingEl.classList.contains("d-none")) {
-        noMatchingEl.classList.add("d-none");
-      }
-    }
+    noMatchingEl.classList.toggle("d-none", list.visibleItems.length > 0);
   }
 }
 
